@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAtom } from '@fortawesome/free-solid-svg-icons'
-
+import { Button } from './Button'
+import './NavBar.css'
 
 function NavBar() {
   const [click, setClick] = useState(false)
+  const [button, setButton] = useState(true)
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false)
+    } else {
+      setButton(true)
+    }
+  }
+
+  window.addEventListener('resize', showButton)
+
   return (
     <>
       <nav className='navbar'>
@@ -35,7 +46,18 @@ function NavBar() {
                 Contact
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
+                Services
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
+                Sign up
+              </Link>
+            </li>
           </ul>
+          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
     </>
@@ -43,3 +65,5 @@ function NavBar() {
 }
 
 export default NavBar
+
+
