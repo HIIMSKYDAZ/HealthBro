@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" exact Component={Home}/> {/* Ideiglenes kezdőoldal */}
           <Route path="/about" exact element={<AboutPage />} />
+          <Route path="/contact" exact element={<ContactPage />}></Route>
         </Routes>
       </Router>
     </>
