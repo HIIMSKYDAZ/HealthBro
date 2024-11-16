@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Switch, Routes, Route } from "react-router-dom";
 import AboutPage from "./AboutPage.jsx";
 
+
+//geci
 function App() {
   return (
     <>
