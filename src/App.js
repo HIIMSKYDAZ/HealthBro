@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Switch, Routes, Route } from "react-router-dom";
+import AboutPage from "./AboutPage.jsx";
+
 
 //geci
 function App() {
@@ -8,9 +10,10 @@ function App() {
     <>
       <Router>
         <NavBar />
-        <Switch>
-          <Route path="/" exact/>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<h1>Home Page</h1>} /> {/* Ideiglenes kezdőoldal */}
+          <Route path="/about" exact element={<AboutPage />} />
+        </Routes>
       </Router>
     </>
   );
