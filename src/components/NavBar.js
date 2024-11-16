@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from './Button'
 import './NavBar.css'
@@ -18,7 +18,11 @@ function NavBar() {
     }
   }
 
-  window.addEventListener('resize', showButton)
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener('resize', showButton);
 
   return (
     <>
@@ -51,13 +55,16 @@ function NavBar() {
                 Services
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
-                Sign up
+            <li>
+              <Link
+                to='/sign-up'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Sign Up
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
     </>
@@ -65,5 +72,4 @@ function NavBar() {
 }
 
 export default NavBar
-
 
