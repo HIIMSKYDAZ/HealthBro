@@ -55,7 +55,7 @@ function NavBar() {
                 Services
               </Link>
             </li>
-            <li>
+            <li className='nav-item'>
               <Link
                 to='/sign-up'
                 className='nav-links-mobile'
@@ -63,9 +63,9 @@ function NavBar() {
               >
                 Sign Up
               </Link>
-              {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
             </li>
           </ul>
+          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
     </>
