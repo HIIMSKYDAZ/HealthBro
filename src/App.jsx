@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar.js";
 import { BrowserRouter as Router, Switch, Routes, Route } from "react-router-dom";
 import AboutPage from "./components/pages/AboutPage.jsx";
 import Home from "./components/pages/Home";
+import ContactPage from "./components/pages/ContactPage.jsx";
 
 
 //geci
@@ -22,4 +23,3 @@ function App() {
 }
 
 export default App;
-
