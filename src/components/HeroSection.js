@@ -2,6 +2,7 @@ import React from 'react'
 import './HeroSection.css'
 import { Button } from './Button'
 
+
 export default function HeroSection() {
   return (
     <div className='hero-container'>
@@ -14,14 +15,14 @@ export default function HeroSection() {
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
-          Belépés <i class="fa-solid fa-dumbbell"></i>
+          Belépés
         </Button>
         <Button
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
         >
-          Regisztráció <i class="fa-solid fa-key"></i>
+          Regisztráció
         </Button>
       </div>
     </div>

@@ -1,160 +1,159 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    font-family: "Quicksand", sans-serif;
-    z-index: 999;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%) !important;
+    height: 80px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 1.2rem !important;
+    position: sticky !important;
+    top: 0 !important;
+    font-family: "Quicksand", sans-serif !important;
+    z-index: 999 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
 }
 
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    width: 100%;
-    padding: 0 20px;
-    max-width: 1500px;
-    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 80px !important;
+    width: 100% !important;
+    padding: 0 20px !important;
+    max-width: 1500px !important;
+    margin: 0 auto !important;
 }
 
 .navbar-logo {
-    position: relative;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15%;
-    display: flex;
-    align-items: center;
+    position: relative !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    font-size: 15% !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .fa-typo3 {
-    margin-left: 0.5rem;
-    font-size: 1.8rem;
+    margin-left: 0.5rem !important;
+    font-size: 1.8rem !important;
 }
 
 .nav-menu {
-    display: flex;
-    list-style: none;
-    text-align: center;
-    margin-right: 2rem;
+    display: flex !important;
+    list-style: none !important;
+    text-align: center !important;
+    margin-right: 2rem !important;
 }
 
 .nav-item {
-    height: 80px;
+    height: 80px !important;
 }
 
 .nav-links {
-    color: #000000;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
+    color: #000000 !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem !important;
+    height: 100% !important;
 }
 
 .nav-links:hover {
-    border-bottom: 4px solid #fff;
-    transition: all 0.2s ease-out;
+    border-bottom: 4px solid #fff !important;
+    transition: all 0.2s ease-out !important;
 }
 
 .fa-bars {
-    color: #000000;
+    color: #000000 !important;
 }
 
 .nav-links-mobile {
-    display: none;
+    display: none !important;
 }
 
 .menu-icon {
-    display: none;
+    display: none !important;
 }
 
 @media screen and (max-width: 960px) {
     .navbar-container {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .nav-menu {
-        flex-direction: column;
-        width: 100%;
-        height: 90vh;
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        opacity: 1;
-        transition: all 0.5s ease;
+        flex-direction: column !important;
+        width: 100% !important;
+        height: 90vh !important;
+        position: absolute !important;
+        top: 80px !important;
+        left: -100% !important;
+        opacity: 1 !important;
+        transition: all 0.5s ease !important;
     }
 
     .nav-menu.active {
-        background: #242222;
-        left: 0;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 1;
+        background: #242222 !important;
+        left: 0 !important;
+        opacity: 1 !important;
+        transition: all 0.5s ease !important;
+        z-index: 1 !important;
     }
 
     .nav-links {
-        color: #fff;
-        text-align: center;
-        padding: 2rem;
-        width: 93%;
-        display: table;
+        color: #fff !important;
+        text-align: center !important;
+        padding: 2rem !important;
+        width: 93% !important;
+        display: table !important;
     }
 
     .nav-links:hover {
-        background-color: #8181817b;
-        color: #242424;
-        border-radius: 0;
+        background-color: #8181817b !important;
+        color: #242424 !important;
+        border-radius: 0 !important;
     }
 
     .navbar-logo {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
+        position: absolute !important;
+        top: 0 !important;
+        left: 50% !important;
+        transform: translate(-50%, 50%) !important;
     }
 
     .menu-icon {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        transform: translate(-100%, 60%) !important;
+        font-size: 1.8rem !important;
+        cursor: pointer !important;
     }
 
     .fa-times {
-        color: #000000;
-        font-size: 2rem;
+        color: #000000 !important;
+        font-size: 2rem !important;
     }
 
     .nav-links-mobile {
-        display: block;
-        text-align: center;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
-        text-decoration: none;
-        font-size: 1.5rem;
-        background-color: transparent;
-        color: #ffffff6b;
-        padding: 14px 20px;
-        border: 1px solid #ffffff74;
-        transition: all 0.3s ease-out;
+        display: block !important;
+        text-align: center !important;
+        margin: 2rem auto !important;
+        border-radius: 4px !important;
+        width: 80% !important;
+        text-decoration: none !important;
+        font-size: 1.5rem !important;
+        background-color: transparent !important;
+        color: #ffffff6b !important;
+        padding: 14px 20px !important;
+        border: 1px solid #ffffff74 !important;
+        transition: all 0.3s ease-out !important;
     }
 
     .nav-links-mobile:hover {
-        background: #fff;
-        color: #242424;
-        transition: 250ms;
+        background: #fff !important;
+        color: #242424 !important;
+        transition: 250ms !important;
     }
 }
-
 

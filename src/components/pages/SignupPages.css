@@ -1,0 +1,22 @@
+.gradient-custom-3 {
+    background: rgba(234, 237, 239, 0.5);
+    
+    background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(234, 237, 239, 0.5));
+    
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(234, 237, 239, 0.5))
+    }
+.gradient-custom-4 {
+    background: rgba(234, 237, 239, 0.5);
+    
+    background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(234, 237, 239, 0.5));
+    
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(234, 237, 239, 0.5))
+    }
+
+    video {
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        z-index: -1 !important;
+      }

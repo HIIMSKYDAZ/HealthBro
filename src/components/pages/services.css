@@ -1,16 +1,16 @@
 p{
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 20px 0 20px 0;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    margin: 20px 0 20px 0 !important;
 }
 
 h2{
-    text-align: center;
-    margin: 20px 0 20px 0;
-    font-size: 1.5rem;
+    text-align: center !important;
+    margin: 20px 0 20px 0 !important;
+    font-size: 1.5rem !important;
 }
 
 h1{
-    text-align: center;
-    margin: 50px 0 20px 0;
+    text-align: center !important;
+    margin: 50px 0 20px 0 !important;
 }
