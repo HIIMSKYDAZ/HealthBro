@@ -91,9 +91,9 @@ function SignupPage() {
 
                     <p className="text-center text-muted mt-4 mb-0">
                       Már van fiókod?{" "}
-                      <a href="#!" className="fw-bold text-body">
+                      <Link to="/login">
                         <u>Bejelentkezés</u>
-                      </a>
+                      </Link>
                     </p>
                   </form>
                 </div>

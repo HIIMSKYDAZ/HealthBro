@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import ContactPage from "./components/pages/ContactPage.jsx";
 import Services from "./components/pages/Services.jsx";
 import Signup from "./components/pages/SignupPage.jsx";
+import Login from "./components/pages/LoginPage.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/contact" exact element={<ContactPage />}></Route>
           <Route path="/services" exact element={<Services />}></Route>
           <Route path="/sign-up" exact element={<Signup />}></Route>
+          <Route path="/login" exact element={<Login />}></Route>
         </Routes>
       </Router>
     </>
