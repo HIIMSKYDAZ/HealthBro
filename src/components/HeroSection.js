@@ -10,20 +10,20 @@ export default function HeroSection() {
       <h1>HEALTH BRO</h1>
       <p>Egy Egészséges jövőért!</p>
       <div className='hero-btns'>
-        <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          Belépés
-        </Button>
-        <Button
-          className='btns'
-          buttonStyle='btn--primary'
-          buttonSize='btn--large'
-        >
-          Regisztráció
-        </Button>
+          <Button
+            buttonStyle="btn--primary"
+            buttonSize="btn--large"
+            linkTo="/login"
+          >
+            Login
+          </Button>
+          <Button
+            buttonStyle="btn--outline"
+            buttonSize="btn--large"
+            linkTo="/sign-up"
+          >
+            Register
+          </Button>
       </div>
     </div>
   )

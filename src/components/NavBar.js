@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from './Button'
 import './NavBar.css'
-import { faDisplay } from '@fortawesome/free-solid-svg-icons'
+
 
 function NavBar() {
   const [click, setClick] = useState(false)
@@ -63,6 +62,15 @@ function NavBar() {
                 onClick={closeMobileMenu}
               >
                 Sign Up
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/login'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Login
               </Link>
             </li>
           </ul>

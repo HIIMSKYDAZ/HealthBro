@@ -1,4 +1,7 @@
 import React from "react";
+import { CiInstagram } from "react-icons/ci";
+import { CiTwitter } from "react-icons/ci";
+import { SlSocialFacebook } from "react-icons/sl";
 
 function ContactUs() {
   return (
@@ -36,6 +39,7 @@ function ContactUs() {
           }}
         >
           {/* Instagram */}
+          
           <a
             href="https://instagram.com"
             style={{
@@ -45,7 +49,7 @@ function ContactUs() {
             target="_blank"
             rel="noreferrer"
           >
-            <i className="fab fa-instagram"></i>
+            <CiInstagram />
           </a>
 
           {/* Twitter */}
@@ -58,7 +62,7 @@ function ContactUs() {
             target="_blank"
             rel="noreferrer"
           >
-            <i className="fab fa-twitter"></i>
+           <CiTwitter />
           </a>
 
           {/* Facebook */}
@@ -71,7 +75,7 @@ function ContactUs() {
             target="_blank"
             rel="noreferrer"
           >
-            <i className="fab fa-facebook"></i>
+            <SlSocialFacebook />
           </a>
         </div>
       </div>
