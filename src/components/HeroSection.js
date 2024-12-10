@@ -15,14 +15,14 @@ export default function HeroSection() {
             buttonSize="btn--large"
             linkTo="/login"
           >
-            Login
+            Bejelentkezés
           </Button>
           <Button
             buttonStyle="btn--outline"
             buttonSize="btn--large"
             linkTo="/sign-up"
           >
-            Register
+            Regisztráció
           </Button>
       </div>
     </div>

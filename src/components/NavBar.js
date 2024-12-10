@@ -37,22 +37,22 @@ function NavBar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
+                Kezdőoldal
               </Link>
             </li>
             <li className='nav-item'>
               <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-                About
+                Rólunk
               </Link>
             </li>
             <li className='nav-item'>
               <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
-                Contact
+                Elérhetőségek
               </Link>
             </li>
             <li className='nav-item'>
               <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
-                Services
+                Szolgáltatások
               </Link>
             </li>
             <li className='nav-item'>
@@ -61,7 +61,7 @@ function NavBar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Regisztráció
               </Link>
             </li>
             <li className='nav-item'>
@@ -70,7 +70,7 @@ function NavBar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Login
+                Bejelentkezés
               </Link>
             </li>
           </ul>

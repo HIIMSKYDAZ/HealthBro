@@ -2,6 +2,7 @@ import { React } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignupPages.css";
 import { Button } from '../Button';
+import { Link } from "react-router-dom";
 
 function SignupPage() {
   return (
