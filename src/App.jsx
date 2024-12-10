@@ -6,13 +6,9 @@ import Home from "./components/pages/Home";
 import ContactPage from "./components/pages/ContactPage.jsx";
 import Services from "./components/pages/Services.jsx";
 import Signup from "./components/pages/SignupPage.jsx";
-<<<<<<< Updated upstream
-import Login from "./components/pages/LoginPage.jsx";
-=======
 import LoginPage from "./components/pages/LoginPage.jsx";
 import HomeMain from "./components/pages/HomeMain.jsx";
 import ProfilePage from "./components/pages/ProfilePage.jsx";
->>>>>>> Stashed changes
 
 function App() {
   return (
@@ -27,19 +23,6 @@ function Main() {
 
   return (
     <>
-<<<<<<< Updated upstream
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" exact Component={Home}/> {/* Ideiglenes kezdőoldal */}
-          <Route path="/about" exact element={<AboutPage />} />
-          <Route path="/contact" exact element={<ContactPage />}></Route>
-          <Route path="/services" exact element={<Services />}></Route>
-          <Route path="/sign-up" exact element={<Signup />}></Route>
-          <Route path="/login" exact element={<Login />}></Route>
-        </Routes>
-      </Router>
-=======
       {/* Csak akkor jelenik meg a NavBar, ha az útvonal nem "/homeMain" */}
       {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && <NavBar />}
       <Routes>
@@ -52,7 +35,6 @@ function Main() {
         <Route path="/homeMain" exact element={<HomeMain />} />
         <Route path="/profile" exact element={<ProfilePage />} />
       </Routes>
->>>>>>> Stashed changes
     </>
   );
 }
