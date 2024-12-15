@@ -30,7 +30,7 @@ function LoginPage() {
         e.preventDefault();
         setError(null);
 
-        try {
+        try { //komment
             const response = await axios.post("https://localhost:7263/api/Login", {
                 Name: name, // Az új DTO Name mezőjéhez
                 Password: password, // Az új DTO Password mezőjéhez
