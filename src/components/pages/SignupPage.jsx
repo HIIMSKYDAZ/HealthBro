@@ -1,10 +1,56 @@
-import { React } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignupPages.css";
-import { Button } from '../Button';
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 function SignupPage() {
+  const [formData, setFormData] = useState({
+    loginName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    name: "",
+  });
+
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("A jelszavak nem egyeznek!");
+      return;
+    }
+
+    try {
+      const response = await axios.post("https://localhost:7263/api/Register/Register", {
+        loginName: formData.loginName,
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+      });
+      
+
+      if (response.status === 200) {
+        setSuccess("Sikeres regisztráció! Most bejelentkezhetsz.");
+      }
+    } catch (error) {
+      console.error(error); 
+      setError(
+        error.response?.data || "Hiba történt a regisztráció során. Próbáld újra!"
+      );
+    }
+  };
+
   return (
     <>
       <video src="../videos/herobg.mp4" autoPlay loop muted />
@@ -18,47 +64,70 @@ function SignupPage() {
                     Regisztráció
                   </h2>
 
-                  <form>
-                    <div data-mdb-input-init className="form-outline mb-3">
+                  {error && (
+                    <div className="alert alert-danger text-center">
+                      {error}
+                    </div>
+                  )}
+                  {success && (
+                    <div className="alert alert-success text-center">
+                      {success}
+                    </div>
+                  )}
+
+                  <form onSubmit={handleSubmit}>
+                    <div className="form-outline mb-3">
                       <input
                         type="text"
-                        id="form3Example1cg"
+                        id="loginName"
+                        value={formData.loginName}
+                        onChange={handleChange}
                         className="form-control form-control-sm"
+                        required
                       />
-                      <label className="form-label" htmlFor="form3Example1cg">
+                      <label className="form-label" htmlFor="loginName">
                         Felhasználónév
                       </label>
                     </div>
 
-                    <div data-mdb-input-init className="form-outline mb-3">
+                    <div className="form-outline mb-3">
                       <input
                         type="email"
-                        id="form3Example3cg"
+                        id="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="form-control form-control-sm"
+                        required
                       />
-                      <label className="form-label" htmlFor="form3Example3cg">
+                      <label className="form-label" htmlFor="email">
                         Email
                       </label>
                     </div>
 
-                    <div data-mdb-input-init className="form-outline mb-3">
+                    <div className="form-outline mb-3">
                       <input
                         type="password"
-                        id="form3Example4cg"
+                        id="password"
+                        value={formData.password}
+                        onChange={handleChange}
                         className="form-control form-control-sm"
+                        required
                       />
-                      <label className="form-label" htmlFor="form3Example4cg">
+                      <label className="form-label" htmlFor="password">
                         Jelszó
                       </label>
                     </div>
 
-                    <div data-mdb-input-init className="form-outline mb-3">
+                    <div className="form-outline mb-3">
                       <input
                         type="password"
-                        id="form3Example4cdg"
+                        id="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
                         className="form-control form-control-sm"
+                        required
                       />
-                      <label className="form-label" htmlFor="form3Example4cdg">
+                      <label className="form-label" htmlFor="confirmPassword">
                         Jelszó Újra
                       </label>
                     </div>
@@ -67,26 +136,24 @@ function SignupPage() {
                       <input
                         className="form-check-input me-2"
                         type="checkbox"
-                        value=""
-                        id="form2Example3cg"
+                        id="terms"
+                        required
                       />
-                      <label
-                        className="form-check-label"
-                        htmlFor="form2Example3g"
-                      >
+                      <label className="form-check-label" htmlFor="terms">
                         Elfogadom az{" "}
                         <a href="#!" className="text-body">
-                          <u>Altalános szerződést</u>
+                          <u>Általános szerződést</u>
                         </a>
                       </label>
                     </div>
 
                     <div className="d-flex justify-content-center">
-                      <Button
-                        className='btns'
-                        buttonStyle='btn--primary'
-                        buttonSize='btn--medium'
-                      >Regisztráció</Button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-sm btn-block"
+                      >
+                        Regisztráció
+                      </button>
                     </div>
 
                     <p className="text-center text-muted mt-4 mb-0">
@@ -107,4 +174,3 @@ function SignupPage() {
 }
 
 export default SignupPage;
-
