@@ -8,7 +8,6 @@
   padding: 30px;
 }
 
-/* Fejléc (profil információk) */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -28,7 +27,7 @@
   justify-content: space-between;
   max-width: 1000px;
   width: 100%;
-  margin-bottom: 40px; /* Térköz a fejléc és a body között */
+  margin-bottom: 40px; 
 }
 .profile-picture {
   width: 120px;
@@ -63,21 +62,21 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px; /* Növelt margó a gomb körül */
+  margin-top: 10px; 
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-/* Profil body szakasz */
+
 .profile-body {
   max-width: 1000px;
   width: 100%;
   display: flex;
   gap: 40px;
   justify-content: space-between;
-  margin-top: 40px; /* Térköz növelése a fejléc és body között */
+  margin-top: 40px; 
 }
 
 .statistics {
@@ -111,18 +110,17 @@ button:hover {
   color: white;
 }
 
-/* Stat content */
 .stat-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  gap: 20px; /* Térköz a statisztikák között */
+  gap: 20px; 
 }
 
 .stat-duration, .stat-reps {
   text-align: center;
-  margin-bottom: 20px; /* Térköz a statisztikák között */
+  margin-bottom: 20px; 
 }
 
 .stat-duration h4, .stat-reps h4 {
@@ -146,10 +144,10 @@ button:hover {
   justify-content: center;
   color: #666;
   font-size: 18px;
-  margin-bottom: 20px; /* Térköz a chart alatt */
+  margin-bottom: 20px; 
 }
 
-/* Naptár stílus */
+
 .calendar-container {
   margin-top: 30px;
 }
@@ -186,7 +184,7 @@ td:hover {
   font-size: 18px;
   color: #007bff;
   cursor: pointer;
-  margin-top: 10px; /* Térköz a gomb körül */
+  margin-top: 10px; 
 }
 
 .calendar-container button:hover {
@@ -199,7 +197,7 @@ td:hover {
   color: #007bff;
 }
 
-/* Reszponzivitás */
+
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;

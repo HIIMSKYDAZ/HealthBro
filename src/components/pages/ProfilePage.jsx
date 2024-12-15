@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Link importálása
-import "../ProfilePage.css"; // Hozz létre egy CSS fájlt a stílusokhoz
+import { Link } from "react-router-dom"; 
+import "../ProfilePage.css"; 
 import { Button } from "../Button";
 import {FaDumbbell } from "react-icons/fa";
 import { IoMdMore } from "react-icons/io";
 import { CiLogout } from "react-icons/ci";
 
-const ProfilePage = () => {
-  // Állapotok a statisztikákhoz
-  const [duration, setDuration] = useState(0); // Kezdetben 0 perc
-  const [reps, setReps] = useState(0); // Kezdetben 0 ismétlés
+const ProfilePage = () => {  
+  const [duration, setDuration] = useState(0); 
+  const [reps, setReps] = useState(0); 
 
   return (
     <div className="profile-page">
@@ -38,7 +37,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      {/* Profil tartalom */}
+
       <div className="profile-content">
         <div className="profile-header">
           <div className="profile-picture"></div>
@@ -46,34 +45,28 @@ const ProfilePage = () => {
             <h2>Profil név</h2>
             
             <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/EditProfile">
-              Edit Profile
+              Profil szerkesztése
             </Button>
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-              vissza
-            </Button>
+
           </div>
         </div>
 
         <div className="profile-body">
           <div className="statistics">
-            <h3>Statistics</h3>
-            <div className="tabs">
-              <button>Duration</button>
-              <button>Reps</button>
-            </div>
+            <h3>Statisztika</h3>
             <div className="stat-content">
               <div className="stat-duration">
-                <h4>{duration} min</h4>
-                <p>This week</p>
+                <h4>{duration} perc</h4>
+                <p>Eddig</p>
               </div>
 
               <div className="stat-reps">
-                <h4>{reps} reps</h4>
-                <p>This week</p>
+                <h4>{reps} ismétlés</h4>
+                <p>Eddig</p>
               </div>
             </div>
             <div className="chart">
-              <p>Chart placeholder</p>
+              <p>Diagramm helye</p>
             </div>
           </div>
         </div>

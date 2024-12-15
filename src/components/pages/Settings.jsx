@@ -9,9 +9,9 @@ import { FaDumbbell } from "react-icons/fa6";
 
 const Settings = ({ theme, toggleTheme }) => {
   const [unitSystem, setUnitSystem] = useState({
-    distance: "KM",
-    length: "CM",
-    weight: "KG",
+    distance: "KM", 
+    length: "CM", 
+    weight: "KG", 
   });
 
   useEffect(() => {
@@ -24,99 +24,95 @@ const Settings = ({ theme, toggleTheme }) => {
       [type]:
         prev[type] === "KM" || prev[type] === "CM" || prev[type] === "KG"
           ? type === "distance"
-            ? "MILE"
+            ? "MILE" 
             : type === "length"
-            ? "INCH"
-            : "LBS"
+            ? "INCH" 
+            : "LBS" 
           : type === "distance"
-          ? "KM"
+          ? "KM" 
           : type === "length"
-          ? "CM"
-          : "KG",
+          ? "CM" 
+          : "KG", 
     }));
   };
 
   return (
-    <div className={`settings-container`}>
+    <div className="settings-page">
       <div className="sidebar">
-              <Link to="/HomeMain" className='img-fluid'>
-                  <img src='images/logo.png' alt='logo' style={{ width: '50%', textAlign: 'center' }}/>
-              </Link>
-              <div className="menu">
-                  <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                      Home<FaHouse />
-                  </Button>
-                <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/">
-                      Edzés<FaDumbbell />
-                  </Button>
-                  <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                      Profil<IoMdMore />
-                  </Button>
-                  <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/Settings">
-                      <Link to="/Settings" className='img-fluid'>
-                        Beálítások 
-                      </Link>
-      
-                  </Button>
-                  <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/login">
-                      Kijelentkezés<CiLogout />
-                  </Button>
-              </div>
-              <div className="logout">
-              </div>
-            </div>
-      <h2 className={theme === "light" ? "text-light" : "text-dark"}>Settings</h2>
-
-      <div className="settings-section">
-        <h3 className={theme === "light" ? "text-light" : "text-dark"}>Units</h3>
-        <div className="setting-option">
-          <span className={theme === "light" ? "text-light" : "text-dark"}>Distance:</span>
-          <button
-            onClick={() => toggleUnit("distance")}
-            className={theme === "light" ? "btn-light" : "btn-dark"}
-          >
-            {unitSystem.distance}
-          </button>
-        </div>
-        <div className="setting-option">
-          <span className={theme === "light" ? "text-light" : "text-dark"}>Length:</span>
-          <button
-            onClick={() => toggleUnit("length")}
-            className={theme === "light" ? "btn-light" : "btn-dark"}
-          >
-            {unitSystem.length}
-          </button>
-        </div>
-        <div className="setting-option">
-          <span className={theme === "light" ? "text-light" : "text-dark"}>Weight:</span>
-          <button
-            onClick={() => toggleUnit("weight")}
-            className={theme === "light" ? "btn-light" : "btn-dark"}
-          >
-            {unitSystem.weight}
-          </button>
-        </div>
-      </div>
-
-      <div className="settings-section">
-        <h3 className={theme === "light" ? "text-light" : "text-dark"}>Theme</h3>
-        <div className="setting-option">
-          <span className={theme === "light" ? "text-light" : "text-dark"}>Mode:</span>
-          <button
-            onClick={toggleTheme}
-            className={theme === "light" ? "btn-light" : "btn-dark"}
-          >
-            {theme === "light" ? "Light Mode" : "Dark Mode"}
-          </button>
-        </div>
-      </div>
-
-      <div className="back-button">
-        <Link to="/HomeMain">
-          <button className={theme === "light" ? "btn-light" : "btn-dark"}>
-            Vissza
-          </button>
+        <Link to="/HomeMain" className='img-fluid'>
+          <img src='images/logo.png' alt='logo' style={{ width: '50%', textAlign: 'center' }} />
         </Link>
+        <div className="menu">
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+            Főoldal<FaHouse />
+          </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/">
+            Edzés<FaDumbbell />
+          </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+            Profil<IoMdMore />
+          </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/Settings">
+            <Link to="/Settings" className='img-fluid'>
+              Beállítások 
+            </Link>
+          </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/login">
+            Kijelentkezés<CiLogout />
+          </Button>
+        </div>
+      </div>
+
+      <div className="settings-content">
+        <div className="settings-header">
+          <h2>Beállítások</h2>
+        </div>
+
+        <div className="settings-body">
+          <div className="settings-section">
+            <h3>Mértékegységek</h3>
+            <div className="setting-option">
+              <span>Távolság:</span>
+              <button
+                onClick={() => toggleUnit("distance")}
+                className="unit-btn"
+              >
+                {unitSystem.distance}
+              </button>
+            </div>
+            <div className="setting-option">
+              <span>Hossz:</span>
+              <button
+                onClick={() => toggleUnit("length")}
+                className="unit-btn"
+              >
+                {unitSystem.length}
+              </button>
+            </div>
+            <div className="setting-option">
+              <span>Súly:</span>
+              <button
+                onClick={() => toggleUnit("weight")}
+                className="unit-btn"
+              >
+                {unitSystem.weight}
+              </button>
+            </div>
+          </div>
+
+          <div className="settings-section">
+            <h3>Téma</h3>
+            <div className="setting-option">
+              <span>Mód:</span>
+              <button
+                onClick={toggleTheme}
+                className="unit-btn"
+              >
+                {theme === "light" ? "Világos Mód" : "Sötét Mód"} 
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

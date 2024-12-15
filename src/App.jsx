@@ -32,7 +32,7 @@ function Main({ theme, toggleTheme }) {
 
   return (
     <div className={theme === "light" ? "light-mode" : "dark-mode"}>
-      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && (
+      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile" && (
         <NavBar theme={theme} toggleTheme={toggleTheme} />
       )}
       <Routes>

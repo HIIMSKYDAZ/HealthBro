@@ -1,10 +1,7 @@
-/* Global Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
-  justify-content: center;
-  align-items: center;
   background-color: #f4f4f4;
 }
 
@@ -31,215 +28,60 @@ body.dark-mode {
   text-align: center;
 }
 
-.settings-container {
+.settings-page {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   height: 100vh;
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  margin: auto;
 }
 
-/* Profile Page Styles */
-.profile-page {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  height: 100vh;
-  gap: 20px;
-  padding: 20px;
-  box-sizing: border-box;
-  padding: 30px;
-}
-
-.profile-header {
+.settings-header {
   padding: 40px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
-  width: 100%;
   margin-bottom: 40px;
 }
 
-.profile-picture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: #ddd;
-  margin-right: 20px;
-}
-
-.profile-info {
-  flex: 1;
-}
-
-.profile-info h2 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 600;
-  color: #2d2d2d;
-}
-
-.profile-info p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #777;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.profile-body {
-  max-width: 1000px;
-  width: 100%;
+.settings-body {
   display: flex;
   gap: 40px;
   justify-content: space-between;
   margin-top: 40px;
 }
 
-.statistics {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  margin-right: 20px;
+.settings-section {
+  width: 30rem;
 }
 
-.tabs {
+.setting-option {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.tabs button {
+.unit-btn {
   background-color: #f2f2f2;
   color: #666;
   padding: 12px 20px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  width: 4rem;
   font-size: 16px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: auto;
 }
 
-.tabs button:hover, .tabs .active {
+.unit-btn:hover {
   background-color: #007bff;
   color: white;
 }
 
-.stat-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  gap: 20px;
-}
-
-.stat-duration, .stat-reps {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.stat-duration h4, .stat-reps h4 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #007bff;
-}
-
-.stat-duration p, .stat-reps p {
-  font-size: 18px;
-  color: #777;
-}
-
-.chart {
-  margin-top: 20px;
-  background-color: #e0e0e0;
-  height: 200px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.calendar-container {
-  margin-top: 30px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  text-align: center;
-  padding: 12px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-th {
-  background-color: #f9f9f9;
-  color: #007bff;
-}
-
-td {
-  background-color: #fff;
-}
-
-td:hover {
-  background-color: #f2f2f2;
-  cursor: pointer;
-}
-
-.calendar-container button {
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  color: #007bff;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.calendar-container button:hover {
-  color: #0056b3;
-}
-
-.calendar-container span {
-  font-size: 20px;
-  font-weight: 600;
-  color: #007bff;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-  background-color: #121212;
-  color: #fff !important;
-}
-
-body.dark-mode .profile-page {
+body.dark-mode .settings-page {
   background-color: #1e1e1e;
 }
 
@@ -259,33 +101,14 @@ body.dark-mode .setting-option button:hover {
   background-color: #ff8700;
 }
 
-/* Reszponzivitás */
 @media (max-width: 768px) {
-  .profile-header {
+  .settings-header {
     flex-direction: column;
     align-items: center;
   }
 
-  .profile-body {
+  .settings-body {
     flex-direction: column;
     gap: 20px;
-  }
-
-  .profile-picture {
-    margin-bottom: 20px;
-  }
-
-  .tabs {
-    flex-direction: column;
-  }
-
-  .tabs button {
-    width: 100%;
-  }
-
-  .calendar-container button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
   }
 }
