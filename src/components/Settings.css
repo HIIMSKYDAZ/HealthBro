@@ -2,17 +2,12 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
-  background-color: #f4f4f4;
-}
-
-body.light-mode {
-  background-color: #ffffff;
-  color: #333 !important;
-}
-
-body.dark-mode {
   background-color: #121212;
   color: #fff !important;
+}
+
+.menu_link {
+  color: white !important; 
 }
 
 .sidebar {
@@ -81,23 +76,23 @@ body.dark-mode {
   color: white;
 }
 
-body.dark-mode .settings-page {
+body .settings-page {
   background-color: #1e1e1e;
 }
 
-body.dark-mode .sidebar {
+body .sidebar {
   background-color: #333;
 }
 
-body.dark-mode .setting-option {
+body .setting-option {
   background-color: #333;
 }
 
-body.dark-mode .setting-option button {
+body .setting-option button {
   background-color: #ffa500;
 }
 
-body.dark-mode .setting-option button:hover {
+body .setting-option button:hover {
   background-color: #ff8700;
 }
 

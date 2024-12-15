@@ -45,12 +45,12 @@ const HomeMain = () => {
               </Link>
             </li>
             <li onClick={closeMobileMenu}>
-              <Link to="/Profile" className="menu_link">
+              <Link to="/profile" className="menu_link">
                 Profil <IoMdMore />
               </Link>
             </li>
             <li onClick={closeMobileMenu}>
-              <Link to="/Beallitasok" className="menu_link">
+              <Link to="/Settings" className="menu_link">
                 Beállítások <HiMiniCog6Tooth />
               </Link>
             </li>

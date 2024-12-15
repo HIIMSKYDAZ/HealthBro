@@ -32,20 +32,20 @@ function Main({ theme, toggleTheme }) {
 
   return (
     <div className={theme === "light" ? "light-mode" : "dark-mode"}>
-      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile" && (
+      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && (
         <NavBar theme={theme} toggleTheme={toggleTheme} />
       )}
       <Routes>
-        <Route path="/" exact element={<Home theme={theme} />} />
-        <Route path="/about" exact element={<AboutPage theme={theme} />} />
-        <Route path="/contact" exact element={<ContactPage theme={theme} />} />
-        <Route path="/services" exact element={<Services theme={theme} />} />
-        <Route path="/sign-up" exact element={<Signup theme={theme} />} />
-        <Route path="/login" exact element={<LoginPage theme={theme} />} />
-        <Route path="/homeMain" exact element={<HomeMain theme={theme} />} />
-        <Route path="/profile" exact element={<ProfilePage theme={theme} />} />
-        <Route path="/settings" exact element={<Settings theme={theme} toggleTheme={toggleTheme} />} />
-        <Route path="/EditProfile" exact element={<EditProfile theme={theme} />} />
+        <Route path="/" exact element={<Home/>} />
+        <Route path="/about" exact element={<AboutPage/>} />
+        <Route path="/contact" exact element={<ContactPage />} />
+        <Route path="/services" exact element={<Services />} />
+        <Route path="/sign-up" exact element={<Signup />} />
+        <Route path="/login" exact element={<LoginPage />} />
+        <Route path="/homeMain" exact element={<HomeMain />} />
+        <Route path="/profile" exact element={<ProfilePage />} />
+        <Route path="/settings" exact element={<Settings />} />
+        <Route path="/EditProfile" exact element={<EditProfile />} />
       </Routes>
     </div>
   );
