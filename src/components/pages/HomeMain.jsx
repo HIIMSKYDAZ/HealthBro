@@ -7,8 +7,13 @@ import { CiLogout } from "react-icons/ci";
 import { IoMdMore } from "react-icons/io";
 import { FaHouse } from "react-icons/fa6";
 import { FaDumbbell } from "react-icons/fa6";
+<<<<<<< Updated upstream
 import { HiMiniCog6Tooth } from "react-icons/hi2";
 import "../Button.css";
+=======
+
+
+>>>>>>> Stashed changes
 const HomeMain = () => {
   const [click, setClick] = useState(false)
 
@@ -22,6 +27,7 @@ const HomeMain = () => {
           <img src="images/logo_feher.svg" alt="logo" style={{ width: "50%" }} />
         </Link>
         <div className="menu">
+<<<<<<< Updated upstream
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
         <li><Link to={"/HomeMain"} className="menu_link"> Kezdőlap <FaHouse /></Link></li>
         <li><Link to={"/Edzes"} className="menu_link"> Edzés <FaDumbbell /></Link></li>
@@ -29,6 +35,26 @@ const HomeMain = () => {
         <li><Link to={"/Beallitasok"} className="menu_link"> Beállítások <HiMiniCog6Tooth /></Link></li>
         <li><Link to={"/login"} className="menu_link"> Kijelentkezés <CiLogout /></Link></li>
         </ul>
+=======
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+                Home<FaHouse />
+            </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/">
+                Edzés<FaDumbbell />
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+                Profil<IoMdMore />
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/Settings">
+                <Link to="/Settings" className='img-fluid'>
+                  Beálítások 
+                </Link>
+
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/login">
+                Kijelentkezés<CiLogout />
+            </Button>
+>>>>>>> Stashed changes
         </div>
         <div className="logout">
         </div>
