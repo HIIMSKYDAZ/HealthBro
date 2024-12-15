@@ -7,82 +7,64 @@ video {
 }
 
 .homemain-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; 
-    height: 100vh; 
-    gap: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    padding: 30px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  height: 100vh;
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+}
 
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #00000000;
-    color: white;
-    padding: 20px;
-    max-width: 300px; 
-    box-sizing: border-box; 
-    overflow-y: auto; 
-    text-align: center;
-  }
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #00000000;
+  color: white;
+  padding: 20px;
+  max-width: 300px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  text-align: center;
+}
 
 .logo {
-    font-size: 14px; 
-    margin-bottom: 20px;
-    word-wrap: break-word; 
-    max-width: 100%; 
-    height: auto; 
-    object-fit: contain;
+  font-size: 14px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.logout {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    word-wrap: break-word;
+/* Hamburger ikon jobb felső sarokban */
+.menu-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  cursor: pointer;
+  display: none; /* Csak mobilnézetben jelenik meg */
 }
 
-
-
-  .content {
-    background-color: #f4f4f400;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .content h2 {
-    margin-top: 0;
-  }
-
-  .right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Középre vízszintesen */
-    justify-content: center; /* Középre függőlegesen */
-    background-color: #ffffff0e;  
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+/* Menü lista alapértelmezett stílus */
+.menu-icon-main {
+  display: flex; /* Alapértelmezés szerint asztali nézetben látható */
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.profile-pic {
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.menu-icon-main.active {
+  display: flex;
+  background: #242222;
+  left: 0;
+  opacity: 1;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
 
-.menu_link{
+.menu_link {
   text-decoration: none !important;
   text-transform: capitalize !important;
   color: white !important;
@@ -94,12 +76,12 @@ video {
   z-index: 1 !important;
   transition: color 0.3s ease !important;
   cursor: pointer !important;
-  display:inline-block !important;
+  display: inline-block !important;
   text-align: center !important;
   text-decoration: none !important;
 }
 
-.menu_link::before{
+.menu_link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -113,72 +95,83 @@ video {
   transition: transform 0.3s ease-in-out;
 }
 
-.menu_link:hover::before{
+.menu_link:hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }
 
-li{
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 50px !important;
-  margin-top: 20px !important;
-  margin-bottom: 40px !important;
-}
-
+/* Mobilnézet: Menü alapértelmezés szerint rejtve */
 @media screen and (max-width: 960px) {
-  .homemain-container {
-    grid-template-columns: 1fr; 
+  img{
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+    position: relative;
+  }
+  .menu-icon {
+    display: flex; /* Csak mobilnézetben jelenik meg a hamburger ikon */
+    flex-direction: column;
+    position: relative;
+    top: -17px !important;
+    fill: white !important;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
   }
 
-  .sidebar {
-    max-width: 100%; 
-    padding: 10px; 
+
+  .menu-icon-main {
+    display: none; /* Alapértelmezés szerint rejtve van */
   }
 
-  .content {
-    padding: 10px; 
-  }
-
-  .right-panel {
-    margin-top: 20px; 
-  }
-
-  .profile-info {
-    padding: 10px; 
-  }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 5px;
-  }
-
-  .menu {
-    display: none;
+  .menu-icon-main.active {
+    display: flex; /* Csak kattintásra jelenik meg */
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: rgb(39, 39, 39);
+    padding: 20px;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
   }
 }
 
-.nav-menu {
-  flex-direction: column !important;
-  width: 100% !important;
-  height: 90vh !important;
-  position: absolute !important;
-  top: 80px !important;
-  left: -100% !important;
-  opacity: 1 !important;
-  transition: all 0.5s ease !important;
+/* Menü linkek stílusa */
+.menu_link {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  top: 10px;
+  padding: 0 10px;
+  margin: 0 30px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-menu.active {
-  background: #242222 !important;
-  left: 0 !important;
-  opacity: 1 !important;
-  transition: all 0.5s ease !important;
-  z-index: 1 !important;
+.menu_link:hover {
+  color: #000000;
 }
 
+.content {
+  background-color: #f4f4f400;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
 
+.content h2 {
+  margin-top: 0;
+}
 
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
