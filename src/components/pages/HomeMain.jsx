@@ -3,8 +3,22 @@ import "./HomeMain.css";
 import { Link } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { IoMdMore } from "react-icons/io";
+<<<<<<< HEAD
 import { FaHouse, FaDumbbell } from "react-icons/fa6";
 import { HiMiniCog6Tooth } from "react-icons/hi2";
+=======
+import { FaHouse } from "react-icons/fa6";
+import { FaDumbbell } from "react-icons/fa6";
+<<<<<<< Updated upstream
+import { HiMiniCog6Tooth } from "react-icons/hi2";
+import "../Button.css";
+=======
+
+
+>>>>>>> Stashed changes
+const HomeMain = () => {
+  const [click, setClick] = useState(false)
+>>>>>>> 96a2221c6b4a075f0ec625aa67447db8e65dac2e
 
 const HomeMain = () => {
   const [click, setClick] = useState(false);
@@ -60,6 +74,38 @@ const HomeMain = () => {
               </Link>
             </li>
           </ul>
+=======
+<<<<<<< Updated upstream
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <li><Link to={"/HomeMain"} className="menu_link"> Kezdőlap <FaHouse /></Link></li>
+        <li><Link to={"/Edzes"} className="menu_link"> Edzés <FaDumbbell /></Link></li>
+        <li><Link to={"/Profile"} className="menu_link"> Profil <IoMdMore /></Link></li>
+        <li><Link to={"/Beallitasok"} className="menu_link"> Beállítások <HiMiniCog6Tooth /></Link></li>
+        <li><Link to={"/login"} className="menu_link"> Kijelentkezés <CiLogout /></Link></li>
+        </ul>
+=======
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+                Home<FaHouse />
+            </Button>
+          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/">
+                Edzés<FaDumbbell />
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
+                Profil<IoMdMore />
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/Settings">
+                <Link to="/Settings" className='img-fluid'>
+                  Beálítások 
+                </Link>
+
+            </Button>
+            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/login">
+                Kijelentkezés<CiLogout />
+            </Button>
+>>>>>>> Stashed changes
+        </div>
+        <div className="logout">
+>>>>>>> 96a2221c6b4a075f0ec625aa67447db8e65dac2e
         </div>
       </div>
 
