@@ -92,7 +92,7 @@ function SignupPage() {
                     <p className="text-center text-muted mt-4 mb-0">
                       Már van fiókod?{" "}
                       <Link to="/login">
-                        <u>Bejelentkezés</u>
+                        <u style={{ color: "black" }}>Bejelentkezés</u>
                       </Link>
                     </p>
                   </form>

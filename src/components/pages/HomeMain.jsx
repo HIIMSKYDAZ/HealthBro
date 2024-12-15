@@ -1,5 +1,5 @@
-import React from "react";
-import "../HomeMain.css";
+import React , { useState } from "react";
+import "./HomeMain.css";
 import { Link } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from '../Button';
@@ -8,29 +8,27 @@ import { IoMdMore } from "react-icons/io";
 import { FaHouse } from "react-icons/fa6";
 import { FaDumbbell } from "react-icons/fa6";
 import { HiMiniCog6Tooth } from "react-icons/hi2";
+import "../Button.css";
 const HomeMain = () => {
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => setClick(!click)
+  const closeMobileMenu = () => setClick(false)
   return (
     <div className="homemain-container">
       <div className="sidebar">
+        <video src='../videos/mainbg_small.mp4' autoPlay loop muted/>
         <Link to="/HomeMain" className='img-fluid'>
-            <img src='images/logo.png' alt='logo' style={{ width: '50%', textAlign: 'center' }}/>
+          <img src="images/logo_feher.svg" alt="logo" style={{ width: "50%" }} />
         </Link>
         <div className="menu">
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                Home<FaHouse />
-            </Button>
-          <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                Edzés<FaDumbbell />
-            </Button>
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                Profil<IoMdMore />
-            </Button>
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/HomeMain">
-                Beálítások<HiMiniCog6Tooth />
-            </Button>
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/login">
-                Kijelentkezés<CiLogout />
-            </Button>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <li><Link to={"/HomeMain"} className="menu_link"> Kezdőlap <FaHouse /></Link></li>
+        <li><Link to={"/Edzes"} className="menu_link"> Edzés <FaDumbbell /></Link></li>
+        <li><Link to={"/Profile"} className="menu_link"> Profil <IoMdMore /></Link></li>
+        <li><Link to={"/Beallitasok"} className="menu_link"> Beállítások <HiMiniCog6Tooth /></Link></li>
+        <li><Link to={"/login"} className="menu_link"> Kijelentkezés <CiLogout /></Link></li>
+        </ul>
         </div>
         <div className="logout">
         </div>
@@ -42,22 +40,9 @@ const HomeMain = () => {
         <p>MOST</p>
 
       </div>
-
-      <div className="right-panel">
-        <div className="profile-info">
-          <div className="profile-pic"></div>
-          <p>Követők száma: 0</p>
-          <Button
-            buttonStyle="btn--primary"
-            buttonSize="btn--large"
-            linkTo="/profile"
-            >
-        Profil megtekintése<IoMdMore />
-        </Button>
-        </div>
-      </div>
     </div>
   );
 };
 
 export default HomeMain;
+

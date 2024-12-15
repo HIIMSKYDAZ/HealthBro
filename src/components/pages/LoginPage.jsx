@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignupPages.css";
 import { Button } from '../Button';
+import "../Button.css";
 
 function LoginPage() {
     return (
@@ -49,12 +50,9 @@ function LoginPage() {
                                         </div>
 
                                         <div className="d-flex justify-content-center">
-                                            <Button
-                                                buttonStyle="btn--primary"
-                                                buttonSize="btn--large"
-                                            >
+                                                <Link to="/HomeMain" style={{ textDecoration: "none", color: "black"}} className="btn--large">
                                                 Belépés
-                                            </Button>
+                                                </Link>
                                         </div>
 
                                         <p className="text-center text-muted mt-5 mb-0">
