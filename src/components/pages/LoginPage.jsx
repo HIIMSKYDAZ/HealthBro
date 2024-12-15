@@ -7,20 +7,33 @@ import "../Button.css";
 import axios from "axios";
 
 function LoginPage() {
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [userData, setUserData] = useState(null);
 
     const navigate = useNavigate();
+
+    const getUserData = async (token) => {
+        try {
+            const response = await axios.get(`https://localhost:7263/api/Login/GetLoggedInUser/${token}`);
+            if (response.status === 200) {
+                setUserData(response.data); // Beállítja a felhasználói adatokat
+                console.log("Bejelentkezett felhasználó adatai:", response.data);
+            }
+        } catch (error) {
+            console.error("Hiba történt a felhasználói adatok lekérésekor:", error.response?.data || error.message);
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
 
         try {
-            const response = await axios.post("https://localhost:7263/api/auth/login", {
-                email,
-                password,
+            const response = await axios.post("https://localhost:7263/api/Login", {
+                Name: name, // Az új DTO Name mezőjéhez
+                Password: password, // Az új DTO Password mezőjéhez
             });
 
             if (response.status === 200) {
@@ -28,12 +41,15 @@ function LoginPage() {
                 const { token } = response.data;
                 localStorage.setItem("authToken", token);
 
+                // Lekérjük a felhasználói adatokat a token alapján
+                await getUserData(token);
+
                 // Navigáció a főoldalra
                 navigate("/HomeMain");
             }
         } catch (err) {
             setError(
-                err.response?.data?.message ||
+                err.response?.data?.Message ||
                 "Hiba történt a bejelentkezés során. Próbáld újra!"
             );
         }
@@ -62,18 +78,18 @@ function LoginPage() {
                                         <form onSubmit={handleSubmit}>
                                             <div className="form-outline mb-4">
                                                 <input
-                                                    type="email"
-                                                    id="email"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    type="text"
+                                                    id="name"
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
                                                     className="form-control form-control-sm"
                                                     required
                                                 />
                                                 <label
                                                     className="form-label"
-                                                    htmlFor="email"
+                                                    htmlFor="name"
                                                 >
-                                                    Email
+                                                    Név
                                                 </label>
                                             </div>                                    
 

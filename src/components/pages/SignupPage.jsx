@@ -36,7 +36,7 @@ function SignupPage() {
         loginName: formData.loginName,
         email: formData.email,
         password: formData.password,
-        name: formData.name,
+        name: formData.loginName,
       });
       
 
