@@ -1,0 +1,6 @@
+@HealthBro_BackEnd_HostAddress = http://localhost:5097
+
+GET {{HealthBro_BackEnd_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
