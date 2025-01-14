@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignupPages.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import crypto from "crypto-js";  // crypto-js könyvtár importálása
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ function SignupPage() {
     confirmPassword: "",
     name: "",
   });
-
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
@@ -26,28 +27,43 @@ function SignupPage() {
     setError(null);
     setSuccess(null);
 
+    // Ellenőrzés, hogy a jelszavak megegyeznek
     if (formData.password !== formData.confirmPassword) {
       setError("A jelszavak nem egyeznek!");
       return;
     }
 
+    // Salt generálása
+    const salt = crypto.lib.WordArray.random(16).toString();
+    
+    // Jelszó hash-elése SHA-256-tal és salttal
+    const hash = crypto.SHA256(formData.password + salt).toString();
+
     try {
-      const response = await axios.post("https://localhost:7263/api/Register/Register", {
+      // API kérés küldése
+      const response = await axios.post("https://localhost:7162/api/Registry", {
+        id: 0,
         loginName: formData.loginName,
-        email: formData.email,
-        password: formData.password,
+        hash: hash,  // A hash és salt elküldése
+        salt: salt,
         name: formData.loginName,
+        permissionId: 0,
+        active: true,
+        email: formData.email,
+        profilePicturePath: "",  // Ha nincs kép, küldj üres stringet
       });
-      
 
       if (response.status === 200) {
+        alert("siker")
+        navigate("/login");  // Sikeres regisztráció után a login oldalra irányítás
         setSuccess("Sikeres regisztráció! Most bejelentkezhetsz.");
       }
     } catch (error) {
-      console.error(error); 
-      setError(
-        error.response?.data || "Hiba történt a regisztráció során. Próbáld újra!"
-      );
+      console.error(error);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Hiba történt a regisztráció során. Próbáld újra!";
+      setError(errorMessage);
     }
   };
 
