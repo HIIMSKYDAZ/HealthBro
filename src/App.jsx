@@ -11,6 +11,7 @@ import HomeMain from "./components/pages/HomeMain.jsx";
 import ProfilePage from "./components/pages/ProfilePage.jsx";
 import Settings from "./components/pages/Settings.jsx";
 import EditProfile from "./components/pages/EditProfile.jsx";
+import { WorkoutPage } from "./components/pages/WorkoutPage.jsx";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -32,7 +33,7 @@ function Main({ theme, toggleTheme }) {
 
   return (
     <div className={theme === "light" ? "light-mode" : "dark-mode"}>
-      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && (
+      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && location.pathname !== "/WorkoutPlan" &&(
         <NavBar theme={theme} toggleTheme={toggleTheme} />
       )}
       <Routes>
@@ -46,6 +47,7 @@ function Main({ theme, toggleTheme }) {
         <Route path="/profile" exact element={<ProfilePage />} />
         <Route path="/settings" exact element={<Settings />} />
         <Route path="/EditProfile" exact element={<EditProfile />} />
+        <Route path="/WorkoutPlan" exact element={<WorkoutPage/>}/>
       </Routes>
     </div>
   );
