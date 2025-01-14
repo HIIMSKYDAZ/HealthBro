@@ -27,36 +27,34 @@ function SignupPage() {
     setError(null);
     setSuccess(null);
 
-    // Ellenőrzés, hogy a jelszavak megegyeznek
+
     if (formData.password !== formData.confirmPassword) {
       setError("A jelszavak nem egyeznek!");
       return;
     }
 
-    // Salt generálása
     const salt = crypto.lib.WordArray.random(16).toString();
-    
-    // Jelszó hash-elése SHA-256-tal és salttal
+
     const hash = crypto.SHA256(formData.password + salt).toString();
 
     try {
-      // API kérés küldése
-      const response = await axios.post("https://localhost:7162/api/Registry", {
+
+      const response = await axios.post("http://localhost:5000/api/Registry", {
         id: 0,
         loginName: formData.loginName,
-        hash: hash,  // A hash és salt elküldése
+        hash: hash,  
         salt: salt,
         name: formData.loginName,
         permissionId: 0,
         active: true,
         email: formData.email,
-        profilePicturePath: "",  // Ha nincs kép, küldj üres stringet
+        profilePicturePath: "",  
       });
 
       if (response.status === 200) {
-        alert("siker")
+        //alert("Sikeres bejelentkezés")
         navigate("/login");  // Sikeres regisztráció után a login oldalra irányítás
-        setSuccess("Sikeres regisztráció! Most bejelentkezhetsz.");
+        //setSuccess("Sikeres regisztráció! Most bejelentkezhetsz.");
       }
     } catch (error) {
       console.error(error);
