@@ -64,9 +64,13 @@ const HomeMain = () => {
       </div>
 
       <div className="content">
-        <h2>Hírek</h2>
-        <p>Töltsd le a mobil appot!</p>
-        <p>MOST</p>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+    <iframe 
+        src="https://rss.app/embed/v1/list/tCZVo0Vc458IJp7H" 
+        frameborder="0" 
+        style={{ width: "100%", height: "100%" }}>
+    </iframe>
+</div>
       </div>
     </div>
   );
