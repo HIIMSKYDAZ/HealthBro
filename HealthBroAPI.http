@@ -1,6 +1,0 @@
-@HealthBroAPI_HostAddress = http://localhost:5198
-
-GET {{HealthBroAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
