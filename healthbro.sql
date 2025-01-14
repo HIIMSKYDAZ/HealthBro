@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Dec 13. 07:56
+-- Létrehozás ideje: 2025. Jan 14. 09:49
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -79,7 +79,7 @@ CREATE TABLE `planexercises` (
 
 CREATE TABLE `user` (
   `Id` int(11) NOT NULL,
-  `LoginNev` varchar(16) NOT NULL,
+  `LoginName` varchar(16) NOT NULL,
   `HASH` varchar(64) NOT NULL,
   `SALT` varchar(64) NOT NULL,
   `Name` varchar(64) NOT NULL,
@@ -93,8 +93,11 @@ CREATE TABLE `user` (
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`Id`, `LoginNev`, `HASH`, `SALT`, `Name`, `PermissionId`, `Active`, `Email`, `ProfilePicturePath`) VALUES
-(1, 'kerenyir', 'd5fe0e517520122f1ab363b6b7ee9ae616e7ad393693ef00d81a7f287a79931a', 'Gm63C4jiWnYvfZfiKUu2cu8AHPNDj8NoHhtQn88yiJhyOunBNSd7tRoWo5wwqg9X', 'Kerényi Róbert', 2, 1, 'kerenyir@kkszki.hu', 'img\\kerenyir.jpg');
+INSERT INTO `user` (`Id`, `LoginName`, `HASH`, `SALT`, `Name`, `PermissionId`, `Active`, `Email`, `ProfilePicturePath`) VALUES
+(1, 'kerenyir', 'dcedbd2d352d19c6eae0dfb12271b74d985c825b8d774afd2abd0d101b6e57ef', 'jQGX8grO1yjNqhiZbtROcseiqj1NVZJd2iqlfxPx1GKLJ9H8smnLJ9dloScCK6Zp', 'Kerényi Róbert', 2, 1, 'kerenyir@kkszki.hu', 'img\\kerenyir.jpg'),
+(14, 'gabi', '1f06bda4d4b595c97c80a1c2676a72c96519ebc5b72d859ed880bfce63eae5ed', 'nd4Di7vtBcyDEQLcj9OxvYJXoTDHW82F1aK7jAy8ZjE095lfaweuRWUrtOq68P4s', 'gabi', 1, 1, 'gabi115@gmail.com', ''),
+(18, 'string', '473287f8298dba7163a897908958f7c0eae733e25d2e027992ea2edc9bed2fa8', 'string', 'string', 1, 0, 'string', 'string'),
+(20, 'kut', '473287f8298dba7163a897908958f7c0eae733e25d2e027992ea2edc9bed2fa8', 'string', 'string', 1, 0, 'pocsaig@kkszki.hu', 'string');
 
 -- --------------------------------------------------------
 
@@ -167,7 +170,7 @@ ALTER TABLE `planexercises`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `LoginNev` (`LoginNev`),
+  ADD UNIQUE KEY `LoginNev` (`LoginName`),
   ADD UNIQUE KEY `Email` (`Email`),
   ADD KEY `Jog` (`PermissionId`);
 
@@ -219,7 +222,7 @@ ALTER TABLE `planexercises`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT a táblához `workoutdetails`
