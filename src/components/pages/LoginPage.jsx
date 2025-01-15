@@ -12,6 +12,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+ // const [userData, setUserData] = useState(null);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,8 +37,12 @@ function LoginPage() {
       const loginResponse = await axios.post("http://localhost:5000/api/Login", body);
   
       if (loginResponse.status === 200) {
-        //alert("Sikeres bejelentkezés!");
-        navigate('/HomeMain');
+        const { token } = loginResponse.data;
+        localStorage.setItem("token", token);
+        //alert("siker")
+        console.log(token);
+        
+        navigate("/HomeMain");
       } else {
        // alert("Sikertelen bejelentkezés!");
       }

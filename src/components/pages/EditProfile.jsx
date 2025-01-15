@@ -5,6 +5,7 @@ import { CiLogout } from "react-icons/ci";
 import { IoMdMore } from "react-icons/io";
 import { FaHouse, FaDumbbell } from "react-icons/fa6";
 import { HiMiniCog6Tooth } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = ({ theme }) => {
   const [profileImage, setProfileImage] = useState(null);
@@ -13,7 +14,7 @@ const EditProfile = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -29,7 +30,15 @@ const EditProfile = ({ theme }) => {
     e.preventDefault();
     alert("Profil sikeresen frissítve!");
   };
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+    if (!token) {
+      navigate("/AccessDenied");
+    }
+  }, [navigate]);
+ 
   return (
     <div className="edit-profile-container">
       <div className="sidebar">

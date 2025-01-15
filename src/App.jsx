@@ -11,6 +11,7 @@ import HomeMain from "./components/pages/HomeMain.jsx";
 import ProfilePage from "./components/pages/ProfilePage.jsx";
 import Settings from "./components/pages/Settings.jsx";
 import EditProfile from "./components/pages/EditProfile.jsx";
+import AccessDenied from "./components/pages/AccessDenied.jsx";
 import { WorkoutPage } from "./components/pages/WorkoutPage.jsx";
 
 function App() {
@@ -48,6 +49,7 @@ function Main({ theme, toggleTheme }) {
         <Route path="/settings" exact element={<Settings />} />
         <Route path="/EditProfile" exact element={<EditProfile />} />
         <Route path="/WorkoutPlan" exact element={<WorkoutPage/>}/>
+        <Route path="/AccessDenied" exact element={<AccessDenied/>}/>
       </Routes>
     </div>
   );

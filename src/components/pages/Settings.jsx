@@ -1,14 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState,useEffect } from "react";
 import "../Settings.css";
-import { CiLogout } from "react-icons/ci";
-import { IoMdMore } from "react-icons/io";
-import { FaHouse } from "react-icons/fa6";
-import { FaDumbbell } from "react-icons/fa6";
-import { HiMiniCog6Tooth } from "react-icons/hi2";
-import axios from "axios"; // Make sure to import axios for API calls
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
+import axios from "axios"; 
 import Sidebar from "../SideBar";
+import {useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const [unitSystem, setUnitSystem] = useState({
@@ -16,18 +10,17 @@ const Settings = () => {
     length: "CM",
     weight: "KG",
   });
-  const [click, setClick] = useState(false);
+  //const [click, setClick] = useState(false);
 
-  // State for email and password change
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  //const handleClick = () => setClick(!click);
+  //const closeMobileMenu = () => setClick(false);
 
   const toggleUnit = (type) => {
     setUnitSystem((prev) => ({
@@ -111,6 +104,17 @@ const Settings = () => {
     }
   };
 
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+    if (!token) {
+      navigate("/AccessDenied");
+    }
+  }, [navigate]);
+ 
+ 
   return (
     <div className="settings-page">
       <Sidebar></Sidebar>
