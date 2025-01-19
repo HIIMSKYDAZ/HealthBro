@@ -5,6 +5,58 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/BackupRestor/Backup/{token},{fileName}": {
+      "get": {
+        "tags": [
+          "BackupRestor"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BackupRestor/Restore/{token}": {
+      "post": {
+        "tags": [
+          "BackupRestor"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/FileUpload/BackEndServer": {
       "post": {
         "tags": [
@@ -149,6 +201,28 @@
           {
             "name": "email",
             "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Korlevel/{token}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }

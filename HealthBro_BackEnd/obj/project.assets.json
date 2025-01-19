@@ -757,6 +757,18 @@
           }
         }
       },
+      "MySqlBackup.NET/2.3.8": {
+        "type": "package",
+        "dependencies": {
+          "MySql.Data": "8.0.32"
+        },
+        "compile": {
+          "lib/net6.0/MySqlBackup.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MySqlBackup.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -2792,6 +2804,23 @@
         "mysql.entityframeworkcore.nuspec"
       ]
     },
+    "MySqlBackup.NET/2.3.8": {
+      "sha512": "hFnfx3GcMSl/bqYlsW7VLhWlS4KpSX6zi8ZAMAq456h+jUb8aBBO/gVPuGE9y3Lapi1ibiW5rwvTRQT18x4ecA==",
+      "type": "package",
+      "path": "mysqlbackup.net/2.3.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net48/MySqlBackup.dll",
+        "lib/net481/MySqlBackup.dll",
+        "lib/net6.0/MySqlBackup.dll",
+        "lib/netstandard2.0/MySqlBackup.dll",
+        "lib/netstandard2.1/MySqlBackup.dll",
+        "mysqlbackup.net.2.3.8.nupkg.sha512",
+        "mysqlbackup.net.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -4083,27 +4112,28 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.21.0",
       "MySql.EntityFrameworkCore >= 8.0.8",
+      "MySqlBackup.NET >= 2.3.8",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pocsai\\.nuget\\packages\\": {},
+    "C:\\Users\\Gép\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pocsai\\Downloads\\HealthBro_BackEnd\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\Gép\\Desktop\\HealthBro_BackEnd\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
       "projectName": "HealthBro_BackEnd",
-      "projectPath": "C:\\Users\\Pocsai\\Downloads\\HealthBro_BackEnd\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
-      "packagesPath": "C:\\Users\\Pocsai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pocsai\\Downloads\\HealthBro_BackEnd\\HealthBro_BackEnd\\obj\\",
+      "projectPath": "C:\\Users\\Gép\\Desktop\\HealthBro_BackEnd\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
+      "packagesPath": "C:\\Users\\Gép\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gép\\Desktop\\HealthBro_BackEnd\\HealthBro_BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Pocsai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gép\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4112,7 +4142,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4130,8 +4159,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -4154,6 +4182,10 @@
           "MySql.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.8, )"
+          },
+          "MySqlBackup.NET": {
+            "target": "Package",
+            "version": "[2.3.8, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -4179,7 +4211,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2025-01-10T09:11:22.9118233Z||;</History>
+    <_PublishTargetUrl>C:\Users\Gép\Desktop\HealthBro_BackEnd\HealthBro_BackEnd\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-01-19T20:53:06.2743143Z||;True|2025-01-19T21:44:09.4158945+01:00||;True|2025-01-19T21:29:49.7081660+01:00||;True|2025-01-19T20:44:43.0768624+01:00||;True|2025-01-19T20:41:51.7228006+01:00||;True|2025-01-19T20:33:12.0353937+01:00||;True|2025-01-19T20:10:05.8936637+01:00||;True|2025-01-19T18:34:25.3427462+01:00||;True|2025-01-19T18:21:37.3538289+01:00||;True|2025-01-19T17:45:37.4754161+01:00||;False|2025-01-19T17:45:20.0252788+01:00||;False|2025-01-19T17:44:52.7634342+01:00||;True|2025-01-17T10:57:08.0428319+01:00||;True|2025-01-17T10:12:18.5240847+01:00||;True|2025-01-17T09:52:12.4656847+01:00||;True|2025-01-10T10:11:22.9118233+01:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

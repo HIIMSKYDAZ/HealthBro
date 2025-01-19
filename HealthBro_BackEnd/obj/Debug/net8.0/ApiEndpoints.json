@@ -2,13 +2,50 @@
   {
     "ContainingType": "HealthBro_BackEnd.Controllers.LogoutController",
     "Method": "Logout",
-    "RelativePath": "{uId}",
+    "RelativePath": "{token}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "uId",
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.BackupRestorController",
+    "Method": "SQLBackupAsync",
+    "RelativePath": "api/BackupRestor/Backup/{token},{fileName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.BackupRestorController",
+    "Method": "SQLRestoreAsync",
+    "RelativePath": "api/BackupRestor/Restore/{token}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -155,7 +192,7 @@
         "IsRequired": true
       },
       {
-        "Name": "user",
+        "Name": "updatedUser",
         "Type": "HealthBro_BackEnd.Models.User",
         "IsRequired": true
       }
@@ -198,6 +235,59 @@
       },
       {
         "Name": "loginName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/UpdateUser/{token}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateRequest",
+        "Type": "HealthBro_BackEnd.DTOs.UserUpdateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
+    "Method": "GetKorlevel",
+    "RelativePath": "Korlevel/{token}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
+    "Method": "GetUserByToken",
+    "RelativePath": "SingleUser/{token}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": true
       }

@@ -4,13 +4,13 @@ namespace HealthBro_BackEnd.Controllers
 {
     public class LogoutController : Controller
     {
-        [HttpPost("{uId}")]
+        [HttpPost("{token}")]
 
-        public IActionResult Logout(string uId)
+        public IActionResult Logout(string token)
         {
-            if (Program.LoggedInUsers.ContainsKey(uId))
+            if (Program.LoggedInUsers.ContainsKey(token))
             {
-                Program.LoggedInUsers.Remove(uId);
+                Program.LoggedInUsers.Remove(token);
                 return Ok("Sikeres kijelentkezés.");
             }
             else

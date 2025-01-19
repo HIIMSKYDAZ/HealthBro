@@ -22,6 +22,7 @@ C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\MySql.Data.dll
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\MySql.EntityFrameworkCore.dll
+C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\MySqlBackup.dll
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\SzJorgosz\source\repos\HealthBro_BackEnd\HealthBro_BackEnd\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

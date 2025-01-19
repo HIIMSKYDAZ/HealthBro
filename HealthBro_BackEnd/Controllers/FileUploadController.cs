@@ -16,7 +16,6 @@ namespace HealthBro_BackEnd.Controllers
 
         [Route("BackEndServer")]
         [HttpPost]
-
         public IActionResult FileUploadBackEnd()
         {
             try
@@ -24,20 +23,24 @@ namespace HealthBro_BackEnd.Controllers
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
                 string fileName = postedFile.FileName;
-                string subFolder = "/Files/";
+                string subFolder = "";
                 var filePath = _env.ContentRootPath + subFolder + fileName;
+
+                // Save file to local storage
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
                 }
-                return Ok(fileName);
+
+                // Return the relative path for the uploaded file
+                return Ok(subFolder + fileName);
             }
             catch (Exception)
             {
                 return Ok("default.jpg");
             }
         }
-
+        
         [Route("FtpServer")]
         [HttpPost]
 
@@ -48,7 +51,7 @@ namespace HealthBro_BackEnd.Controllers
                 var httpRequest = Request.Form;
                 var postedFile = httpRequest.Files[0];
                 string fileName = postedFile.FileName;
-                string subFolder = "";
+                string subFolder = "/users";
 
                 var url = "ftp://ftp.nethely.hu" + subFolder + "/" + fileName;
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url);
