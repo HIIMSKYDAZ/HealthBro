@@ -13,41 +13,34 @@ function LoginPage() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
  // const [userData, setUserData] = useState(null);
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-  
     try {
-
       const saltResponse = await axios.post(`http://localhost:5000/api/Login/SaltRequest/${name}`);
       const salt = saltResponse.data;
-  
-
       const tmpHash=sha256(password+salt.toString()).toString();   
-  
-
       const body = {
         loginName: name,
         tmpHash: tmpHash,
       };
-
-
+      //console.log(body);
       const loginResponse = await axios.post("http://localhost:5000/api/Login", body);
   
       if (loginResponse.status === 200) {
         const { token } = loginResponse.data;
         localStorage.setItem("token", token);
         //alert("siker")
-        console.log(token);
+        //console.log(token);
+        //console.log(loginResponse.data)
+        //alert(loginResponse.data);
         
         navigate("/HomeMain");
       } else {
-       // alert("Sikertelen bejelentkezés!");
+      //alert("Sikertelen bejelentkezés!");
       }
     } catch (err) {
-      alert("Hiba történt a bejelentkezés során. Próbáld újra!");
+      alert("Sikertelen bejelentkezés!");
     }
   };
   
