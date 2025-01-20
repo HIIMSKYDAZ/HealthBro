@@ -15,7 +15,6 @@ const EditProfile = ({ theme }) => {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-
       axios.post("http://localhost:5000/api/FileUpload/BackEndServer", formData)
         .then((response) => {
           if (response.data !== "default.jpg") {

@@ -1,8 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../Settings.css";
-import axios from "axios"; 
+import axios from "axios";
 import Sidebar from "../SideBar";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import crypto from "crypto-js";  // crypto-js könyvtár importálása
 
 const Settings = () => {
   const [unitSystem, setUnitSystem] = useState({
@@ -10,7 +11,6 @@ const Settings = () => {
     length: "CM",
     weight: "KG",
   });
-  //const [click, setClick] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,8 +19,6 @@ const Settings = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  //const handleClick = () => setClick(!click);
-  //const closeMobileMenu = () => setClick(false);
 
   const toggleUnit = (type) => {
     setUnitSystem((prev) => ({
@@ -42,7 +40,6 @@ const Settings = () => {
 
   const handleSaveUnits = async () => {
     try {
-      // Replace this URL with your API endpoint for saving the units
       const response = await axios.post("http://localhost:5000/api/User/SaveUnits", {
         units: unitSystem,
       });
@@ -59,51 +56,61 @@ const Settings = () => {
 
   const handlePasswordChange = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
-
-    // Basic validation
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Nincs bejelentkezve.");
+      return;
+    }
     if (newPassword !== confirmNewPassword) {
-      setError("A két új jelszó nem egyezik!");
+      alert("A jelszavak nem egyeznek.");
       return;
     }
 
+    // Só generálása a hash-eléshez
+    const salt = crypto.lib.WordArray.random(16).toString();
+    const hash = crypto.SHA256(salt + newPassword).toString();
+    const updatedUserData = {
+      HASH: hash,
+      SALT: salt
+    };
+
     try {
-      const response = await axios.post("http://localhost:5000/api/User/ChangePassword", {
-        oldPassword: password,
-        newPassword: newPassword,
+      const response = await axios.put(`http://localhost:5000/api/User/UpdateUserPass/${token}`, updatedUserData, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
       });
 
-      if (response.status === 200) {
-        setSuccess("A jelszó sikeresen megváltozott!");
-      } else {
-        setError("Hiba történt a jelszó módosítása során.");
-      }
+      alert("Sikeres módosítás");
     } catch (error) {
-      setError("Hiba történt a jelszó módosítása során.");
+      console.error("Hiba történt:", error);
     }
   };
 
   const handleEmailChange = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Nincs bejelentkezve.");
+      return;
+    }
+
+    const updatedUserData = { Email: email };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/User/ChangeEmail", {
-        email: email,
+      const response = await axios.put(`http://localhost:5000/api/User/UpdateUserMail/${token}`, updatedUserData, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
       });
 
-      if (response.status === 200) {
-        setSuccess("Az email cím sikeresen megváltozott!");
-      } else {
-        setError("Hiba történt az email cím módosítása során.");
-      }
+      alert("Sikeres módosítás");
     } catch (error) {
-      setError("Hiba történt az email cím módosítása során.");
+      console.error("Hiba történt:", error);
     }
   };
-
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -113,11 +120,10 @@ const Settings = () => {
       navigate("/AccessDenied");
     }
   }, [navigate]);
- 
- 
+
   return (
     <div className="settings-page">
-      <Sidebar></Sidebar>
+      <Sidebar />
 
       <div className="settings-content">
         <div className="settings-header">
