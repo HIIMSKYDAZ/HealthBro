@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 23. 19:00
+-- Létrehozás ideje: 2025. Jan 23. 20:05
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.0.30
 
@@ -124,6 +124,14 @@ CREATE TABLE `planexercises` (
   `Reps` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `planexercises`
+--
+
+INSERT INTO `planexercises` (`PlanExerciseID`, `PlanID`, `ExerciseID`, `Sets`, `Weight`, `Reps`) VALUES
+(8, 5, 11, 3, 60, 8),
+(9, 5, 12, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -162,6 +170,15 @@ CREATE TABLE `workoutplans` (
   `PlanName` varchar(100) DEFAULT NULL,
   `CreatedAt` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `workoutplans`
+--
+
+INSERT INTO `workoutplans` (`PlanID`, `UserID`, `PlanName`, `CreatedAt`) VALUES
+(4, 1, 'Új Edzésterv', '2025-01-23 19:00:00'),
+(5, 1, 'Test', '2025-01-23 19:51:55'),
+(6, 1, 'Test', '2025-01-23 19:51:58');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -225,7 +242,7 @@ ALTER TABLE `permission`
 -- AUTO_INCREMENT a táblához `planexercises`
 --
 ALTER TABLE `planexercises`
-  MODIFY `PlanExerciseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `PlanExerciseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT a táblához `user`
@@ -237,7 +254,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `workoutplans`
 --
 ALTER TABLE `workoutplans`
-  MODIFY `PlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `PlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Megkötések a kiírt táblákhoz
