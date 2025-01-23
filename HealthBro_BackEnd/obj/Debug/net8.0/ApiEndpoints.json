@@ -283,6 +283,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HealthBro_BackEnd.Controllers.WorkoutplanController",
+    "Method": "CreateWorkoutPlan",
+    "RelativePath": "api/Workoutplan",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workoutPlanDTO",
+        "Type": "HealthBro_BackEnd.DTOs.WorkoutPlanDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthBro_BackEnd.DTOs.WorkoutPlanDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.WorkoutplanController",
+    "Method": "GetWorkoutPlan",
+    "RelativePath": "api/Workoutplan/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthBro_BackEnd.DTOs.WorkoutPlanDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
     "Method": "GetKorlevel",
     "RelativePath": "Korlevel/{token}",
