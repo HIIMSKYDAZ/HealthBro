@@ -125,6 +125,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "HealthBro_BackEnd.Controllers.PlanexerciseController",
+    "Method": "CreatePlanExercise",
+    "RelativePath": "api/Planexercise",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planExerciseDTO",
+        "Type": "HealthBro_BackEnd.DTOs.PlanExerciseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthBro_BackEnd.DTOs.PlanExerciseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.PlanexerciseController",
+    "Method": "GetPlanExercise",
+    "RelativePath": "api/Planexercise/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthBro_BackEnd.DTOs.PlanExerciseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HealthBro_BackEnd.Controllers.RegistryController",
     "Method": "Registry",
     "RelativePath": "api/Registry",
