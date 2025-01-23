@@ -1,5 +1,6 @@
 
 using HealthBro_BackEnd.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -71,21 +72,27 @@ namespace HealthBro_BackEnd
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddCors(c => { c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); });
+            // CORS engedélyezése
+            builder.Services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
 
-            // Add services to the container.
+            // Az adatbáziskapcsolat regisztrálása
+            builder.Services.AddDbContext<HealthbroContext>(options =>
+                options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // Controllers és Swagger regisztrálása
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            // CORS használata
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-
-
-            // Configure the HTTP request pipeline.
+            // Swagger konfiguráció
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

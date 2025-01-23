@@ -10,8 +10,7 @@ public partial class HealthbroContext : DbContext
     {
     }
 
-    public HealthbroContext(DbContextOptions<HealthbroContext> options)
-        : base(options)
+    public HealthbroContext(DbContextOptions<HealthbroContext> options) : base(options)
     {
     }
 

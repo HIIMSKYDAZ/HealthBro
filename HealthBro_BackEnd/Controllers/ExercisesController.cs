@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using HealthBro_BackEnd.Models; // Add this import statement
-using Microsoft.Extensions.DependencyInjection;
+using HealthBro_BackEnd.Models;
+using HealthBro_BackEnd.DTOs; // A DTO importálása
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthBro_BackEnd.Controllers
@@ -17,9 +17,20 @@ namespace HealthBro_BackEnd.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Exercise>>> GetExercises()
+        public async Task<ActionResult<IEnumerable<ExerciseDTO>>> GetExercises()
         {
-            return await _context.Exercises.ToListAsync();
+            // Az Exercise entitások DTO-vá alakítása
+            var exercises = await _context.Exercises
+                .Select(e => new ExerciseDTO
+                {
+                    ExerciseId = e.ExerciseId,
+                    Name = e.Name,
+                    MuscleGroup = e.MuscleGroup,
+                    Description = e.Description
+                })
+                .ToListAsync();
+
+            return Ok(exercises); // Az adatok visszaadása HTTP 200 státusszal
         }
     }
 }

@@ -57,6 +57,44 @@
         }
       }
     },
+    "/api/Exercises": {
+      "get": {
+        "tags": [
+          "Exercises"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExerciseDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExerciseDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExerciseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/FileUpload/BackEndServer": {
       "post": {
         "tags": [
@@ -134,14 +172,14 @@
         }
       }
     },
-    "/{uId}": {
+    "/{token}": {
       "post": {
         "tags": [
           "Logout"
         ],
         "parameters": [
           {
-            "name": "uId",
+            "name": "token",
             "in": "path",
             "required": true,
             "schema": {
@@ -228,6 +266,69 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/SingleUser/{token}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/UpdateUser/{token}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -424,12 +525,27 @@
               "$ref": "#/components/schemas/Planexercise"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExerciseDTO": {
+        "type": "object",
+        "properties": {
+          "exerciseId": {
+            "type": "integer",
+            "format": "int32"
           },
-          "workoutdetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Workoutdetail"
-            },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "muscleGroup": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -489,6 +605,10 @@
             "nullable": true
           },
           "sets": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight": {
             "type": "integer",
             "format": "int32"
           },
@@ -553,82 +673,20 @@
               "$ref": "#/components/schemas/Workoutplan"
             },
             "nullable": true
-          },
-          "workouts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Workout"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "Workout": {
+      "UserUpdateRequest": {
         "type": "object",
         "properties": {
-          "workoutId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "workoutDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "notes": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "workoutdetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Workoutdetail"
-            },
+          "profilePicturePath": {
+            "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Workoutdetail": {
-        "type": "object",
-        "properties": {
-          "workoutDetailId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "workoutId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "exerciseId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "weight": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "reps": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "exercise": {
-            "$ref": "#/components/schemas/Exercise"
-          },
-          "workout": {
-            "$ref": "#/components/schemas/Workout"
           }
         },
         "additionalProperties": false
