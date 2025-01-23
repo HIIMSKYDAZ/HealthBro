@@ -15,5 +15,5 @@ public partial class Exercise
 
     public virtual ICollection<Planexercise> Planexercises { get; set; } = new List<Planexercise>();
 
-    public virtual ICollection<Workoutdetail> Workoutdetails { get; set; } = new List<Workoutdetail>();
+    
 }

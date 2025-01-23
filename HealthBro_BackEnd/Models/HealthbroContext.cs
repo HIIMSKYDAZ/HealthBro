@@ -23,9 +23,7 @@ public partial class HealthbroContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<Workout> Workouts { get; set; }
-
-    public virtual DbSet<Workoutdetail> Workoutdetails { get; set; }
+  
 
     public virtual DbSet<Workoutplan> Workoutplans { get; set; }
 
@@ -89,6 +87,7 @@ public partial class HealthbroContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("PlanID");
             entity.Property(e => e.Reps).HasColumnType("int(11)");
+            entity.Property(e => e.Weight).HasColumnType("int(11)");
             entity.Property(e => e.Sets).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Exercise).WithMany(p => p.Planexercises)
@@ -132,70 +131,7 @@ public partial class HealthbroContext : DbContext
                 .HasConstraintName("user_ibfk_1");
         });
 
-        modelBuilder.Entity<Workout>(entity =>
-        {
-            entity.HasKey(e => e.WorkoutId).HasName("PRIMARY");
-
-            entity.ToTable("workouts");
-
-            entity.HasIndex(e => e.UserId, "UserID");
-
-            entity.Property(e => e.WorkoutId)
-                .HasColumnType("int(11)")
-                .HasColumnName("WorkoutID");
-            entity.Property(e => e.Notes)
-                .HasDefaultValueSql("'NULL'")
-                .HasColumnType("text");
-            entity.Property(e => e.UserId)
-                .HasDefaultValueSql("'NULL'")
-                .HasColumnType("int(11)")
-                .HasColumnName("UserID");
-            entity.Property(e => e.WorkoutDate)
-                .HasDefaultValueSql("'current_timestamp()'")
-                .HasColumnType("datetime");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Workouts)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("workouts_ibfk_1");
-        });
-
-        modelBuilder.Entity<Workoutdetail>(entity =>
-        {
-            entity.HasKey(e => e.WorkoutDetailId).HasName("PRIMARY");
-
-            entity.ToTable("workoutdetails");
-
-            entity.HasIndex(e => e.ExerciseId, "ExerciseID");
-
-            entity.HasIndex(e => e.WorkoutId, "WorkoutID");
-
-            entity.Property(e => e.WorkoutDetailId)
-                .HasColumnType("int(11)")
-                .HasColumnName("WorkoutDetailID");
-            entity.Property(e => e.ExerciseId)
-                .HasDefaultValueSql("'NULL'")
-                .HasColumnType("int(11)")
-                .HasColumnName("ExerciseID");
-            entity.Property(e => e.Reps).HasColumnType("int(11)");
-            entity.Property(e => e.Weight)
-                .HasPrecision(5)
-                .HasDefaultValueSql("'NULL'");
-            entity.Property(e => e.WorkoutId)
-                .HasDefaultValueSql("'NULL'")
-                .HasColumnType("int(11)")
-                .HasColumnName("WorkoutID");
-
-            entity.HasOne(d => d.Exercise).WithMany(p => p.Workoutdetails)
-                .HasForeignKey(d => d.ExerciseId)
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("workoutdetails_ibfk_2");
-
-            entity.HasOne(d => d.Workout).WithMany(p => p.Workoutdetails)
-                .HasForeignKey(d => d.WorkoutId)
-                .OnDelete(DeleteBehavior.Restrict)
-                .HasConstraintName("workoutdetails_ibfk_1");
-        });
+       
 
         modelBuilder.Entity<Workoutplan>(entity =>
         {

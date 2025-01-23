@@ -13,6 +13,8 @@ public partial class Planexercise
 
     public int Sets { get; set; }
 
+    public int Weight { get; set; }
+
     public int Reps { get; set; }
 
     public virtual Exercise? Exercise { get; set; }

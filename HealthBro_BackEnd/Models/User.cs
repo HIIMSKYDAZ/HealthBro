@@ -27,5 +27,5 @@ public partial class User
 
     public virtual ICollection<Workoutplan>? Workoutplans { get; set; } = new List<Workoutplan>();
 
-    public virtual ICollection<Workout>? Workouts { get; set; } = new List<Workout>();
+   
 }
