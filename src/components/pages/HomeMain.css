@@ -9,11 +9,12 @@ video {
 .homemain-container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  height: 100vh;
+  height: auto;
   gap: 20px;
   padding: 30px;
   box-sizing: border-box;
   position: relative;
+  min-height: 100vh;
 }
 
 .sidebar {
