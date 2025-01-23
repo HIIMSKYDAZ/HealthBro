@@ -23,7 +23,7 @@ const EditProfile = ({ theme }) => {
             axios.post("http://localhost:5000/api/FileUpload/FtpServer", formData)
               .then((ftpResponse) => {
                 if (ftpResponse.data !== "default.jpg") {
-                  //console.log("Sikeres kép feltöltés ftp szerverre.");
+                 // console.log("Sikeres kép feltöltés ftp szerverre.");
                 } 
               })
           } 
@@ -91,7 +91,6 @@ const EditProfile = ({ theme }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Add meg a neved"
-              required
             />
           </div>
           <button type="submit">Mentés</button>
