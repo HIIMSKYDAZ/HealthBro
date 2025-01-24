@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\passwordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -78,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,7 +94,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "PasswordController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\PasswordController.cs",
+              "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\PasswordController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\PasswordController.cs",
+              "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\PasswordController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T09:22:43.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\LoginController.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PlanexerciseController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
@@ -111,12 +128,11 @@
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T19:00:31.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T19:00:31.5Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PlanexerciseDTO.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
@@ -128,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WorkoutplanController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
@@ -140,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "WorkoutplanDTO.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
@@ -152,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Workoutplan.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Workoutplan.cs",
@@ -164,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\appsettings.json",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\appsettings.json",
@@ -176,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ExerciseDTO.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
@@ -189,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Program.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Program.cs",
@@ -202,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ExercisesController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
@@ -214,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Planexercise.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Planexercise.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Planexercise.cs",
@@ -226,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\User.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\User.cs",
@@ -238,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "HealthbroContext.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\HealthbroContext.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\HealthbroContext.cs",
@@ -251,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Exercise.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Exercise.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Exercise.cs",
@@ -263,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "UserUpdateRequest.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
@@ -276,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "FileUploadController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
@@ -289,13 +305,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\UserController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAAAJMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAAAN0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T07:33:07.622Z",
               "EditorCaption": ""
