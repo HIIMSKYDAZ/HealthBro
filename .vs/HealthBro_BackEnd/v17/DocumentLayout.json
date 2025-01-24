@@ -1,69 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\",
+  "WorkspaceRootPath": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\dtos\\planexercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\planexercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\models\\planexercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\planexercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\dtos\\exercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\exercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\models\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\models\\healthbrocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\healthbrocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\dtos\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\gabcsi\\downloads\\healthbro-backend\\healthbro_backend\\controllers\\fileuploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\dtos\\planexercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\planexercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\models\\planexercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\planexercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\dtos\\exercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\exercisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\models\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\models\\healthbrocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\healthbrocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\dtos\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\downloads\\healthbro_backend\\healthbro\\healthbro_backend\\controllers\\fileuploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\fileuploadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -74,15 +78,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 18,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T06:47:53.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PlanexerciseController.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -91,37 +116,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PlanexerciseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\DTOs\\PlanexerciseDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T18:59:48.237Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T18:59:48.237Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "WorkoutplanController.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAQwCEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T18:50:41.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T18:50:41.677Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "WorkoutplanDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -129,11 +152,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Workoutplan.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Workoutplan.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Models\\Workoutplan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -141,11 +164,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\appsettings.json",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\appsettings.json",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\appsettings.json",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\appsettings.json",
               "RelativeToolTip": "HealthBro_BackEnd\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -153,35 +176,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "ExerciseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\DTOs\\ExerciseDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:55:15.724Z"
+              "WhenOpened": "2025-01-23T17:55:15.724Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Program.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Program.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Program.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Program.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Program.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:53:12.322Z"
+              "WhenOpened": "2025-01-23T17:53:12.322Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ExercisesController.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -189,24 +214,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Planexercise.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Planexercise.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Planexercise.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Planexercise.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Planexercise.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Planexercise.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Models\\Planexercise.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:42:43.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T17:42:43.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\User.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\User.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Models\\User.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAowBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -214,23 +238,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "HealthbroContext.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\HealthbroContext.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\HealthbroContext.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\HealthbroContext.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\HealthbroContext.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\HealthbroContext.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Models\\HealthbroContext.cs",
               "ViewState": "AgIAAIIAAAAAAAAAAAAYwKcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:41:53.051Z"
+              "WhenOpened": "2025-01-23T17:41:53.051Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Exercise.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Exercise.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Exercise.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Exercise.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Models\\Exercise.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Models\\Exercise.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Models\\Exercise.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -238,39 +263,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "UserUpdateRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\DTOs\\UserUpdateRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T20:26:36.121Z"
+              "WhenOpened": "2025-01-19T20:26:36.121Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FileUploadController.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\FileUploadController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAwwBkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T19:24:11.052Z"
+              "WhenOpened": "2025-01-19T19:24:11.052Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Gabcsi\\Downloads\\HealthBro-backend\\HealthBro_BackEnd\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Downloads\\Healthbro_backend\\HealthBro\\HealthBro_BackEnd\\Controllers\\UserController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAcwEoAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAAAN0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T07:33:07.622Z"
+              "WhenOpened": "2025-01-10T07:33:07.622Z",
+              "EditorCaption": ""
             }
           ]
         }

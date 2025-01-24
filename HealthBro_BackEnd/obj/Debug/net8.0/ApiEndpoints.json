@@ -294,8 +294,29 @@
   },
   {
     "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
+    "Method": "GetId",
+    "RelativePath": "api/User/{token},{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HealthBro_BackEnd.Controllers.UserController",
     "Method": "GetLoginName",
-    "RelativePath": "api/User/{token},{loginName}",
+    "RelativePath": "api/User/loginName/{token},{loginName}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

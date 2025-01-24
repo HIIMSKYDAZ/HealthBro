@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "dHmhqRS10qtocDKaqLfAtadD84KUWFn5U+4vL92k3so=",
+  "Hash": "axyN8QWr2W7ikdwYukSTZKBqh553RnYJyQO+lra36nM=",
   "Source": "HealthBro_BackEnd",
   "BasePath": "_content/HealthBro_BackEnd",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
