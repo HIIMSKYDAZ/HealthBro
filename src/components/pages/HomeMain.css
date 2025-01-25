@@ -160,11 +160,11 @@ video {
 }
 
 .content {
-  background-color: #f4f4f400;
-  padding: 20px;
-  border-radius: 10px;
-  color: white;
+  max-width: 1200px; /* Adj meg egy maximális szélességet, ha szükséges */
+  margin: 0 auto; /* Középre igazítja a tartalmat */
+  padding: 16px; /* Hézag a tartalom körül */
 }
+
 
 .content h2 {
   margin-top: 0;
@@ -178,4 +178,29 @@ video {
 
 .menu{
   background-color: #24222200 !important;
+}
+
+.row-hb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px; /* Távolság a kártyák között */
+}
+
+
+.col-md-6 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.m-2 {
+  margin: 8px; /* Hézag minden kártya körül */
+}
+
+a {
+  display: inline-block !important; /* Az `<a>` elem csak a tartalmához igazodik */
+  width: 250px;
+  max-width: 250px;
+  text-decoration: none; /* Eltávolítja az aláhúzást */
 }

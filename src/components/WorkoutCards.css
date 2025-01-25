@@ -1,0 +1,25 @@
+.card {
+    width: 250px; /* Fix szélesség, vagy csökkentsd a kártya méretét */
+    max-width: 100%; /* Biztosítja, hogy ne lépje túl a szülő szélességét */
+    margin: 8px; /* Kis hézag a kártyák körül */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  
+  .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card-name {
+    background-color: #f0f0f0;
+    padding: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
