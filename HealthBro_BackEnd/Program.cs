@@ -73,9 +73,16 @@ namespace HealthBro_BackEnd
             var builder = WebApplication.CreateBuilder(args);
 
             // CORS engedélyezése
-            builder.Services.AddCors(c =>
+            builder.Services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.SetIsOriginAllowed(origin => true) // Elfogad minden forrást
+                               .AllowAnyMethod()
+                               .AllowAnyHeader()
+                               .AllowCredentials();  // Ha hitelesítési adatok is vannak
+                    });
             });
 
             // Az adatbáziskapcsolat regisztrálása
@@ -91,6 +98,7 @@ namespace HealthBro_BackEnd
 
             // CORS használata
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors("AllowAll");
 
             // Swagger konfiguráció
             if (app.Environment.IsDevelopment())
@@ -99,7 +107,7 @@ namespace HealthBro_BackEnd
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+           app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
