@@ -2,11 +2,13 @@
 using HealthBro_BackEnd.Models;
 using HealthBro_BackEnd.DTOs; // A DTO importálása
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Cors;
 
 namespace HealthBro_BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowAll")]
     public class WorkoutplanController : ControllerBase
     {
         private readonly HealthbroContext _context;
@@ -63,6 +65,23 @@ namespace HealthBro_BackEnd.Controllers
             };
 
             return Ok(workoutPlanDTO);
+        }
+
+        [HttpGet("{token}/{userid}")]
+        public async Task<IActionResult> Get(string token, int userid)
+        {
+            using (var cx = new HealthbroContext())
+            {
+                try
+                {
+                    var workoutPlans = await cx.Workoutplans.Where(wp => wp.UserId == userid).ToListAsync();
+                    return Ok(workoutPlans);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, "Internal server error: " + ex.Message);
+                }
+            }
         }
     }
 }
