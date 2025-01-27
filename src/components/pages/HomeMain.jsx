@@ -25,7 +25,7 @@ const HomeMain = () => {
       }
   
       try {
-        const response = await axios.get(`http://localhost:5000/SingleUser/${token}`);
+        const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
         setUserData(response.data);
         localStorage.setItem("id", response.data.id);
         localStorage.setItem("loginName", response.data.loginName);

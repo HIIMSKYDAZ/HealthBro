@@ -18,7 +18,7 @@ const ProfilePage = () => {
       }
   
       try {
-        const response = await axios.get(`http://localhost:5000/SingleUser/${token}`);
+        const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
         setUserData(response.data);
         console.log(response.data);
         
@@ -38,7 +38,7 @@ const ProfilePage = () => {
       <div className="profile-content">
         <div className="profile-header">
 
-            <img src={userData?.profilePicturePath ? `http://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
+            <img src={userData?.profilePicturePath ? `https://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
               alt="Profile"
               width="200"
               height="200"

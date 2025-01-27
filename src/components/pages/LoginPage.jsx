@@ -18,7 +18,7 @@ function LoginPage() {
   setError(null);
 
   try {
-    const saltResponse = await axios.post(`http://localhost:5000/api/Login/SaltRequest/${name}`);
+    const saltResponse = await axios.post(`https://localhost:5000/api/Login/SaltRequest/${name}`);
     const salt = saltResponse.data;
     const tmpHash = sha256(password + salt.toString()).toString();
 
@@ -27,7 +27,7 @@ function LoginPage() {
       tmpHash: tmpHash,
     };
 
-    const loginResponse = await axios.post("http://localhost:5000/api/Login", body);
+    const loginResponse = await axios.post("https://localhost:5000/api/Login", body);
 
     if (loginResponse.status === 200) {
       const { token, name, email } = loginResponse.data;
@@ -36,7 +36,7 @@ function LoginPage() {
       localStorage.setItem("name", name);
       localStorage.setItem("email", email);
 
-      const response = await axios.get(`http://localhost:5000/SingleUser/${token}`);
+      const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
 
       if (response.status === 200 && response.data && response.data.id) {
         localStorage.setItem("UserId", response.data.id);

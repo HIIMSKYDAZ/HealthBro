@@ -15,12 +15,12 @@ const EditProfile = ({ theme }) => {
     if (file) {
       const formData = new FormData();
       formData.append("file", file);
-      axios.post("http://localhost:5000/api/FileUpload/BackEndServer", formData)
+      axios.post("https://localhost:5000/api/FileUpload/BackEndServer", formData)
         .then((response) => {
           if (response.data !== "default.jpg") {
             setImagePath(response.data);
             setProfileImage(URL.createObjectURL(file)); 
-            axios.post("http://localhost:5000/api/FileUpload/FtpServer", formData)
+            axios.post("https://localhost:5000/api/FileUpload/FtpServer", formData)
               .then((ftpResponse) => {
                 if (ftpResponse.data !== "default.jpg") {
                  // console.log("Sikeres kép feltöltés ftp szerverre.");
@@ -44,7 +44,7 @@ const EditProfile = ({ theme }) => {
       name: name, 
       profilePicturePath: imagePath
     };
-    axios.put(`http://localhost:5000/api/User/UpdateUser/${token}`, updatedUserData,{
+    axios.put(`https://localhost:5000/api/User/UpdateUser/${token}`, updatedUserData,{
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"

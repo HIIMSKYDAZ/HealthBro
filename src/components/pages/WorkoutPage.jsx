@@ -25,7 +25,7 @@ export const WorkoutPage = () => {
     const fetchWorkouts = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get(`http://localhost:5000/api/Workoutplan/${token}/${UserId}`);
+            const response = await axios.get(`https://localhost:5000/api/Workoutplan/${token}/${UserId}`);
             setWorkouts(response.data);
         } catch (error) {
             console.error("Error fetching workout plans:", error);

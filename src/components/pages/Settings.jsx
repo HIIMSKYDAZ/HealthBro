@@ -40,7 +40,7 @@ const Settings = () => {
 
   const handleSaveUnits = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/User/SaveUnits", {
+      const response = await axios.post("https://localhost:5000/api/User/SaveUnits", {
         units: unitSystem,
       });
 
@@ -77,7 +77,7 @@ const Settings = () => {
   
     try {
       const response = await axios.post(
-        `http://localhost:5000/${loginName},${password},${newPassword}`,
+        `https://localhost:5000/${loginName},${password},${newPassword}`,
         null,
         {
           headers: {
@@ -111,7 +111,7 @@ const Settings = () => {
     const updatedUserData = { Email: email };
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/User/UpdateUserMail/${token}`, updatedUserData, {
+      const response = await axios.put(`https://localhost:5000/api/User/UpdateUserMail/${token}`, updatedUserData, {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
