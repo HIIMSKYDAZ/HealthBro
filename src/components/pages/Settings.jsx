@@ -57,36 +57,48 @@ const Settings = () => {
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    if (!token) {
+    const loginName = localStorage.getItem("loginName"); 
+    console.log(localStorage.getItem("loginName"));
+  
+    if (!token || !loginName) {
       alert("Nincs bejelentkezve.");
       return;
     }
+  
+    if (!password || !newPassword || !confirmNewPassword) {
+      alert("Kérjük, töltse ki az összes jelszó mezőt.");
+      return;
+    }
+  
     if (newPassword !== confirmNewPassword) {
       alert("A jelszavak nem egyeznek.");
       return;
     }
-
-    // Só generálása a hash-eléshez
-    const salt = crypto.lib.WordArray.random(16).toString();
-    const hash = crypto.SHA256(salt + newPassword).toString();
-    const updatedUserData = {
-      HASH: hash,
-      SALT: salt
-    };
-
+  
     try {
-      const response = await axios.put(`http://localhost:5000/api/User/UpdateUserPass/${token}`, updatedUserData, {
-        headers: {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json"
+      const response = await axios.post(
+        `http://localhost:5000/${loginName},${password},${newPassword}`,
+        null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
-
-      alert("Sikeres módosítás");
+      );
+  
+      if (response.status === 200) {
+        alert("Sikeres jelszómódosítás!");
+      } else if (response.status === 201) {
+        alert("Hibás a régi jelszó!");
+      } else {
+        alert("Hiba történt a jelszómódosítás során.");
+      }
     } catch (error) {
       console.error("Hiba történt:", error);
+      alert("Hiba történt a jelszómódosítás során.");
     }
   };
+  
 
   const handleEmailChange = async (e) => {
     e.preventDefault();
