@@ -16,9 +16,9 @@ namespace HealthBro_BackEnd.Controllers
                     User? user = context.Users.FirstOrDefault(f => f.LoginName == loginName);
                     if (user != null)
                     {
-                        if (Program.CreateSHA256(oldPassword) == user.Hash)
+                        if (Program.CreateSHA256(Program.CreateSHA256(oldPassword+user.Salt)) == user.Hash)
                         {
-                            user.Hash = Program.CreateSHA256(newPassword);
+                            user.Hash = Program.CreateSHA256(Program.CreateSHA256(newPassword));
                             context.Users.Update(user);
                             await context.SaveChangesAsync();
                             return Ok("A jelszó módosítása sikeresen megtörtént.");
