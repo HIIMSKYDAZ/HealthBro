@@ -198,7 +198,7 @@ video {
   margin: 8px; /* Hézag minden kártya körül */
 }
 
-a {
+.a-hb {
   display: inline-block !important; /* Az `<a>` elem csak a tartalmához igazodik */
   width: 250px;
   max-width: 250px;
