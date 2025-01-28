@@ -16,17 +16,41 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PlanExerciseDTO>> GetPlanExercise(int id)
+        {
+            var planExercise = await _context.Planexercises
+                .Include(pe => pe.Exercise)
+                .Include(pe => pe.Plan)
+                .FirstOrDefaultAsync(pe => pe.PlanExerciseId == id); // Egyszerűsítve
+
+            if (planExercise == null)
+            {
+                return NotFound();
+            }
+
+            var planExerciseDTO = new PlanExerciseDTO
+            {
+                PlanExerciseId = planExercise.PlanExerciseId, // Hozzáadva
+                PlanId = planExercise.PlanId,
+                ExerciseId = planExercise.ExerciseId,
+                Sets = planExercise.Sets,
+                Weight = planExercise.Weight,
+                Reps = planExercise.Reps
+            };
+
+            return Ok(planExerciseDTO);
+        }
+
         // POST api/planexercise
         [HttpPost]
         public async Task<ActionResult<PlanExerciseDTO>> CreatePlanExercise(PlanExerciseDTO planExerciseDTO)
         {
-            // Validálás, hogy ne legyen üres adat
             if (planExerciseDTO == null)
             {
                 return BadRequest("PlanExercise data is required.");
             }
 
-            // Új PlanExercise entitás létrehozása
             var planExercise = new Planexercise
             {
                 PlanId = planExerciseDTO.PlanId,
@@ -36,40 +60,68 @@ namespace HealthBro_BackEnd.Controllers
                 Reps = planExerciseDTO.Reps
             };
 
-            // Új PlanExercise mentése az adatbázisba
             _context.Planexercises.Add(planExercise);
             await _context.SaveChangesAsync();
 
-            // A válasz visszaadása a létrehozott PlanExercise DTO-jával
             return CreatedAtAction(nameof(GetPlanExercise), new { id = planExercise.PlanExerciseId }, planExerciseDTO);
         }
 
-        // Segédfüggvény egy PlanExercise lekérésére
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PlanExerciseDTO>> GetPlanExercise(int id)
+        // PUT api/planexercise/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePlanExercise(int id, PlanExerciseDTO planExerciseDTO)
         {
-            var planExercise = await _context.Planexercises
-                .Include(pe => pe.Exercise) // Betölti a kapcsolódó Exercise entitást
-                .Include(pe => pe.Plan) // Betölti a kapcsolódó Plan entitást
-                .Where(pe => pe.PlanExerciseId == id)
-                .FirstOrDefaultAsync();
+            if (id != planExerciseDTO.PlanExerciseId)
+            {
+                return BadRequest("The ID in the URL does not match the ID in the body.");
+            }
 
+            var planExercise = await _context.Planexercises.FindAsync(id);
             if (planExercise == null)
             {
                 return NotFound();
             }
 
-            // DTO visszaadása
-            var planExerciseDTO = new PlanExerciseDTO
-            {
-                PlanId = planExercise.PlanId,
-                ExerciseId = planExercise.ExerciseId,
-                Sets = planExercise.Sets,
-                Weight = planExercise.Weight,
-                Reps = planExercise.Reps
-            };
+            planExercise.PlanId = planExerciseDTO.PlanId;
+            planExercise.ExerciseId = planExerciseDTO.ExerciseId;
+            planExercise.Sets = planExerciseDTO.Sets;
+            planExercise.Weight = planExerciseDTO.Weight;
+            planExercise.Reps = planExerciseDTO.Reps;
 
-            return Ok(planExerciseDTO);
+            _context.Entry(planExercise).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Planexercises.Any(pe => pe.PlanExerciseId == id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // DELETE api/planexercise/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePlanExercise(int id)
+        {
+            var planExercise = await _context.Planexercises.FindAsync(id);
+            if (planExercise == null)
+            {
+                return NotFound();
+            }
+
+            _context.Planexercises.Remove(planExercise);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

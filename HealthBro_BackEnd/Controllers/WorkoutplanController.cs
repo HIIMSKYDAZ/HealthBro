@@ -18,33 +18,6 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
-        // POST api/workoutplan
-        [HttpPost]
-        public async Task<ActionResult<WorkoutPlanDTO>> CreateWorkoutPlan(WorkoutPlanDTO workoutPlanDTO)
-        {
-            // Validálás, hogy ne legyen üres adat
-            if (workoutPlanDTO == null)
-            {
-                return BadRequest("Workout plan data is required.");
-            }
-
-            // Új WorkoutPlan entitás létrehozása
-            var workoutPlan = new Workoutplan
-            {
-                UserId = workoutPlanDTO.UserId,
-                PlanName = workoutPlanDTO.PlanName,
-                CreatedAt = DateTime.Now
-            };
-
-            // Új WorkoutPlan mentése az adatbázisba
-            _context.Workoutplans.Add(workoutPlan);
-            await _context.SaveChangesAsync();
-
-            // A válasz visszaadása a létrehozott WorkoutPlan DTO-jával
-            return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
-        }
-
-        // Ez egy segédfüggvény, ami egyesével lekéri a workout plan-eket
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkoutPlanDTO>> GetWorkoutPlan(int id)
         {
@@ -57,7 +30,6 @@ namespace HealthBro_BackEnd.Controllers
                 return NotFound();
             }
 
-            // DTO visszaadása
             var workoutPlanDTO = new WorkoutPlanDTO
             {
                 UserId = workoutPlan.UserId,
@@ -82,6 +54,87 @@ namespace HealthBro_BackEnd.Controllers
                     return StatusCode(500, "Internal server error: " + ex.Message);
                 }
             }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<WorkoutPlanDTO>> CreateWorkoutPlan(WorkoutPlanDTO workoutPlanDTO)
+        {
+            if (workoutPlanDTO == null)
+            {
+                return BadRequest("Workout plan data is required.");
+            }
+
+            var workoutPlan = new Workoutplan
+            {
+                UserId = workoutPlanDTO.UserId,
+                PlanName = workoutPlanDTO.PlanName,
+                CreatedAt = DateTime.Now
+            };
+
+            _context.Workoutplans.Add(workoutPlan);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
+        }
+
+        // PUT api/workoutplan/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateWorkoutPlan(int id, WorkoutPlanDTO workoutPlanDTO)
+        {
+            if (workoutPlanDTO == null || id <= 0)
+            {
+                return BadRequest("Invalid workout plan data or ID.");
+            }
+
+            var workoutPlan = await _context.Workoutplans.FindAsync(id);
+            if (workoutPlan == null)
+            {
+                return NotFound("Workout plan not found.");
+            }
+
+            workoutPlan.UserId = workoutPlanDTO.UserId;
+            workoutPlan.PlanName = workoutPlanDTO.PlanName;
+
+            _context.Entry(workoutPlan).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Workoutplans.Any(wp => wp.PlanId == id))
+                {
+                    return NotFound("Workout plan not found during update.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // DELETE api/workoutplan/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteWorkoutPlan(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest("Invalid workout plan ID.");
+            }
+
+            var workoutPlan = await _context.Workoutplans.FindAsync(id);
+            if (workoutPlan == null)
+            {
+                return NotFound("Workout plan not found.");
+            }
+
+            _context.Workoutplans.Remove(workoutPlan);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }
