@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HealthBro_BackEnd")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a3aa8b6509a5e4b268e670e102a603d57a41552")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+605a6d62dad1eefff47bfeb9e4e4aaeba1b23e05")]
 [assembly: System.Reflection.AssemblyProductAttribute("HealthBro_BackEnd")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HealthBro_BackEnd")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

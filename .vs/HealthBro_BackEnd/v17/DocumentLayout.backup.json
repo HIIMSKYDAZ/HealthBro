@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\desktop\\healthbro\\healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\planexercisecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\desktop\\healthbro\\healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\workoutplancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\desktop\\healthbro\\healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\models\\workoutplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\desktop\\healthbro\\healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\dtos\\workoutplandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|c:\\users\\pocsai\\desktop\\healthbro\\healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFC7E455-4159-44C9-BEA4-D25DD813E362}|HealthBro_BackEnd\\HealthBro_BackEnd.csproj|solutionrelative:healthbro_backend\\controllers\\exercisescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,41 +34,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Workoutplan.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
-              "RelativeDocumentMoniker": "HealthBro_BackEnd\\Models\\Workoutplan.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Models\\Workoutplan.cs",
-              "RelativeToolTip": "HealthBro_BackEnd\\Models\\Workoutplan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ExercisesController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\ExercisesController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T07:57:44.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T08:03:32.23Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlanexerciseController.cs",
+              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\PlanexerciseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-28T08:03:04.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "WorkoutplanController.cs",
               "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "RelativeDocumentMoniker": "HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
               "RelativeToolTip": "HealthBro_BackEnd\\Controllers\\WorkoutplanController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAwD0AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-23T18:50:41.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkoutplanDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
-              "RelativeDocumentMoniker": "HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
-              "RelativeToolTip": "HealthBro_BackEnd\\DTOs\\WorkoutplanDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T18:50:16.65Z",
               "EditorCaption": ""
             }
           ]
