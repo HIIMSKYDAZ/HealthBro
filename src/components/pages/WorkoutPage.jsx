@@ -40,20 +40,23 @@ export const WorkoutPage = () => {
 
     return (
         <div className="homemain-container">
+                  <video src="../videos/mainbg_small.mp4" autoPlay loop muted />
             <Sidebar />
             <div className="content">
-                <div style={{ position: "absolute", top: 0, right: 0 }}>
+                <div className="header">
+                    <div style={{ position: "absolute", top: 0, right: 0 }}>
                     <button
-                        className="new-plan-button"
-                        onClick={() => setIsPopupOpen(true)} // Popup megnyitása
-                    >
-                        Új terv létrehozása
-                    </button>
+    className="new-plan-button responsive-button"
+    onClick={() => setIsPopupOpen(true)} // Popup megnyitása
+>
+    Új terv létrehozása
+</button>
+                    </div>
+                    <h1 className="fancy-text">Workout</h1>
                 </div>
-                <h1>Workout</h1>
                 <div className="row-hb">
                     {workouts.map((workout, index) => (
-                        <a className="a-hb" href="/workoutpage" key={index}>
+                        <a className="a-hb" href={`/WorkoutPlanSingle/${workout.planId}`} key={index}>
                             <WorkoutCards imageSrc={workout.imageUrl || "../images/default.jpg"} cardName={workout.planName} />
                         </a>
                     ))}
@@ -70,3 +73,7 @@ export const WorkoutPage = () => {
         </div>
     );
 };
+
+
+
+

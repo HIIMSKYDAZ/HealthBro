@@ -13,6 +13,7 @@ import Settings from "./components/pages/Settings.jsx";
 import EditProfile from "./components/pages/EditProfile.jsx";
 import AccessDenied from "./components/pages/AccessDenied.jsx";
 import { WorkoutPage } from "./components/pages/WorkoutPage.jsx";
+import WorkoutPlanSingle from "./components/pages/WorkoutPlanSingle.jsx";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -34,7 +35,7 @@ function Main({ theme, toggleTheme }) {
 
   return (
     <div className={theme === "light" ? "light-mode" : "dark-mode"}>
-      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && location.pathname !== "/WorkoutPlan" &&(
+      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && location.pathname !== "/WorkoutPlan" && !location.pathname.includes("/WorkoutPlanSingle") && (
         <NavBar theme={theme} toggleTheme={toggleTheme} />
       )}
       <Routes>
@@ -50,6 +51,7 @@ function Main({ theme, toggleTheme }) {
         <Route path="/EditProfile" exact element={<EditProfile />} />
         <Route path="/WorkoutPlan" exact element={<WorkoutPage/>}/>
         <Route path="/AccessDenied" exact element={<AccessDenied/>}/>
+        <Route path="/WorkoutPlanSingle/:id" exact element={<WorkoutPlanSingle/>}/>
       </Routes>
     </div>
   );

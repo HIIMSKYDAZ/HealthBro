@@ -32,7 +32,7 @@ const Sidebar = () => {
         )}
       </div>
       <Link to="/HomeMain" className="img-fluid">
-        <img src="images/logo_feher.svg" alt="logo" style={{ width: "50%" }} />
+        <img src="images/logo.svg" alt="logo" style={{ width: "50%" }} />
       </Link>
       <ul className={click ? "menu-icon-main active" : "menu-icon-main"}>
         <li onClick={closeMobileMenu}>

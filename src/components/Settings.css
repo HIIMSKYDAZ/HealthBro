@@ -3,18 +3,18 @@ body {
   font-family: Arial, sans-serif;
   transition: background 0.3s, color 0.3s;
   background-color: #121212;
-  color: #fff !important;
+  color: #000000 !important;
 }
 
 .menu_link {
-  color: white !important; 
+  color: rgb(0, 0, 0) !important; 
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   background-color: #333;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 20px;
   border-radius: 10px;
   max-width: 300px;
