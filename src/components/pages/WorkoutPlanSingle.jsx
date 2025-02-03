@@ -6,8 +6,12 @@ import MainList from "../MainList.jsx";
 
     // Gyakorlat hozzáadása a főlistához
     const WorkoutPlanSingle = () => {
-        const [selectedMuscleGroup, setSelectedMuscleGroup] = useState("");
-        const [selectedExercises, setSelectedExercises] = useState([]);
+      const [selectedMuscleGroup, setSelectedMuscleGroup] = useState("");
+      const [selectedExercises, setSelectedExercises] = useState([]);
+  
+      const handleUpdateExercises = (updatedExercises) => {
+          setSelectedExercises(updatedExercises);
+      };
 
         const FillExercises = async() => {
             const response = await axios.get("/api/exercises", {
@@ -35,7 +39,7 @@ import MainList from "../MainList.jsx";
               </div>
           
               <div className="mainlist-container">
-                <MainList exercises={selectedExercises} onRemoveExercise={handleRemoveExercise} />
+                <MainList exercises={selectedExercises} onRemoveExercise={handleRemoveExercise} onUpdateExercise={handleUpdateExercises}/>
               </div>
           
               <div className="exercise-list-container">

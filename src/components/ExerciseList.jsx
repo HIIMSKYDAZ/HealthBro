@@ -32,19 +32,26 @@ const ExerciseList = ({ muscleGroupFilter, onAddExercise }) => {
     }, [muscleGroupFilter]);
 
     return (
-        <div className="exercise-list">
-            {exercises.map(exercise => (
-                <div key={exercise.id} className="exercise-item">
-                    <span className="exercise-name">{exercise.name}</span>
-                    <button 
-                        className="add-button"
-                        onClick={() => onAddExercise(exercise)}
-                        title="Hozzáadás"
-                    >
-                        +
-                    </button>
-                </div>
-            ))}
+        <div className="exercise-list-container">
+            <div className="exercise-scrollable">
+                {exercises.map(exercise => (
+                    <div key={exercise.id} className="exercise-item">
+                        <span className="exercise-name">{exercise.name}</span>
+                        <button 
+                            className="add-button"
+                            onClick={() => onAddExercise({
+                                ...exercise,
+                                sets: 3,
+                                weight: '',
+                                reps: 12,
+                                completed: false
+                            })}
+                        >
+                            +
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
