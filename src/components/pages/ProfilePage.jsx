@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../ProfilePage.css";
+import "./HomeMain.css"
 import { Button } from "../Button";
 import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +39,7 @@ const ProfilePage = () => {
       <div className="profile-content">
         <div className="profile-header">
 
-            <img src={userData?.profilePicturePath ? `https://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
+            <img src={userData?.profilePicturePath ? `http://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
               alt="Profile"
               width="200"
               height="200"
