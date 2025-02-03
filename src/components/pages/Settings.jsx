@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Settings.css";
-import "./HomeMain.css"
+import "./HomeMain.css";
 import axios from "axios";
 import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
@@ -99,7 +99,6 @@ const Settings = () => {
       alert("Hiba történt a jelszómódosítás során.");
     }
   };
-  
 
   const handleEmailChange = async (e) => {
     e.preventDefault();
