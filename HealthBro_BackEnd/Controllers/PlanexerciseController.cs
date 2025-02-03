@@ -42,6 +42,36 @@ namespace HealthBro_BackEnd.Controllers
             return Ok(planExerciseDTO);
         }
 
+
+        // GET api/planexercise/plan/{planId}
+        [HttpGet("plan/{planId}")]
+        public async Task<ActionResult<IEnumerable<PlanExerciseDTO>>> GetPlanExercisesByPlanId(int planId)
+        {
+            var planExercises = await _context.Planexercises
+                .Where(pe => pe.PlanId == planId)
+                .Include(pe => pe.Exercise)
+                .Include(pe => pe.Plan)
+                .ToListAsync();
+
+            if (!planExercises.Any())
+            {
+                return NotFound("No exercises found for the given PlanId.");
+            }
+
+            var planExerciseDTOs = planExercises.Select(pe => new PlanExerciseDTO
+            {
+                PlanExerciseId = pe.PlanExerciseId,
+                PlanId = pe.PlanId,
+                ExerciseId = pe.ExerciseId,
+                Sets = pe.Sets,
+                Weight = pe.Weight,
+                Reps = pe.Reps
+            }).ToList();
+
+            return Ok(planExerciseDTOs);
+        }
+
+
         // POST api/planexercise
         [HttpPost]
         public async Task<ActionResult<PlanExerciseDTO>> CreatePlanExercise(PlanExerciseDTO planExerciseDTO)
