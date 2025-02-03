@@ -9,12 +9,38 @@
 .filter {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start; /* Balra igazítás */
     padding: 10px !important;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     max-width: 500px;
     width: 100%;
-    margin: 0 auto;
+    margin: 20px !important;
+}
+
+/* A rádiógombok és szövegek egymás mellé helyezése */
+.filter__radios {
+    display: flex;
+    flex-direction: column; /* Egymás alatt legyenek */
+    gap: 10px; /* Távolság az elemek között */
+    margin-top: 10px;
+}
+
+.filter__radios div {
+    display: flex;
+    align-items: center; /* Szöveg és input egy sorban legyen */
+    gap: 8px; /* Távolság a rádiógomb és a szöveg között */
+    color: white; /* Fehér szöveg a sötét háttéren */
+}
+
+.filter__radios input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.filter__radios label {
+    font-size: 16px;
+    cursor: pointer;
 }

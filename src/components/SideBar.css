@@ -1,96 +1,95 @@
 .homemain-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr; 
-    height: 100vh; 
-    gap: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    padding: 30px;
-  }
+    display: grid !important;
+    grid-template-columns: 1fr 3fr 1fr !important; 
+    height: 100vh !important; 
+    gap: 20px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    padding: 30px !important;
+}
 
-
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #333;
+.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #333 !important;
     color: rgb(0, 0, 0) !important;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 300px; 
-    box-sizing: border-box; 
-    overflow-y: auto; 
-    text-align: center;
-  }
+    padding: 20px !important;
+    border-radius: 10px !important;
+    max-width: 300px !important; 
+    box-sizing: border-box !important; 
+    overflow-y: auto !important; 
+    text-align: center !important;
+}
+
 .logo {
-    font-size: 14px; 
-    margin-bottom: 20px;
-    word-wrap: break-word; 
-    max-width: 100%; 
-    height: auto; 
-    object-fit: contain;
+    font-size: 14px !important; 
+    margin-bottom: 20px !important;
+    word-wrap: break-word !important; 
+    max-width: 100% !important; 
+    height: auto !important; 
+    object-fit: contain !important;
 }
 
 .menu button {
-    width: 100%;
-    max-width: 250px; /* vagy egy másik megfelelő érték */
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #444;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center; /* vagy left, ha nem középre akarod */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 100% !important;
+    max-width: 250px !important;
+    padding: 10px !important;
+    margin: 5px 0 !important;
+    background-color: #444 !important;
+    color: rgb(0, 0, 0) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
 }
 
-
 .menu button:hover {
-    background-color: #555;
+    background-color: #555 !important;
 }
 
 .logout {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    word-wrap: break-word;
+    margin-top: auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    word-wrap: break-word !important;
 }
 
+.content {
+    background-color: #f4f4f4 !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+}
 
+.content h2 {
+    margin-top: 0 !important;
+}
 
-  .content {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .content h2 {
-    margin-top: 0;
-  }
+.right-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
 
-  .right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Középre vízszintesen */
-    justify-content: center; /* Középre függőlegesen */
-    background-color: #f4f4f4;  
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+.profile-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #f4f4f4 !important;  
+    padding: 20px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 100px !important;
+    height: 100px !important;
+    background-color: #ccc !important;
+    border-radius: 50% !important;
+    margin-bottom: 10px !important;
 }
+

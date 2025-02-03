@@ -7,6 +7,15 @@ video {
 }
 
 .homemain-container {
+  display: grid !important;
+  grid-template-columns: 1fr 3fr 1fr !important;
+  height: auto !important;
+  gap: 20px !important;
+  padding: 30px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  min-height: 100vh !important;
+  background-color: #ffffff !important;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   height: auto;
@@ -250,4 +259,54 @@ video {
   1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
   1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
   text-align: center;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f400;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Középső lista (MainList) */
+.mainlist-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eaeaea;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Jobb oldali lista (ExerciseList) */
+.exercise-list-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdcdc;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+/* Mobilbarát nézet (max 768px szélesség) */
+@media screen and (max-width: 768px) {
+  .homemain-container-wps {
+    grid-template-columns: 1fr; /* Egy oszlop mobilon */
+    gap: 10px;
+    padding: 15px;
+  }
+}
+
+.homemain-container-wps {
+  display: flex; /* Grid helyett flexbox */
+  flex-direction: row; /* Vízszintes elrendezés */
+  justify-content: space-between; /* Egyenletes elosztás */
+  align-items: flex-start; /* Fent igazítja az elemeket */
+  height: 100vh; /* Teljes magasság */
+  gap: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }

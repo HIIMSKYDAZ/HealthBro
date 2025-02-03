@@ -134,10 +134,10 @@ const Settings = () => {
   }, [navigate]);
 
   return (
-    <div className="settings-page">
+    <>
+    <div className="homemain-container">
       <Sidebar />
-
-      <div className="settings-content">
+      <div className="content">
         <div className="settings-header">
           <h2>Beállítások</h2>
         </div>
@@ -227,6 +227,7 @@ const Settings = () => {
         {success && <div className="success-message">{success}</div>}
       </div>
     </div>
+    </>
   );
 };
 
