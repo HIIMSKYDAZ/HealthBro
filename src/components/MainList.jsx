@@ -41,7 +41,7 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
                         key={`${exercise.id}-${index}`} 
                         className={`main-list-item ${exercise.completed ? 'completed' : ''}`}
                     >
-                        <span className="exercise-name">{exercise.name}</span>
+                        <span className="exercise-name">{exercise.name ? exercise.name : }</span>
                         
                         <input
                             type="number"

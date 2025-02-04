@@ -1,26 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "../Filter.jsx";
 import axios from "axios";
 import ExerciseList from "../ExerciseList.jsx";
 import MainList from "../MainList.jsx";
+import { useParams } from "react-router-dom";
 
     // Gyakorlat hozzáadása a főlistához
     const WorkoutPlanSingle = () => {
       const [selectedMuscleGroup, setSelectedMuscleGroup] = useState("");
       const [selectedExercises, setSelectedExercises] = useState([]);
+      const planId = useParams().id;
   
       const handleUpdateExercises = (updatedExercises) => {
           setSelectedExercises(updatedExercises);
       };
 
         const FillExercises = async() => {
-            const response = await axios.get("/api/exercises", {
+            const response = await axios.get(`https://localhost:5000/api/Planexercise/plan/${planId}`, {
                 params: {
                     muscleGroup: selectedMuscleGroup || undefined
                 }
             });
             setSelectedExercises(response.data);
         }
+        
+        useEffect(() => {
+            FillExercises();
+        }, [selectedMuscleGroup]);
     
         // Gyakorlat hozzáadása
         const handleAddExercise = (exercise) => {

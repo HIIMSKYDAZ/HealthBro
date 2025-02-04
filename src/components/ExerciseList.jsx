@@ -34,8 +34,8 @@ const ExerciseList = ({ muscleGroupFilter, onAddExercise }) => {
     return (
         <div className="exercise-list-container">
             <div className="exercise-scrollable">
-                {exercises.map(exercise => (
-                    <div key={exercise.id} className="exercise-item">
+                {exercises.map((exercise,index) => (
+                    <div key={exercise.id} index={index} className="exercise-item">
                         <span className="exercise-name">{exercise.name}</span>
                         <button 
                             className="add-button"
