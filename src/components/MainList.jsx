@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import e from "cors";
 
 const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
+    const [ExerciseList, setExerciseList] = useState([]);
     const handleChange = (index, field, value) => {
         const updatedExercises = [...exercises];
         updatedExercises[index][field] = value;
         onUpdateExercise(updatedExercises);
     };
+
+    const getExercises = async() => {
+        try {
+            const response = await axios.get('https://localhost:5000/api/Exercises');
+            setExerciseList(response.data);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
     const getPlanExercises = () => {
         const url = new URLSearchParams(window.location.search);
@@ -26,6 +38,10 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
         onUpdateExercise(updatedExercises);
     };
 
+    useEffect(() => {
+        getExercises();
+    }, []);
+
     return (
         <div className="main-list-container">
             <div className="main-list-header">
@@ -41,7 +57,7 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
                         key={`${exercise.id}-${index}`} 
                         className={`main-list-item ${exercise.completed ? 'completed' : ''}`}
                     >
-                        <span className="exercise-name">{exercise.name ? exercise.name : }</span>
+                        <span className="exercise-name">{exercise.name ? exercise.name : ExerciseList.filter(ex => ex.exerciseId === ExerciseList[index].exerciseId)[0].name}</span>
                         
                         <input
                             type="number"
