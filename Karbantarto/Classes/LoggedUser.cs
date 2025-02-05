@@ -12,7 +12,7 @@ namespace Karbantarto.Classes
 
         public string email { get; set; }
 
-        public int? permissionId { get; set; }
+        public int? permission { get; set; }
 
         public string profilePicturePath { get; set; }
 

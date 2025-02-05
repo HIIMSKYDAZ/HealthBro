@@ -19,7 +19,7 @@ namespace Karbantarto
             if (Karbantarto.Menu.bejelentkezve)
             {
                 //menu.mnu_dat_Felh.Visibility = Visibility.Hidden;
-                if (Menu.loggedUser.permissionId == 2)
+                if (Menu.loggedUser.permission == 2)
                 {
                     menu.mnu_dat_Felh.IsEnabled = true;
                 }
