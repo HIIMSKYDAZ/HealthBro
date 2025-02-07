@@ -14,6 +14,7 @@ import EditProfile from "./components/pages/EditProfile.jsx";
 import AccessDenied from "./components/pages/AccessDenied.jsx";
 import { WorkoutPage } from "./components/pages/WorkoutPage.jsx";
 import WorkoutPlanSingle from "./components/pages/WorkoutPlanSingle.jsx";
+import ForgotPasswordPage from "./components/pages/ForgotPasswordPage.jsx";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -52,6 +53,7 @@ function Main({ theme, toggleTheme }) {
         <Route path="/WorkoutPlan" exact element={<WorkoutPage/>}/>
         <Route path="/AccessDenied" exact element={<AccessDenied/>}/>
         <Route path="/WorkoutPlanSingle/:id" exact element={<WorkoutPlanSingle/>}/>
+        <Route path="/ForgotPasswordPage" exact element={<ForgotPasswordPage/>}/>
       </Routes>
     </div>
   );

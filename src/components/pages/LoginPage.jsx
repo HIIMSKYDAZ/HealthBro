@@ -93,12 +93,24 @@ function LoginPage() {
                       <div className="d-flex justify-content-center">
                         <Button onClick={handleSubmit} className="btn--primary btn--medium">Belépés</Button>
                       </div>
+
+
+                      <p className="text-center text-muted mt-5 mb-0">
+                        Elfelejtetted a jelszavad?{" "}
+                        <Link to="/ForgotPasswordPage">
+                          <u>Elfelejtett jelszó</u>
+                        </Link>
+                      </p>
+
+
+
                       <p className="text-center text-muted mt-5 mb-0">
                         Nincs fiókod?{" "}
                         <Link to="/sign-up">
                           <u>Regisztrálj most!</u>
                         </Link>
                       </p>
+ 
                     </form>
                   </div>
                 </div>
