@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0BWM4MKgtU4=",
+  "dgSpecHash": "GDiGfSd1N2s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\SzJorgosz\\Desktop\\HealthBro-backend\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
+  "projectFilePath": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\project\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SzJorgosz\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\SzJorgosz\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
