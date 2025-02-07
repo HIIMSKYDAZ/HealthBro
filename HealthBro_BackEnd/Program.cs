@@ -45,23 +45,20 @@ namespace HealthBro_BackEnd
         {
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
             mail.From = new MailAddress("noreply.healthbro@gmail.com");
             mail.To.Add(mailAddressTo);
             mail.Subject = subject;
             mail.Body = body;
-
-            /*System.Net.Mail.Attachment attachment;
-            attachment = new System.Net.Mail.Attachment("");
-            mail.Attachments.Add(attachment);*/
+            mail.IsBodyHtml = true; 
 
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("noreply.healthbro@gmail.com", "ppjanihpbwgqmxyj");
-
             SmtpServer.EnableSsl = true;
 
             await SmtpServer.SendMailAsync(mail);
-
         }
+
 
 
 

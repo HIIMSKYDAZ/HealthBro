@@ -2,7 +2,6 @@
 {
     public class PlanExerciseDTO
     {
-        public int? PlanExerciseId { get; set; }
         public int? PlanId { get; set; }
         public int? ExerciseId { get; set; }
         public int Sets { get; set; }

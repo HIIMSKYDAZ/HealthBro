@@ -4117,23 +4117,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pocsai\\.nuget\\packages\\": {},
+    "C:\\Users\\SzJorgosz\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\SzJorgosz\\Desktop\\HealthBro-backend\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
       "projectName": "HealthBro_BackEnd",
-      "projectPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
-      "packagesPath": "C:\\Users\\Pocsai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro\\HealthBro_BackEnd\\obj\\",
+      "projectPath": "C:\\Users\\SzJorgosz\\Desktop\\HealthBro-backend\\HealthBro_BackEnd\\HealthBro_BackEnd.csproj",
+      "packagesPath": "C:\\Users\\SzJorgosz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SzJorgosz\\Desktop\\HealthBro-backend\\HealthBro_BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Pocsai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SzJorgosz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -6,6 +6,7 @@ using HealthBro_BackEnd.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace HealthBro_BackEnd.Controllers
 {
@@ -46,7 +47,7 @@ namespace HealthBro_BackEnd.Controllers
                 try
                 {
                     string Hash = HealthBro_BackEnd.Program.CreateSHA256(loginDTO.TmpHash);
-                    User loggedUser =await cx.Users.Include(f=>f.Permission).FirstOrDefaultAsync(f => f.LoginName == loginDTO.LoginName && f.Hash == Hash);
+                    User loggedUser = await cx.Users.Include(f => f.Permission).FirstOrDefaultAsync(f => f.LoginName == loginDTO.LoginName && f.Hash == Hash);
                     if (loggedUser != null && loggedUser.Active)
                     {
                         string token = Guid.NewGuid().ToString();
