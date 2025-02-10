@@ -32,6 +32,11 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
         }
     };
 
+    const exerciseNameById = ExerciseList.reduce((acc, exercise) => {
+        acc[exercise.id] = exercise.name;
+        return acc;
+      }, {});
+
     const toggleCompleted = (index) => {
         const updatedExercises = [...exercises];
         updatedExercises[index].completed = !updatedExercises[index].completed;
@@ -57,15 +62,13 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
                         key={`${exercise.id}-${index}`} 
                         className={`main-list-item ${exercise.completed ? 'completed' : ''}`}
                     >
-                        <span className="exercise-name">{exercise.name ? exercise.name : ExerciseList.filter(ex => ex.exerciseId === ExerciseList[index].exerciseId)[0].name}</span>
-                        
+                        <span className="exercise-name">{exercise.name ? exercise.name : ExerciseList.find(e => e.exerciseId === exercise.exerciseId)?.name}</span>
                         <input
                             type="number"
                             value={exercise.sets}
                             onChange={(e) => handleChange(index, 'sets', e.target.value)}
                             className="sets-input"
                         />
-                        
                         <input
                             type="number"
                             value={exercise.weight}
@@ -87,7 +90,7 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
                         >
                             {exercise.completed ? '✓' : ''}
                         </button>
-                        
+
                         <button 
                             className="remove-button"
                             onClick={() => onRemoveExercise(index)}
