@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\HealthBro_BackEnd.props" />
-</Project>
