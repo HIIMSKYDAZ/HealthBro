@@ -74,7 +74,7 @@ const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
                             value={exercise.weight}
                             onChange={(e) => handleChange(index, 'weight', e.target.value)}
                             className="weight-input"
-                            placeholder="kg"
+                            placeholder={localStorage.getItem("weightUnit")}
                         />
                         
                         <input
