@@ -7,11 +7,15 @@ import { useNavigate } from "react-router-dom";
 import crypto from "crypto-js";  // crypto-js könyvtár importálása
 
 const Settings = () => {
-  const [unitSystem, setUnitSystem] = useState({
-    distance: "KM",
-    length: "CM",
-    weight: "KG",
-  });
+  const [distanceUnit, setDistanceUnit] = useState(() => localStorage.getItem("distanceUnit") || "KM");
+  const [lengthUnit, setLengthUnit] = useState(() => localStorage.getItem("lengthUnit") || "CM");
+  const [weightUnit, setWeightUnit] = useState(() => localStorage.getItem("weightUnit") || "KG");
+
+  useEffect(() => {
+    localStorage.setItem("distanceUnit", distanceUnit);
+    localStorage.setItem("lengthUnit", lengthUnit);
+    localStorage.setItem("weightUnit", weightUnit);
+  }, [distanceUnit, lengthUnit, weightUnit]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,39 +26,34 @@ const Settings = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const toggleUnit = (type) => {
-    setUnitSystem((prev) => ({
-      ...prev,
-      [type]:
-        prev[type] === "KM" || prev[type] === "CM" || prev[type] === "KG"
-          ? type === "distance"
-            ? "MILE"
-            : type === "length"
-            ? "INCH"
-            : "LBS"
-          : type === "distance"
-          ? "KM"
-          : type === "length"
-          ? "CM"
-          : "KG",
-    }));
-  };
-
-  const handleSaveUnits = async () => {
-    try {
-      const response = await axios.post("https://localhost:5000/api/User/SaveUnits", {
-        units: unitSystem,
-      });
-
-      if (response.status === 200) {
-        setSuccess("A mértékegységek sikeresen elmentve!");
-      } else {
-        setError("Hiba történt a mértékegységek mentése során.");
-      }
-    } catch (error) {
-      setError("Hiba történt a mértékegységek mentése során.");
+    if (type === "distance") {
+      setDistanceUnit((prev) => (prev === "KM" ? "MILE" : "KM"));
+    } else if (type === "length") {
+      setLengthUnit((prev) => (prev === "CM" ? "INCH" : "CM"));
+    } else if (type === "weight") {
+      setWeightUnit((prev) => (prev === "KG" ? "LBS" : "KG"));
     }
   };
 
+  /*
+  const handleSaveUnits = async () => {
+    try {
+      const response = await axios.post("https://localhost:5000/api/User/SaveUnits", {
+        distance: distanceUnit,
+        length: lengthUnit,
+        weight: weightUnit,
+      });
+
+      if (response.status === 200) {
+        alert("A mértékegységek sikeresen elmentve!");
+      } else {
+        alert("Hiba történt a mértékegységek mentése során.");
+      }
+    } catch (error) {
+      alert("Hiba történt a mértékegységek mentése során.");
+    }
+  };
+*/
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -146,26 +145,28 @@ const Settings = () => {
           <div className="settings-section">
             <h3>Mértékegységek</h3>
             <div className="setting-option">
-              <span>Távolság:</span>
-              <button onClick={() => toggleUnit("distance")} className="unit-btn">
-                {unitSystem.distance}
-              </button>
-            </div>
-            <div className="setting-option">
-              <span>Hossz:</span>
-              <button onClick={() => toggleUnit("length")} className="unit-btn">
-                {unitSystem.length}
-              </button>
-            </div>
-            <div className="setting-option">
-              <span>Súly:</span>
-              <button onClick={() => toggleUnit("weight")} className="unit-btn">
-                {unitSystem.weight}
-              </button>
-            </div>
-            <button onClick={handleSaveUnits} style={{ width: "10rem" }} className="save-units-btn">
-              Mértékegységek mentése
-            </button>
+                <span>Távolság:</span>
+                <button onClick={() => toggleUnit("distance")} className="unit-btn">
+                  {distanceUnit}
+                </button>
+              </div>
+              <div className="setting-option">
+                <span>Hossz:</span>
+                <button onClick={() => toggleUnit("length")} className="unit-btn">
+                  {lengthUnit}
+                </button>
+              </div>
+              <div className="setting-option">
+                <span>Súly:</span>
+                <button onClick={() => toggleUnit("weight")} className="unit-btn">
+                  {weightUnit}
+                </button>
+              </div>
+              {/*              
+              <button onClick={handleSaveUnits} style={{ width: "10rem" }} className="save-units-btn">
+                Mértékegységek mentése
+              </button>*/}
+
           </div>
 
           <div className="settings-section">
