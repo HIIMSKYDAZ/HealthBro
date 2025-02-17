@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../ProfilePage.css";
-import "./HomeMain.css"
+import "./HomeMain.css";
 import { Button } from "../Button";
 import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +21,6 @@ const ProfilePage = () => {
       try {
         const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
         setUserData(response.data);
-        console.log(response.data);
-        
       } catch (error) {
         console.error("Error fetching user data:", error);
         alert("Failed to load user data.");
@@ -33,36 +31,37 @@ const ProfilePage = () => {
   }, [navigate]);
 
   return (
-    <div className="profile-page">
+    <div className="homemain-container">
       <Sidebar />
-
-      <div className="profile-content">
+      <div className="content">
         <div className="profile-header">
-
-            <img src={userData?.profilePicturePath ? `http://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
-              alt="Profile"
-              width="200"
-              height="200"
-            />
+          <img 
+            src={userData?.profilePicturePath ? `http://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
+            alt="Profile"
+            className="profile-picture"
+          />
 
           <div className="profile-info">
             <h2>{userData?.name}</h2>
-            <Button buttonStyle="btn--primary" buttonSize="btn--medium" linkTo="/EditProfile">
+            <Button 
+              buttonStyle="btn--primary" 
+              buttonSize="btn--medium" 
+              linkTo="/EditProfile"
+            >
               Profil szerkesztése
             </Button>
           </div>
         </div>
 
         <div className="profile-body">
-          <div className="statistics">
+          <div className="settings-section">
             <h3>Statisztika</h3>
             <div className="stat-content">
-              <div className="stat-duration">
+              <div className="stat-item">
                 <h4>0 perc</h4>
                 <p>Eddig</p>
               </div>
-
-              <div className="stat-reps">
+              <div className="stat-item">
                 <h4>0 ismétlés</h4>
                 <p>Eddig</p>
               </div>
