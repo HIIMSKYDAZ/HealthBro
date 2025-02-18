@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthBro_BackEnd.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PlanexerciseController : ControllerBase
     {
@@ -16,7 +16,57 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
-        // POST api/planexercise
+        [HttpGet("/PlanId/{id}")]
+        public async Task<ActionResult<List<PlanExercisePlanIdDTO>>> GetPlanExercisePlanId(int id)
+        {
+            var planExercises = await _context.Planexercises
+                .Where(pe => pe.PlanId == id)
+                .ToListAsync();
+
+            if (!planExercises.Any())
+            {
+                return NotFound();
+            }
+
+            var planExercisePlanIdDTOs = planExercises.Select(pe => new PlanExercisePlanIdDTO
+            {
+                PlanExerciseId = pe.PlanExerciseId,
+                ExerciseId = pe.ExerciseId,
+                Sets = pe.Sets,
+                Weight = pe.Weight,
+                Reps = pe.Reps
+            }).ToList();
+
+            return Ok(planExercisePlanIdDTOs);
+        }
+
+        [HttpGet("/PlanExercise/{id}")]
+        public async Task<ActionResult<PlanExerciseDTO>> GetPlanExerciseId(int id)
+        {
+            var planExercise = await _context.Planexercises
+                .Include(pe => pe.Exercise) // Betölti a kapcsolódó Exercise entitást
+                .Include(pe => pe.Plan) // Betölti a kapcsolódó Plan entitást
+                .Where(pe => pe.PlanExerciseId == id)
+                .FirstOrDefaultAsync();
+
+            if (planExercise == null)
+            {
+                return NotFound();
+            }
+
+            // DTO visszaadása
+            var planExerciseDTO = new PlanExerciseDTO
+            {
+                PlanId = planExercise.PlanId,
+                ExerciseId = planExercise.ExerciseId,
+                Sets = planExercise.Sets,
+                Weight = planExercise.Weight,
+                Reps = planExercise.Reps
+            };
+
+            return Ok(planExerciseDTO);
+        }
+
         [HttpPost]
         public async Task<ActionResult<PlanExerciseDTO>> CreatePlanExercise(PlanExerciseDTO planExerciseDTO)
         {
@@ -41,35 +91,9 @@ namespace HealthBro_BackEnd.Controllers
             await _context.SaveChangesAsync();
 
             // A válasz visszaadása a létrehozott PlanExercise DTO-jával
-            return CreatedAtAction(nameof(GetPlanExercise), new { id = planExercise.PlanExerciseId }, planExerciseDTO);
+            return CreatedAtAction(nameof(GetPlanExerciseId), new { id = planExercise.PlanExerciseId }, planExerciseDTO);
         }
 
-        // Segédfüggvény egy PlanExercise lekérésére
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PlanExerciseDTO>> GetPlanExercise(int id)
-        {
-            var planExercise = await _context.Planexercises
-                .Include(pe => pe.Exercise) // Betölti a kapcsolódó Exercise entitást
-                .Include(pe => pe.Plan) // Betölti a kapcsolódó Plan entitást
-                .Where(pe => pe.PlanId == id)
-                .FirstOrDefaultAsync();
 
-            if (planExercise == null)
-            {
-                return NotFound();
-            }
-
-            // DTO visszaadása
-            var planExerciseDTO = new PlanExerciseDTO
-            {
-                PlanId = planExercise.PlanId,
-                ExerciseId = planExercise.ExerciseId,
-                Sets = planExercise.Sets,
-                Weight = planExercise.Weight,
-                Reps = planExercise.Reps
-            };
-
-            return Ok(planExerciseDTO);
-        }
     }
 }
