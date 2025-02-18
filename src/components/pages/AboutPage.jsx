@@ -25,7 +25,7 @@ const AboutPage = () => {
         </section>
       </main>
       <footer style={{ borderTop: '1px solid #ccc', marginTop: '20px', paddingTop: '10px' }}>
-        <p>© 2024 HealthBro Studió. Minden jog fenntartva.</p>
+        <p>© 2025 HealthBro Studió. Minden jog fenntartva.</p>
       </footer>
     </div>
   );

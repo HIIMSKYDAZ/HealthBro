@@ -35,25 +35,6 @@ const Settings = () => {
     }
   };
 
-  /*
-  const handleSaveUnits = async () => {
-    try {
-      const response = await axios.post("https://localhost:5000/api/User/SaveUnits", {
-        distance: distanceUnit,
-        length: lengthUnit,
-        weight: weightUnit,
-      });
-
-      if (response.status === 200) {
-        alert("A mértékegységek sikeresen elmentve!");
-      } else {
-        alert("Hiba történt a mértékegységek mentése során.");
-      }
-    } catch (error) {
-      alert("Hiba történt a mértékegységek mentése során.");
-    }
-  };
-*/
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");

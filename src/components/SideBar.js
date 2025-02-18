@@ -55,6 +55,11 @@ const Sidebar = () => {
             Beállítások <HiMiniCog6Tooth />
           </Link>
         </li>
+        <li onClick={closeMobileMenu}>
+          <Link to="/review" className="menu_link">
+            Vélemény <HiMiniCog6Tooth />
+          </Link>
+        </li>
         <li onClick={() => { handleLogout(); closeMobileMenu(); }}>
           <Link to="#" className="menu_link">
             Kijelentkezés <CiLogout />

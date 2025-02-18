@@ -15,6 +15,7 @@ import AccessDenied from "./components/pages/AccessDenied.jsx";
 import { WorkoutPage } from "./components/pages/WorkoutPage.jsx";
 import WorkoutPlanSingle from "./components/pages/WorkoutPlanSingle.jsx";
 import ForgotPasswordPage from "./components/pages/ForgotPasswordPage.jsx";
+import Review from "./components/pages/Review.jsx";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -36,7 +37,7 @@ function Main({ theme, toggleTheme }) {
 
   return (
     <div className={theme === "light" ? "light-mode" : "dark-mode"}>
-      {location.pathname !== "/HomeMain" && location.pathname !== "/profile" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && location.pathname !== "/WorkoutPlan" && !location.pathname.includes("/WorkoutPlanSingle") && (
+      {location.pathname !== "/HomeMain" && location.pathname !== "/profile"&& location.pathname !== "/review" && location.pathname !== "/Settings" && location.pathname !== "/EditProfile"&& location.pathname !== "/Profile" && location.pathname !== "/WorkoutPlan" && !location.pathname.includes("/WorkoutPlanSingle") && (
         <NavBar theme={theme} toggleTheme={toggleTheme} />
       )}
       <Routes>
@@ -54,6 +55,7 @@ function Main({ theme, toggleTheme }) {
         <Route path="/AccessDenied" exact element={<AccessDenied/>}/>
         <Route path="/WorkoutPlanSingle/:id" exact element={<WorkoutPlanSingle/>}/>
         <Route path="/ForgotPasswordPage" exact element={<ForgotPasswordPage/>}/>
+        <Route path="/Review" exact element={<Review/>}/>
       </Routes>
     </div>
   );
