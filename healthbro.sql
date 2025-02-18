@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 23. 20:05
+-- Létrehozás ideje: 2025. Feb 18. 10:09
 -- Kiszolgáló verziója: 10.4.32-MariaDB
--- PHP verzió: 8.0.30
+-- PHP verzió: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -135,6 +135,29 @@ INSERT INTO `planexercises` (`PlanExerciseID`, `PlanID`, `ExerciseID`, `Sets`, `
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL,
+  `felhasznaloNev` varchar(100) NOT NULL,
+  `velemeny` varchar(200) NOT NULL,
+  `profilePicturePath` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `review`
+--
+
+INSERT INTO `review` (`id`, `felhasznaloNev`, `velemeny`, `profilePicturePath`) VALUES
+(1, 'asd', 'asd', 'asd'),
+(2, 'string', 'string', 'string'),
+(3, 'string', 'string', 'string'),
+(4, 'Kerenyi', 'asdsa', 'Képernyőkép 2024-09-04 080537.png');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `user`
 --
 
@@ -155,8 +178,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Id`, `LoginName`, `HASH`, `SALT`, `Name`, `PermissionId`, `Active`, `Email`, `ProfilePicturePath`) VALUES
-(1, 'kerenyir', 'dcedbd2d352d19c6eae0dfb12271b74d985c825b8d774afd2abd0d101b6e57ef', 'jQGX8grO1yjNqhiZbtROcseiqj1NVZJd2iqlfxPx1GKLJ9H8smnLJ9dloScCK6Zp', 'Kerényi Róbert', 2, 1, 'kerenyir@kkszki.hu', 'default.jpg'),
-(14, 'gabi', '1f06bda4d4b595c97c80a1c2676a72c96519ebc5b72d859ed880bfce63eae5ed', 'nd4Di7vtBcyDEQLcj9OxvYJXoTDHW82F1aK7jAy8ZjE095lfaweuRWUrtOq68P4s', 'gabi', 1, 1, 'gabi115@gmail.com', '');
+(1, 'kerenyir', 'dcedbd2d352d19c6eae0dfb12271b74d985c825b8d774afd2abd0d101b6e57ef', 'jQGX8grO1yjNqhiZbtROcseiqj1NVZJd2iqlfxPx1GKLJ9H8smnLJ9dloScCK6Zp', 'Kerenyi', 2, 1, 'kerenyir@kkszki.hu', 'Képernyőkép 2024-09-04 080537.png'),
+(14, 'gabisad', 'a157b416077e65dc21422590863bc943a14cf0c9532369fffdb146b33111e7ea', 'bp84eEYWhIy3qOt6tcIlk4YrkJgFs7WuTTxHsA3vs5ldK9JtPBq40j57bB7cYxse', 'gabiasd', 1, 1, 'gabi115@gmail.com', ''),
+(21, 'string', '473287f8298dba7163a897908958f7c0eae733e25d2e027992ea2edc9bed2fa8', 'string', 'string', 1, 0, 'string', 'string'),
+(23, 'asd', 'bd49a7a6e69167fbcd0e80458337a08d61941f4673dc54d0a2d6127faa66f525', 'KSQ840ERoHQz6QsP6LwgOiPWPTMeygnUKs97K4hENmEXgTmn1BZgguvQLXkBhMfa', 'asdmodosit', 2, 1, 'asd', 'default.jpg'),
+(24, 'uj2', 'dcedbd2d352d19c6eae0dfb12271b74d985c825b8d774afd2abd0d101b6e57ef', 'jQGX8grO1yjNqhiZbtROcseiqj1NVZJd2iqlfxPx1GKLJ9H8smnLJ9dloScCK6Zp', 'uj', 1, 1, 'uj', 'default.jpg'),
+(33, '123', 'fffaf16fed6c7e750948637d9c186886a8c01f424fcf83eba5dca9ec50e0c370', 'c3598a22c8649197498ccca671a3d732', '123', 1, 1, 'szilagyij@kkszki.hu', '');
 
 -- --------------------------------------------------------
 
@@ -178,7 +205,8 @@ CREATE TABLE `workoutplans` (
 INSERT INTO `workoutplans` (`PlanID`, `UserID`, `PlanName`, `CreatedAt`) VALUES
 (4, 1, 'Új Edzésterv', '2025-01-23 19:00:00'),
 (5, 1, 'Test', '2025-01-23 19:51:55'),
-(6, 1, 'Test', '2025-01-23 19:51:58');
+(6, 1, 'Test', '2025-01-23 19:51:58'),
+(7, 1, 'talán', '2025-02-10 08:17:43');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -205,6 +233,12 @@ ALTER TABLE `planexercises`
   ADD PRIMARY KEY (`PlanExerciseID`),
   ADD KEY `PlanID` (`PlanID`),
   ADD KEY `ExerciseID` (`ExerciseID`);
+
+--
+-- A tábla indexei `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `user`
@@ -245,16 +279,22 @@ ALTER TABLE `planexercises`
   MODIFY `PlanExerciseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT a táblához `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT a táblához `workoutplans`
 --
 ALTER TABLE `workoutplans`
-  MODIFY `PlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `PlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Megkötések a kiírt táblákhoz
