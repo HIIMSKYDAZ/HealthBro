@@ -32,7 +32,23 @@ namespace HealthBro_BackEnd.Controllers
                     return BadRequest(new { error = ex.Message });
                 }
             }
+        }
 
+        [HttpGet]
+        public IActionResult GetVelemeny()
+        {
+            using (var cx = new HealthbroContext())
+            {
+                try
+                {
+                    return Ok(cx.Reviews.ToList());
+                }
+                catch (Exception ex)
+                {
+
+                    return BadRequest(ex.Message);
+                }
+            }
         }
     }
 }
