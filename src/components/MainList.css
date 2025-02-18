@@ -1,0 +1,161 @@
+.main-list-container {
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .main-list-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .main-list-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+    transition: background 0.2s ease;
+  }
+  
+  .main-list-item:hover {
+    background: #f8f9fa;
+  }
+  
+  .main-list-item.completed {
+    background: #e8f5e9;
+    opacity: 0.8;
+  }
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .complete-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+  }
+  
+  .complete-button.completed {
+    background: #4caf50;
+    color: white;
+  }
+  
+  .remove-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .remove-button:hover {
+    background: #ff5252;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  }
+  
+  .header-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr) 100px 50px;
+    gap: 15px;
+    padding: 15px;
+    background: #f5f7fa;
+    font-weight: 600;
+    color: #4a5568;
+  }
+  
+  .exercise-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr) 100px 50px;
+    gap: 15px;
+    padding: 12px 15px;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.2s;
+  }
+  
+  .exercise-row:hover {
+    background: #f8fafc;
+  }
+  
+  .input-number {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .state-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #48bb78;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .state-btn.completed {
+    background: #48bb78;
+    color: white;
+  }
+  
+  .delete-btn {
+    background: #fc8181;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:hover {
+    background: #f56565;
+  }
+  
+  .loader, .error {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  .error {
+    color: #e53e3e;
+  }

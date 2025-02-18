@@ -17,7 +17,7 @@ import { useParams } from "react-router-dom";
 
         const FillExercises = async() => {
           try{
-            const response = await axios.get(`https://localhost:5000/api/Planexercise/plan/${planId}`, {
+            const response = await axios.get(`https://localhost:5000/PlanId/${planId}`, {
                 params: {
                     muscleGroup: selectedMuscleGroup || undefined
                 }
@@ -50,7 +50,7 @@ import { useParams } from "react-router-dom";
               </div>
           
               <div className="mainlist-container">
-                <MainList exercises={selectedExercises} onRemoveExercise={handleRemoveExercise} onUpdateExercise={handleUpdateExercises}/>
+                <MainList exercises={selectedExercises? selectedExercises : []} onRemoveExercise={handleRemoveExercise} onUpdateExercise={handleUpdateExercises}/>
               </div>
           
               <div className="exercise-list-container">

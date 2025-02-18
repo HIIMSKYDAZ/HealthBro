@@ -1,107 +1,113 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import e from "cors";
+import "./MainList.css";
 
-const MainList = ({ exercises, onUpdateExercise, onRemoveExercise }) => {
-    const [ExerciseList, setExerciseList] = useState([]);
-    const handleChange = (index, field, value) => {
-        const updatedExercises = [...exercises];
-        updatedExercises[index][field] = value;
-        onUpdateExercise(updatedExercises);
-    };
+const MainList = ({ 
+  exercises, // Kötelező alapértelmezett érték
+  onUpdateExercise = () => {}, 
+  onRemoveExercise = () => {}
+}) => {
+  const [exerciseList, setExerciseList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const getExercises = async() => {
-        try {
-            const response = await axios.get('https://localhost:5000/api/Exercises');
-            setExerciseList(response.data);
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
+  // Ellenőrizzük, hogy tényleg tömb-e
+  const safeExercises = Array.isArray(exercises) ? exercises : [];
 
-    const getPlanExercises = () => {
-        const url = new URLSearchParams(window.location.search);
-        const planId = url.get('planId');
-        try {
-            const response = axios.get(`https://localhost:5000/api/Planexercise/plan/${planId}`);
-            return response;
-        }
-        catch (error) {
-            console.log(error);
-        }
-    };
-
-    const exerciseNameById = ExerciseList.reduce((acc, exercise) => {
-        acc[exercise.id] = exercise.name;
-        return acc;
-      }, {});
-
-    const toggleCompleted = (index) => {
-        const updatedExercises = [...exercises];
-        updatedExercises[index].completed = !updatedExercises[index].completed;
-        onUpdateExercise(updatedExercises);
-    };
-
-    useEffect(() => {
-        getExercises();
-    }, []);
-
-    return (
-        <div className="main-list-container">
-            <div className="main-list-header">
-                <span>Gyakorlat</span>
-                <span>Széria</span>
-                <span>Súly</span>
-                <span>Ismétlés</span>
-                <span>Kész</span>
-            </div>
-            <div className="main-scrollable">
-                {exercises.map((exercise, index) => (
-                    <div 
-                        key={`${exercise.id}-${index}`} 
-                        className={`main-list-item ${exercise.completed ? 'completed' : ''}`}
-                    >
-                        <span className="exercise-name">{exercise.name ? exercise.name : ExerciseList.find(e => e.exerciseId === exercise.exerciseId)?.name}</span>
-                        <input
-                            type="number"
-                            value={exercise.sets}
-                            onChange={(e) => handleChange(index, 'sets', e.target.value)}
-                            className="sets-input"
-                        />
-                        <input
-                            type="number"
-                            value={exercise.weight}
-                            onChange={(e) => handleChange(index, 'weight', e.target.value)}
-                            className="weight-input"
-                            placeholder={localStorage.getItem("weightUnit")}
-                        />
-                        
-                        <input
-                            type="number"
-                            value={exercise.reps}
-                            onChange={(e) => handleChange(index, 'reps', e.target.value)}
-                            className="reps-input"
-                        />
-                        
-                        <button
-                            className={`complete-button ${exercise.completed ? 'completed' : ''}`}
-                            onClick={() => toggleCompleted(index)}
-                        >
-                            {exercise.completed ? '✓' : ''}
-                        </button>
-
-                        <button 
-                            className="remove-button"
-                            onClick={() => onRemoveExercise(index)}
-                        >
-                            ×
-                        </button>
-                    </div>
-                ))}
-            </div>
-        </div>
+  const handleChange = (index, field, value) => {
+    const updated = safeExercises.map((item, i) => 
+      i === index ? { ...item, [field]: value } : item
     );
+    onUpdateExercise(updated);
+  };
+
+  const toggleCompleted = (index) => {
+    const updated = safeExercises.map((item, i) => 
+      i === index ? { ...item, completed: !item.completed } : item
+    );
+    onUpdateExercise(updated);
+  };
+
+  useEffect(() => {
+    const fetchExercises = async () => {
+      try {
+        const { data } = await axios.get('https://localhost:5000/api/Exercises');
+        setExerciseList(data);
+      } catch (err) {
+        setError("Nem sikerült betölteni a gyakorlatokat");
+        console.error("API hiba:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchExercises();
+  }, []);
+
+  if (loading) return <div className="loader">Betöltés...</div>;
+  if (error) return <div className="error">{error}</div>;
+
+  return (
+    <div className="container">
+      <div className="header-row">
+        <div>Gyakorlat</div>
+        <div>Széria</div>
+        <div>Súly</div>
+        <div>Ismétlés</div>
+        <div>Állapot</div>
+        <div></div>
+      </div>
+
+      <div className="content">
+      {exercises.map((exercise, index) => (
+  <div key={`${exercise.id}-${index}`} className="exercise-row">
+    <div className="name-cell">
+    {exercise.name ? exercise.name : exerciseList.find(e => e.exerciseId === exercise.exerciseId).name}
+    </div>
+
+    <input
+      type="number"
+      min="0"
+      value={exercise.sets ?? ""}
+      onChange={(e) => handleChange(index, 'sets', e.target.value)}
+      className="input-number"
+    />
+
+    <input
+      type="number"
+      min="0"
+      value={exercise.weight ?? ""}
+      onChange={(e) => handleChange(index, 'weight', e.target.value)}
+      className="input-number"
+      placeholder={localStorage.getItem("weightUnit") || "kg"}
+    />
+
+    <input
+      type="number"
+      min="0"
+      value={exercise.reps ?? ""}
+      onChange={(e) => handleChange(index, 'reps', e.target.value)}
+      className="input-number"
+    />
+
+    <button
+      className={`state-btn ${exercise.completed ? 'completed' : ''}`}
+      onClick={() => toggleCompleted(index)}
+    >
+      {exercise.completed ? '✓' : '○'}
+    </button>
+
+    <button
+      className="delete-btn"
+      onClick={() => onRemoveExercise(index)}
+    >
+      ×
+    </button>
+  </div>
+))}
+      </div>
+    </div>
+  );
 };
 
 export default MainList;
