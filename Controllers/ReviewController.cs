@@ -10,7 +10,23 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class ReviewController : ControllerBase
     {
-        
+        [HttpGet]
+        public IActionResult GetVelemeny()
+        {
+            using (var cx = new HealthbroContext())
+            {
+                try
+                {
+                    return Ok(cx.Reviews.ToList());
+                }
+                catch (Exception ex)
+                {
+
+                    return BadRequest(ex.Message);
+                }
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> UjVelemeny(Review review)
         {
@@ -34,21 +50,5 @@ namespace HealthBro_BackEnd.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult GetVelemeny()
-        {
-            using (var cx = new HealthbroContext())
-            {
-                try
-                {
-                    return Ok(cx.Reviews.ToList());
-                }
-                catch (Exception ex)
-                {
-
-                    return BadRequest(ex.Message);
-                }
-            }
-        }
     }
 }

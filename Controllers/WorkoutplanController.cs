@@ -18,32 +18,6 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
-        // POST api/workoutplan
-        [HttpPost]
-        public async Task<ActionResult<WorkoutPlanDTO>> CreateWorkoutPlan(WorkoutPlanDTO workoutPlanDTO)
-        {
-            // Validálás, hogy ne legyen üres adat
-            if (workoutPlanDTO == null)
-            {
-                return BadRequest("Workout plan data is required.");
-            }
-
-            // Új WorkoutPlan entitás létrehozása
-            var workoutPlan = new Workoutplan
-            {
-                UserId = workoutPlanDTO.UserId,
-                PlanName = workoutPlanDTO.PlanName,
-                CreatedAt = DateTime.Now
-            };
-
-            // Új WorkoutPlan mentése az adatbázisba
-            _context.Workoutplans.Add(workoutPlan);
-            await _context.SaveChangesAsync();
-
-            // A válasz visszaadása a létrehozott WorkoutPlan DTO-jával
-            return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
-        }
-
         // Ez egy segédfüggvény, ami egyesével lekéri a workout plan-eket
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkoutPlanDTO>> GetWorkoutPlan(int id)
@@ -83,5 +57,33 @@ namespace HealthBro_BackEnd.Controllers
                 }
             }
         }
+
+        // POST api/workoutplan
+        [HttpPost]
+        public async Task<ActionResult<WorkoutPlanDTO>> CreateWorkoutPlan(WorkoutPlanDTO workoutPlanDTO)
+        {
+            // Validálás, hogy ne legyen üres adat
+            if (workoutPlanDTO == null)
+            {
+                return BadRequest("Workout plan data is required.");
+            }
+
+            // Új WorkoutPlan entitás létrehozása
+            var workoutPlan = new Workoutplan
+            {
+                UserId = workoutPlanDTO.UserId,
+                PlanName = workoutPlanDTO.PlanName,
+                CreatedAt = DateTime.Now
+            };
+
+            // Új WorkoutPlan mentése az adatbázisba
+            _context.Workoutplans.Add(workoutPlan);
+            await _context.SaveChangesAsync();
+
+            // A válasz visszaadása a létrehozott WorkoutPlan DTO-jával
+            return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
+        }
+
+        
     }
 }
