@@ -1,16 +1,17 @@
-import '../../App.css';
-import HeroSectionfrom from '../HeroSection';
-import React from 'react';
-import Cards from '../Cards';
-import CardItem from '../CardItem';
+import "../../App.css";
+import HeroSectionfrom from "../HeroSection";
+import React from "react";
+import Cards from "../Cards";
+import Reviews from "../Reviews";
 
 function Home() {
-    return (
-        <>
-            <HeroSectionfrom />
-            <Cards />
-        </>
-    );
+  return (
+    <>
+      <HeroSectionfrom />
+      <Cards />
+      <Reviews />
+    </>
+  );
 }
 
-export default Home
+export default Home;
