@@ -51,7 +51,7 @@ namespace HealthBro_BackEnd.Controllers
             var planExercise = await _context.Planexercises
                 .Include(pe => pe.Exercise) // Betölti a kapcsolódó Exercise entitást
                 .Include(pe => pe.Plan) // Betölti a kapcsolódó Plan entitást
-                .Where(pe => pe.PlanExerciseId == id)
+                .Where(pe => pe.PlanId == id)
                 .FirstOrDefaultAsync();
 
             if (planExercise == null)
