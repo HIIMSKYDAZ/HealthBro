@@ -10,7 +10,8 @@ public partial class HealthbroContext : DbContext
     {
     }
 
-    public HealthbroContext(DbContextOptions<HealthbroContext> options) : base(options)
+    public HealthbroContext(DbContextOptions<HealthbroContext> options)
+        : base(options)
     {
     }
 
@@ -20,9 +21,9 @@ public partial class HealthbroContext : DbContext
 
     public virtual DbSet<Planexercise> Planexercises { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<Review> Reviews { get; set; }
 
-  
+    public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<Workoutplan> Workoutplans { get; set; }
 
@@ -86,8 +87,8 @@ public partial class HealthbroContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("PlanID");
             entity.Property(e => e.Reps).HasColumnType("int(11)");
-            entity.Property(e => e.Weight).HasColumnType("int(11)");
             entity.Property(e => e.Sets).HasColumnType("int(11)");
+            entity.Property(e => e.Weight).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Exercise).WithMany(p => p.Planexercises)
                 .HasForeignKey(d => d.ExerciseId)
@@ -98,6 +99,26 @@ public partial class HealthbroContext : DbContext
                 .HasForeignKey(d => d.PlanId)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("planexercises_ibfk_1");
+        });
+
+        modelBuilder.Entity<Review>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("review");
+
+            entity.Property(e => e.Id)
+                .HasColumnType("int(11)")
+                .HasColumnName("id");
+            entity.Property(e => e.FelhasznaloNev)
+                .HasMaxLength(100)
+                .HasColumnName("felhasznaloNev");
+            entity.Property(e => e.ProfilePicturePath)
+                .HasMaxLength(100)
+                .HasColumnName("profilePicturePath");
+            entity.Property(e => e.Velemeny)
+                .HasMaxLength(200)
+                .HasColumnName("velemeny");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -129,8 +150,6 @@ public partial class HealthbroContext : DbContext
                 .HasForeignKey(d => d.PermissionId)
                 .HasConstraintName("user_ibfk_1");
         });
-
-       
 
         modelBuilder.Entity<Workoutplan>(entity =>
         {
