@@ -116,3 +116,14 @@
       margin-bottom: 2rem !important;
     }
   }
+  .cards__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .cards__item {
+    width: 300px; /* Adjust this value as needed */
+    margin: 10px;
+  }
+  
