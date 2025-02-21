@@ -94,7 +94,7 @@ const MainList = ({
       className={`state-btn ${exercise.completed ? 'completed' : ''}`}
       onClick={() => toggleCompleted(index)}
     >
-      {exercise.completed ? '✓' : '○'}
+      {exercise.completed ? '✓' : ''}
     </button>
 
     <button
