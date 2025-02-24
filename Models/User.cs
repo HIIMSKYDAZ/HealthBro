@@ -16,7 +16,7 @@ public partial class User
 
     public string Name { get; set; } = null!;
 
-    public int PermissionId { get; set; }
+    public int? PermissionId { get; set; }
 
     public bool Active { get; set; }
 
@@ -24,7 +24,7 @@ public partial class User
 
     public string ProfilePicturePath { get; set; } = null!;
     [JsonIgnore]
-    public virtual Permission Permission { get; set; } = null!;
+    public virtual Permission? Permission { get; set; } = null!;
     [JsonIgnore]
-    public virtual ICollection<Workoutplan> Workoutplans { get; set; } = new List<Workoutplan>();
+    public virtual ICollection<Workoutplan>? Workoutplans { get; set; } = new List<Workoutplan>();
 }
