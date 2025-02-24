@@ -1,4 +1,3 @@
-
 using HealthBro_BackEnd.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Mail;
@@ -69,6 +68,11 @@ namespace HealthBro_BackEnd
 
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            builder.Configuration.AddUserSecrets<Program>();
+
+
             // CORS engedélyezése
             builder.Services.AddCors(options =>
             {
@@ -80,11 +84,14 @@ namespace HealthBro_BackEnd
                 });
             });
 
-
+            
 
             // Az adatbáziskapcsolat regisztrálása
             builder.Services.AddDbContext<HealthbroContext>(options =>
                 options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            
+
 
             // Controllers és Swagger regisztrálása
             builder.Services.AddControllers();
