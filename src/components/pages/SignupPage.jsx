@@ -46,9 +46,9 @@ function SignupPage() {
         salt: salt,
         name: formData.loginName,
         permissionId: 0,
-        active: true,
+        active: false,
         email: formData.email,
-        profilePicturePath: "",  
+        profilePicturePath: ""
       });
 
       if (response.status === 200) {
