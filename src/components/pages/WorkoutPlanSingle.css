@@ -1,0 +1,106 @@
+/* WorkoutPlanSingle.css */
+
+.homemain-container-wps {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .filter-container {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+  
+  .mainlist-container {
+    min-width: 0; /* Fixes flexbox overflow */
+  }
+  
+  .exercise-list-container {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+  
+  .button-container {
+    display: none; /* Hidden on desktop - shown in grid */
+  }
+  
+  /* Tablet nézet (768px) */
+  @media (max-width: 768px) {
+    .homemain-container-wps {
+      grid-template-columns: 1fr;
+      padding: 15px;
+    }
+  
+    .filter-container,
+    .exercise-list-container {
+      position: static;
+      order: -1;
+    }
+  
+    .exercise-list-container {
+      order: 2;
+      margin-top: 20px;
+    }
+  
+    .mainlist-container {
+      order: 1;
+    }
+  
+    .mobile-button-container {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      text-align: center;
+    }
+  
+    .save-button {
+      width: 90%;
+      max-width: 400px;
+      padding: 15px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Mobil nézet (480px) */
+  @media (max-width: 480px) {
+    .homemain-container-wps {
+      padding: 10px;
+      gap: 15px;
+    }
+  
+    .filter-container,
+    .exercise-list-container {
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  
+    .save-button {
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+  }
+  
+  /* Kis mobilnézetek (360px) */
+  @media (max-width: 360px) {
+    .filter-container h2,
+    .exercise-list-container h2 {
+      font-size: 1.2rem;
+    }
+    
+    .save-button {
+      font-size: 0.8rem;
+    }
+  }
