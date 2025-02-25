@@ -9,7 +9,6 @@ function Home() {
     <>
       <HeroSectionfrom />
       <Cards />
-      <Reviews />
     </>
   );
 }
