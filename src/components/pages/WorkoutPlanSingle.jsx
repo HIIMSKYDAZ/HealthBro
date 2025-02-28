@@ -18,11 +18,42 @@ const WorkoutPlanSingle = () => {
 
   const uploadExercises = async () => {
     try {
-      await selectedExercises.map(async (exercise) => {
-        await axios.post("https://localhost:5000/Planexercise",exercise)
-      });
+      // Ellenőrizzük, hogy van-e kiválasztott gyakorlat
+      if (!selectedExercises || selectedExercises.length === 0) {
+        alert("Nincsenek kiválasztott gyakorlatok!");
+        return;
+      }
+  
+      // Átalakítjuk az adatokat a megfelelő formátumba
+      const exercisesToUpload = selectedExercises.map(exercise => ({
+        planId: parseInt(planId),
+        exerciseId: exercise.exerciseId, // Feltételezve, hogy az exercise objektum tartalmaz id-t
+        sets: exercise.sets || 0,
+        weight: exercise.weight || 0,
+        reps: exercise.reps || 0
+      }));
+  
+      // PUT kérés küldése a backendnek
+      const response = await axios.put(
+        `https://localhost:5000/UpdatePlanExercises/${planId}`,
+        exercisesToUpload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (response.status === 200) {
+        alert("Sikeres mentés!");
+        window.location.reload();
+      } else {
+        console.error("Hiba a mentés során:", response);
+        alert("Hiba a mentés során.");
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Hiba történt a mentés során:", error);
+      alert("Hiba a mentés során: " + error.message);
     }
   };
 
@@ -44,7 +75,13 @@ const WorkoutPlanSingle = () => {
   }, [selectedMuscleGroup]);
 
   const handleAddExercise = (exercise) => {
-    setSelectedExercises((prev) => [...prev, exercise]);
+    const newExercise = {
+      ...exercise,
+      sets: 3,
+      weight: 0,
+      reps: 10
+    };
+    setSelectedExercises((prev) => [...prev, newExercise]);
   };
 
   const handleRemoveExercise = (index) => {
@@ -69,11 +106,11 @@ const WorkoutPlanSingle = () => {
         <div className="exercise-list-container">
           <ExerciseList muscleGroupFilter={selectedMuscleGroup} onAddExercise={handleAddExercise} />
         </div>
-      </div>
 
-      {/* Mobil mentés gomb */}
-      <div className="mobile-button-container">
-        <Button className="save-button" onClick={uploadExercises}>Mentés</Button>
+        {/* Minden eszközön rögzített mentés gomb */}
+        <div className="save-button-container">
+          <button className="save-button" onClick={uploadExercises}>Mentés</button>
+        </div>
       </div>
     </>
   );
