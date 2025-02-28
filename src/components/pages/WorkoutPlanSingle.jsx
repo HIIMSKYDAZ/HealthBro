@@ -12,6 +12,15 @@ const WorkoutPlanSingle = () => {
   const [selectedExercises, setSelectedExercises] = useState([]);
   const planId = useParams().id;
 
+  const [filters, setFilters] = useState({
+    muscleGroup: '',
+    search: ''
+  });
+
+  const handleFilter = (newFilters) => {
+    setFilters(newFilters);
+  };
+
   const handleUpdateExercises = (updatedExercises) => {
     setSelectedExercises(updatedExercises);
   };
@@ -91,8 +100,11 @@ const WorkoutPlanSingle = () => {
   return (
     <>
       <div className="homemain-container-wps">
-        <div className="filter-container">
-          <Filter onFilter={setSelectedMuscleGroup} currentFilter={selectedMuscleGroup} />
+      <div className="filter-container">
+          <Filter 
+            onFilter={handleFilter} 
+            currentFilter={filters.muscleGroup} 
+          />
         </div>
 
         <div className="mainlist-container">
@@ -104,7 +116,10 @@ const WorkoutPlanSingle = () => {
         </div>
 
         <div className="exercise-list-container">
-          <ExerciseList muscleGroupFilter={selectedMuscleGroup} onAddExercise={handleAddExercise} />
+          <ExerciseList 
+            filters={filters}
+            onAddExercise={handleAddExercise} 
+          />
         </div>
 
         {/* Minden eszközön rögzített mentés gomb */}

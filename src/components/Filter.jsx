@@ -4,32 +4,34 @@ import axios from "axios";
 
 const Filter = ({ onFilter, currentFilter }) => {
   const [search, setSearch] = useState('');
-  const [musclegroup, setMusclegroup] = useState([]);
+  const [muscleGroups, setMuscleGroups] = useState([]);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
         const response = await axios.get(`https://localhost:5000/api/Exercises`);
         const exercises = response.data;
-
-        // Egyedi izomcsoportok kigyűjtése
+        
         const uniqueMuscleGroups = Array.from(
-          new Set(exercises.map((exercise) => exercise.muscleGroup))
+          new Set(exercises.map(exercise => exercise.muscleGroup))
         );
-
-        setMusclegroup(uniqueMuscleGroups);
+        
+        setMuscleGroups(uniqueMuscleGroups);
       } catch (error) {
-        console.error("Hiba történt az edzéstervek lekérésekor:", error);
+        console.error("Hiba:", error);
       }
     };
-
     fetchWorkouts();
-  }, []); // Csak egyszer fusson le
+  }, []);
 
-  const handleFilter = (e) => {
+  const handleSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
-    //onFilter(value);
+    onFilter({ search: value, muscleGroup: currentFilter });
+  };
+
+  const handleMuscleGroup = (value) => {
+    onFilter({ search, muscleGroup: value });
   };
 
   return (
@@ -38,21 +40,21 @@ const Filter = ({ onFilter, currentFilter }) => {
         <input
           type="text"
           value={search}
-          onChange={handleFilter}
+          onChange={handleSearch}
           placeholder="Keresés..."
         />
         <div className="filter__radios">
-          {musclegroup.map((muscleGroup, index) => (
+          {muscleGroups.map((group, index) => (
             <div key={index}>
               <input
                 type="radio"
-                id={muscleGroup}
+                id={group}
                 name="musclegroup"
-                value={muscleGroup}
-                checked={currentFilter === muscleGroup.value}
-                onChange={(e) => onFilter(e.target.value)}
+                value={group}
+                checked={currentFilter === group}
+                onChange={(e) => handleMuscleGroup(e.target.value)}
               />
-              <label htmlFor={muscleGroup}>{muscleGroup}</label>
+              <label htmlFor={group}>{group}</label>
             </div>
           ))}
         </div>
