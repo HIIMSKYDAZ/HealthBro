@@ -94,6 +94,53 @@ namespace HealthBro_BackEnd.Controllers
             return CreatedAtAction(nameof(GetPlanExerciseId), new { id = planExercise.PlanExerciseId }, planExerciseDTO);
         }
 
+        [HttpPut("/UpdatePlanExercises/{planId}")]
+        public async Task<ActionResult> UpdatePlanExercises(int planId, [FromBody] List<PlanExerciseDTO> planExercises)
+        {
+            if (planExercises == null || !planExercises.Any())
+            {
+                return BadRequest("Nincsenek érvényes gyakorlatok a frissítéshez.");
+            }
+
+            try
+            {
+                // Ellenőrizzük, hogy a planId megegyezik-e az összes gyakorlatban
+                if (planExercises.Any(pe => pe.PlanId != planId))
+                {
+                    return BadRequest("A planId nem egyezik az összes gyakorlatban.");
+                }
+
+                // Lekérjük a meglévő gyakorlatokat a planId alapján
+                var existingExercises = await _context.Planexercises
+                    .Where(pe => pe.PlanId == planId)
+                    .ToListAsync();
+
+                // Frissítjük vagy hozzáadjuk az összes gyakorlatot
+                foreach (var exerciseDto in planExercises)
+                {
+                    // Nem ellenőrizzük, hogy létezik-e már a gyakorlat
+                    var newExercise = new Planexercise
+                    {
+                        PlanId = exerciseDto.PlanId,
+                        ExerciseId = exerciseDto.ExerciseId,
+                        Sets = exerciseDto.Sets,
+                        Weight = exerciseDto.Weight,
+                        Reps = exerciseDto.Reps
+                    };
+                    _context.Planexercises.Add(newExercise);
+                }
+
+                // Töröljük az összes meglévő gyakorlatot a planId alapján
+                _context.Planexercises.RemoveRange(existingExercises);
+
+                await _context.SaveChangesAsync();
+                return Ok("Gyakorlatok sikeresen frissítve.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Hiba történt a gyakorlatok frissítése során: {ex.Message}");
+            }
+        }
 
     }
 }
