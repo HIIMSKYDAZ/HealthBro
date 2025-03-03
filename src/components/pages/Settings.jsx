@@ -5,18 +5,39 @@ import axios from "axios";
 import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
 import crypto from "crypto-js";  // crypto-js könyvtár importálása
+import { Button } from "../Button";
 
 const Settings = () => {
   const [distanceUnit, setDistanceUnit] = useState(() => localStorage.getItem("distanceUnit") || "KM");
   const [lengthUnit, setLengthUnit] = useState(() => localStorage.getItem("lengthUnit") || "CM");
   const [weightUnit, setWeightUnit] = useState(() => localStorage.getItem("weightUnit") || "KG");
+  const [userData, setUserData] = useState(null);
+  const navi = useNavigate();
 
   useEffect(() => {
     localStorage.setItem("distanceUnit", distanceUnit);
     localStorage.setItem("lengthUnit", lengthUnit);
     localStorage.setItem("weightUnit", weightUnit);
   }, [distanceUnit, lengthUnit, weightUnit]);
-
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        navi("/AccessDenied");
+        return;
+      }
+  
+      try {
+        const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
+        setUserData(response.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        alert("Failed to load user data.");
+      }
+    };
+  
+    fetchUserData();
+  }, [navi]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -118,11 +139,29 @@ const Settings = () => {
     <div className="homemain-container">
       <Sidebar />
       <div className="content">
-        <div className="settings-header">
-          <h2>Beállítások</h2>
+      <div className="settings-header">
+          <img 
+            src={userData?.profilePicturePath ? `http://healthbro.nhely.hu/users/${userData.profilePicturePath}` : "http://healthbro.nhely.hu/default.jpg"} 
+            alt="Profile"
+            className="profile-picture"
+          />
+
+          <div className="settings-info">
+            <h2>{userData?.name}</h2>
+            <Button 
+              buttonStyle="btn--primary" 
+              buttonSize="btn--medium" 
+              linkTo="/EditProfile"
+            >
+              Profil szerkesztése
+            </Button>
+          </div>
         </div>
 
         <div className="settings-body">
+
+
+
           <div className="settings-section">
             <h3>Mértékegységek</h3>
             <div className="setting-option">

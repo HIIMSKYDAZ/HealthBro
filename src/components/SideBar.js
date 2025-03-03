@@ -45,11 +45,7 @@ const Sidebar = () => {
             Edzés <FaDumbbell />
           </Link>
         </li>
-        <li onClick={closeMobileMenu}>
-          <Link to="/profile" className="menu_link">
-            Profil <IoMdMore />
-          </Link>
-        </li>
+
         <li onClick={closeMobileMenu}>
           <Link to="/Settings" className="menu_link">
             Beállítások <HiMiniCog6Tooth />
