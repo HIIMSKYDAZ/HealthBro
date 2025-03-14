@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignupPages.css";
+import { Button } from '../Button';
+import "../Button.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import crypto from "crypto-js";  // crypto-js könyvtár importálása
@@ -162,12 +164,14 @@ function SignupPage() {
                     </div>
 
                     <div className="d-flex justify-content-center">
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-sm btn-block"
-                      >
-                        Regisztráció
-                      </button>
+                    <Button
+                      buttonStyle="btn--outline--black"
+                      buttonSize="btn--medium"
+                      className=""
+                      onClick={handleSubmit}
+                    >
+                      Regisztráció
+                    </Button>
                     </div>
 
                     <p className="text-center text-muted mt-4 mb-0">

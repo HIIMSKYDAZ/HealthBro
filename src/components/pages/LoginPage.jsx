@@ -91,7 +91,7 @@ function LoginPage() {
                         <label className="form-label" htmlFor="password">Jelszó</label>
                       </div>
                       <div className="d-flex justify-content-center">
-                        <Button onClick={handleSubmit} className="btn--primary btn--medium">Belépés</Button>
+                        <Button onClick={handleSubmit} className="btn btn--outline--black btn--medium">Belépés</Button>
                       </div>
 
 
