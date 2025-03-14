@@ -41,7 +41,7 @@ function SignupPage() {
 
     try {
 
-      const response = await axios.post("https://localhost:5000/api/Registry", {
+      const response = await axios.post("https://localhost:5000/api/Register", {
         id: 0,
         loginName: formData.loginName,
         hash: hash,  
