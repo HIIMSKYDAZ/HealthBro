@@ -1,5 +1,6 @@
 using HealthBro_BackEnd.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -71,6 +72,16 @@ namespace HealthBro_BackEnd
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             builder.Configuration.AddUserSecrets<Program>();
+
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "HealthBro API",
+                    Version = "v1",
+                    Description = "Workout and fitness tracking API"
+                });
+            });
 
 
             // CORS engedélyezése
