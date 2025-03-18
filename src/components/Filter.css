@@ -19,28 +19,77 @@
     margin: 20px !important;
 }
 
-/* A rádiógombok és szövegek egymás mellé helyezése */
-.filter__radios {
+  .filter__groups {
     display: flex;
-    flex-direction: column; /* Egymás alatt legyenek */
-    gap: 10px; /* Távolság az elemek között */
-    margin-top: 10px;
-}
-
-.filter__radios div {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .group-item {
     display: flex;
-    align-items: center; /* Szöveg és input egy sorban legyen */
-    gap: 8px; /* Távolság a rádiógomb és a szöveg között */
-    color: white; /* Fehér szöveg a sötét háttéren */
-}
-
-.filter__radios input[type="radio"] {
-    width: 16px;
-    height: 16px;
+    align-items: center;
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
     cursor: pointer;
-}
+    transition: all 0.3s ease;
+    padding: 4px !important;
+    margin: 5px !important;
+  }
+  
+  .group-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .group-item.active {
+    border-color: #000000;
+    background-color: #ebe8f5;
+  }
+  
+  .custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+  }
+  
+  .group-item.active .custom-radio {
+    border-color: #000000;
+    background-color: #000000;
+  }
+  
+  .group-item.active .custom-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+  }
 
-.filter__radios label {
-    font-size: 16px;
-    cursor: pointer;
-}
+  @media (max-width: 768px) {
+    .filter__container {
+      margin: 10px !important;
+      padding: 10px !important;
+    }
+    
+    .filter__groups {
+      flex-direction: column;
+    }
+    
+    .group-item {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    input[type="text"] {
+      width: 100% !important;
+      margin-bottom: 10px;
+    }
+  }

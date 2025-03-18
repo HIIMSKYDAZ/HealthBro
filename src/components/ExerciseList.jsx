@@ -11,7 +11,10 @@ const ExerciseList = ({ filters, onAddExercise }) => {
         try {
           const response = await axios.get('https://localhost:5000/api/Exercises', {
             params: { 
-              muscleGroup: filters.muscleGroup || null 
+              // Módosítottuk a paraméterküldést
+              muscleGroup: filters.muscleGroup.length > 0 
+                ? filters.muscleGroup.join(',') 
+                : undefined
             }
           });
           setAllExercises(response.data);
@@ -25,8 +28,10 @@ const ExerciseList = ({ filters, onAddExercise }) => {
   
     useEffect(() => {
       const filtered = allExercises.filter(exercise => {
-        const matchesMuscleGroup = !filters.muscleGroup || 
-          exercise.muscleGroup === filters.muscleGroup;
+        // Javított szűrési logika
+        const matchesMuscleGroup = filters.muscleGroup.length === 0 || 
+          filters.muscleGroup.includes(exercise.muscleGroup);
+        
         const matchesSearch = exercise.name.toLowerCase()
           .includes(filters.search.toLowerCase());
         

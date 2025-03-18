@@ -48,9 +48,8 @@ const HomeMain = () => {
 
   return (
     <div className="homemain-container">
-      <video src="../videos/mainbg_small.mp4" autoPlay loop muted />
       <Sidebar />
-      <div className="content">
+      <div className="news_content">
         <NewsTicker />
       </div>
     </div>

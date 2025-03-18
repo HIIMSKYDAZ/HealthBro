@@ -4,8 +4,10 @@ import "./MainList.css";
 
 const MainList = ({ 
   exercises, // Kötelező alapértelmezett érték
-  onUpdateExercise = () => {}, 
-  onRemoveExercise = () => {}
+  onRemoveExercise,
+  onUpdateExercise,
+  onOpenExerciseModal,
+  isMobile,
 }) => {
   const [exerciseList, setExerciseList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,6 +69,7 @@ const MainList = ({
 
     <input
       type="number"
+  data-label="Széria"
       min="0"
       value={exercise.sets ?? ""}
       onChange={(e) => handleChange(index, 'sets', e.target.value)}
@@ -75,6 +78,7 @@ const MainList = ({
 
     <input
       type="number"
+      data-label="Súly" 
       min="0"
       value={exercise.weight ?? ""}
       onChange={(e) => handleChange(index, 'weight', e.target.value)}
@@ -84,6 +88,7 @@ const MainList = ({
 
     <input
       type="number"
+  data-label="Ismétlés"
       min="0"
       value={exercise.reps ?? ""}
       onChange={(e) => handleChange(index, 'reps', e.target.value)}
@@ -105,6 +110,14 @@ const MainList = ({
     </button>
   </div>
 ))}
+{isMobile && (
+        <button 
+          className="mobile-add-button"
+          onClick={onOpenExerciseModal}
+        >
+          + Új gyakorlat hozzáadása
+        </button>
+      )}
       </div>
     </div>
   );

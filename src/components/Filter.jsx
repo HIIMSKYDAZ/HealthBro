@@ -13,8 +13,8 @@ const Filter = ({ onFilter, currentFilter }) => {
         const exercises = response.data;
         
         const uniqueMuscleGroups = Array.from(
-          new Set(exercises.map(exercise => exercise.muscleGroup))
-        );
+          new Set(exercises.map(exercise => exercise.muscleGroup)
+        ));
         
         setMuscleGroups(uniqueMuscleGroups);
       } catch (error) {
@@ -30,8 +30,12 @@ const Filter = ({ onFilter, currentFilter }) => {
     onFilter({ search: value, muscleGroup: currentFilter });
   };
 
-  const handleMuscleGroup = (value) => {
-    onFilter({ search, muscleGroup: value });
+  const handleMuscleGroupToggle = (group) => {
+    const updatedGroups = currentFilter.includes(group)
+      ? currentFilter.filter(g => g !== group)
+      : [...currentFilter, group];
+    
+    onFilter({ search, muscleGroup: updatedGroups });
   };
 
   return (
@@ -43,18 +47,15 @@ const Filter = ({ onFilter, currentFilter }) => {
           onChange={handleSearch}
           placeholder="Keresés..."
         />
-        <div className="filter__radios">
+        <div className="filter__groups">
           {muscleGroups.map((group, index) => (
-            <div key={index}>
-              <input
-                type="radio"
-                id={group}
-                name="musclegroup"
-                value={group}
-                checked={currentFilter === group}
-                onChange={(e) => handleMuscleGroup(e.target.value)}
-              />
-              <label htmlFor={group}>{group}</label>
+            <div 
+              key={index}
+              className={`group-item ${currentFilter.includes(group) ? 'active' : ''}`}
+              onClick={() => handleMuscleGroupToggle(group)}
+            >
+              <div className="custom-radio"></div>
+              <span>{group}</span>
             </div>
           ))}
         </div>

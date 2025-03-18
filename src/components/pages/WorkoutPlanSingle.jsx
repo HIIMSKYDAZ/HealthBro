@@ -4,22 +4,24 @@ import axios from "axios";
 import ExerciseList from "../ExerciseList.jsx";
 import MainList from "../MainList.jsx";
 import { useParams } from "react-router-dom";
-import { Button } from "../Button.js";
 import "./WorkoutPlanSingle.css";
 
 const WorkoutPlanSingle = () => {
-  const [selectedMuscleGroup, setSelectedMuscleGroup] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
+  const [filters, setFilters] = useState({ muscleGroup: [], search: '' });
+  const [showExerciseModal, setShowExerciseModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const planId = useParams().id;
 
-  const [filters, setFilters] = useState({
-    muscleGroup: '',
-    search: ''
-  });
+  // Mobil nézet detektálása
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  const handleFilter = (newFilters) => {
-    setFilters(newFilters);
-  };
+  const handleFilter = (newFilters) => setFilters(newFilters);
 
   const handleUpdateExercises = (updatedExercises) => {
     setSelectedExercises(updatedExercises);
@@ -27,42 +29,28 @@ const WorkoutPlanSingle = () => {
 
   const uploadExercises = async () => {
     try {
-      // Ellenőrizzük, hogy van-e kiválasztott gyakorlat
-      if (!selectedExercises || selectedExercises.length === 0) {
+      if (!selectedExercises?.length) {
         alert("Nincsenek kiválasztott gyakorlatok!");
         return;
       }
-  
-      // Átalakítjuk az adatokat a megfelelő formátumba
+
       const exercisesToUpload = selectedExercises.map(exercise => ({
         planId: parseInt(planId),
-        exerciseId: exercise.exerciseId, // Feltételezve, hogy az exercise objektum tartalmaz id-t
+        exerciseId: exercise.exerciseId,
         sets: exercise.sets || 0,
         weight: exercise.weight || 0,
         reps: exercise.reps || 0
       }));
-  
-      // PUT kérés küldése a backendnek
-      const response = await axios.put(
+
+      await axios.put(
         `https://localhost:5000/UpdatePlanExercises/${planId}`,
         exercisesToUpload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { headers: { "Content-Type": "application/json" } }
       );
-  
-      if (response.status === 200) {
-        alert("Sikeres mentés!");
-        window.location.reload();
-      } else {
-        console.error("Hiba a mentés során:", response);
-        alert("Hiba a mentés során.");
-      }
+      alert("Sikeres mentés!");
+      window.location.reload();
     } catch (error) {
-      console.error("Hiba történt a mentés során:", error);
-      alert("Hiba a mentés során: " + error.message);
+      alert("Hiba: " + error.message);
     }
   };
 
@@ -70,46 +58,41 @@ const WorkoutPlanSingle = () => {
     try {
       const response = await axios.get(`https://localhost:5000/PlanId/${planId}`, {
         params: {
-          muscleGroup: selectedMuscleGroup || undefined,
-        },
+          muscleGroup: filters.muscleGroup.join(','),
+          search: filters.search
+        }
       });
       setSelectedExercises(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     FillExercises();
-  }, [selectedMuscleGroup]);
+  }, [filters]);
 
   const handleAddExercise = (exercise) => {
-    const newExercise = {
-      ...exercise,
-      sets: 3,
-      weight: 0,
-      reps: 10
-    };
-    setSelectedExercises((prev) => [...prev, newExercise]);
+    const newExercise = { ...exercise, sets: 3, weight: 0, reps: 10 };
+    setSelectedExercises(prev => [...prev, newExercise]);
+    if (isMobile) setShowExerciseModal(false);
   };
 
   const handleRemoveExercise = (index) => {
-    setSelectedExercises((prev) => prev.filter((_, i) => i !== index));
+    setSelectedExercises(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
-    <>
-      <div className="homemain-container-wps">
-      <div className="filter-container">
-          <Filter 
-            onFilter={handleFilter} 
-            currentFilter={filters.muscleGroup} 
-          />
+    <div className="homemain-container-wps">
+      {/* Asztali elrendezés */}
+      <div className="desktop-layout">
+        <div className="filter-container">
+          <Filter onFilter={handleFilter} currentFilter={filters.muscleGroup} />
         </div>
-
+        
         <div className="mainlist-container">
           <MainList
-            exercises={selectedExercises ? selectedExercises : []}
+            exercises={selectedExercises || []}
             onRemoveExercise={handleRemoveExercise}
             onUpdateExercise={handleUpdateExercises}
           />
@@ -121,13 +104,37 @@ const WorkoutPlanSingle = () => {
             onAddExercise={handleAddExercise} 
           />
         </div>
+      </div>
 
-        {/* Minden eszközön rögzített mentés gomb */}
-        <div className="save-button-container">
-          <button className="save-button" onClick={uploadExercises}>Mentés</button>
+      {/* Mobil elrendezés */}
+      <div className="mobile-layout">
+        <div className="mobile-top">
+          <div className="filter-container">
+            <Filter onFilter={handleFilter} currentFilter={filters.muscleGroup} />
+          </div>
+          <div className="exercise-list-container">
+            <ExerciseList 
+              filters={filters}
+              onAddExercise={handleAddExercise} 
+            />
+          </div>
+        </div>
+        
+        <div className="mainlist-container">
+          <MainList
+            exercises={selectedExercises || []}
+            onRemoveExercise={handleRemoveExercise}
+            onUpdateExercise={handleUpdateExercises}
+          />
         </div>
       </div>
-    </>
+
+      {/* Közös gombok */}
+      <div className="save-button-container">
+        <button className="back-button" onClick={historyBack}>←</button>
+        <button className="save-button" onClick={uploadExercises}>Mentés</button>
+      </div>
+    </div>
   );
 };
 

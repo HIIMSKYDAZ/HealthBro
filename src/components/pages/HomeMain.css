@@ -8,7 +8,7 @@ video {
 
 .homemain-container {
   display: grid !important;
-  grid-template-columns: 1fr 3fr 1fr !important;
+  grid-template-columns: 250px 1fr !important;
   height: auto !important;
   gap: 20px !important;
   padding: 30px !important;
@@ -16,15 +16,6 @@ video {
   position: relative !important;
   min-height: 100vh !important;
   background-color: #ffffff !important;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  height: auto;
-  gap: 20px;
-  padding: 30px;
-  box-sizing: border-box;
-  position: relative;
-  min-height: 100vh;
-  background-color: #ffffff;
 }
 
 .sidebar {
@@ -170,10 +161,19 @@ video {
 }
 
 .content {
-  max-width: 1200px; /* Adj meg egy maximális szélességet, ha szükséges */
-  margin: 0 auto; /* Középre igazítja a tartalmat */
-  padding: 16px; /* Hézag a tartalom körül */
-  padding-bottom: 80px !important; /* Hely a fix gomb számára */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: 80px !important;
+}
+
+.news_content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 80px !important;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 
@@ -489,4 +489,24 @@ button {
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1024px) {
+  .content {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .homemain-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .content {
+    grid-row: 2;
+    padding: 15px;
+    justify-content: flex-start;
+  }
 }
