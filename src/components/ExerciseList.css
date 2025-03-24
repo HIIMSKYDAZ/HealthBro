@@ -98,6 +98,6 @@
     
     .exercise-list-container {
         height: auto;
-        max-height: 400px;
+        max-height: 100%;
     }
 }

@@ -173,14 +173,11 @@ const WorkoutPlanSingle = () => {
         </div>
       )}
 
-      {/* Új dizájnú gombok */}
       <div className="control-buttons-container">
         <button className="back-button" onClick={() => window.history.back()}>
-          <span className="back-icon">←</span>
           <span className="back-text">Vissza</span>
         </button>
         <button className="save-button" onClick={uploadExercises}>
-          <span className="save-icon">✓</span>
           <span className="save-text">Mentés</span>
         </button>
       </div>
