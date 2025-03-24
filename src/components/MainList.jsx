@@ -154,7 +154,7 @@ const MainList = ({
                 (exerciseList.find(e => e.id === exercise.exerciseId || e.id === exercise.id)?.name || "Ismeretlen gyakorlat");
               
               return (
-                <div key={`${exercise.id || exercise.exerciseId}-${index}`} className="exercise-row">
+                <div key={`${exercise.exerciseId || exercise.exerciseId}-${index}`} className="exercise-row">
                   <div className="name-cell">
                     {exerciseName}
                   </div>
