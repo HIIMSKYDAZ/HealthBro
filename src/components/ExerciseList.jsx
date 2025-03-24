@@ -9,14 +9,7 @@ const ExerciseList = ({ filters, onAddExercise }) => {
     useEffect(() => {
       const fetchExercises = async () => {
         try {
-          const response = await axios.get('https://localhost:5000/api/Exercises', {
-            params: { 
-              // Módosítottuk a paraméterküldést
-              muscleGroup: filters.muscleGroup.length > 0 
-                ? filters.muscleGroup.join(',') 
-                : undefined
-            }
-          });
+          const response = await axios.get('https://localhost:5000/api/Exercises');
           setAllExercises(response.data);
         } catch (error) {
           console.error("Hiba:", error);
@@ -24,18 +17,24 @@ const ExerciseList = ({ filters, onAddExercise }) => {
         }
       };
       fetchExercises();
-    }, [filters.muscleGroup]);
+    }, []);
   
     useEffect(() => {
+      if (!Array.isArray(allExercises)) return;
+      
       const filtered = allExercises.filter(exercise => {
-        // Javított szűrési logika
-        const matchesMuscleGroup = filters.muscleGroup.length === 0 || 
+        // Izomcsoport szűrés
+        const muscleGroupMatches = 
+          !filters.muscleGroup || 
+          filters.muscleGroup.length === 0 || 
           filters.muscleGroup.includes(exercise.muscleGroup);
         
-        const matchesSearch = exercise.name.toLowerCase()
-          .includes(filters.search.toLowerCase());
+        // Kereső szűrés
+        const searchMatches = 
+          !filters.search || 
+          exercise.name.toLowerCase().includes(filters.search.toLowerCase());
         
-        return matchesMuscleGroup && matchesSearch;
+        return muscleGroupMatches && searchMatches;
       });
       
       setFilteredExercises(filtered);
@@ -44,23 +43,28 @@ const ExerciseList = ({ filters, onAddExercise }) => {
     return (
       <div className="exercise-list-container">
         <div className="exercise-scrollable">
-          {filteredExercises.map((exercise) => (
-            <div key={exercise.id} className="exercise-item">
-              <span className="exercise-name">{exercise.name}</span>
-              <button 
-                className="add-button"
-                onClick={() => onAddExercise({
-                  ...exercise,
-                  sets: 3,
-                  weight: '',
-                  reps: 12,
-                  completed: false
-                })}
-              >
-                +
-              </button>
-            </div>
-          ))}
+          {filteredExercises.length > 0 ? (
+            filteredExercises.map((exercise) => (
+              <div key={exercise.id} className="exercise-item">
+                <span className="exercise-name">{exercise.name}</span>
+                <button 
+                  className="add-button"
+                  onClick={() => onAddExercise({
+                    ...exercise,
+                    exerciseId: exercise.id,
+                    sets: 3,
+                    weight: '',
+                    reps: 12,
+                    completed: false
+                  })}
+                >
+                  +
+                </button>
+              </div>
+            ))
+          ) : (
+            <div className="no-results">Nincs találat</div>
+          )}
         </div>
       </div>
     );

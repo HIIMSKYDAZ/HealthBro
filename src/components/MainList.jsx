@@ -3,7 +3,7 @@ import axios from "axios";
 import "./MainList.css";
 
 const MainList = ({ 
-  exercises, // Kötelező alapértelmezett érték
+  exercises, 
   onRemoveExercise,
   onUpdateExercise,
   onOpenExerciseModal,
@@ -61,63 +61,88 @@ const MainList = ({
       </div>
 
       <div className="content">
-      {exercises.map((exercise, index) => (
-  <div key={`${exercise.id}-${index}`} className="exercise-row">
-    <div className="name-cell">
-    {exercise.name ? exercise.name : exerciseList.find(e => e.exerciseId === exercise.exerciseId).name}
-    </div>
+        {safeExercises.length === 0 ? (
+          <div className="no-exercises">
+            Nincsenek gyakorlatok hozzáadva. Használd a {isMobile ? "Gyakorlat hozzáadása gombot" : "jobb oldali panelt"} új gyakorlatok felvételéhez.
+          </div>
+        ) : (
+          safeExercises.map((exercise, index) => {
+            // Keressük meg a gyakorlat nevét, ha nem lenne definiálva
+            const exerciseName = exercise.name || 
+              (exerciseList.find(e => e.id === exercise.exerciseId || e.id === exercise.id)?.name || "Ismeretlen gyakorlat");
+            
+            return (
+              <div key={`${exercise.id || exercise.exerciseId}-${index}`} className="exercise-row">
+                <div className="name-cell" data-label="Gyakorlat">
+                  {exerciseName}
+                </div>
 
-    <input
-      type="number"
-  data-label="Széria"
-      min="0"
-      value={exercise.sets ?? ""}
-      onChange={(e) => handleChange(index, 'sets', e.target.value)}
-      className="input-number"
-    />
+                <div data-label="Széria">
+                  <input
+                    type="number"
+                    min="0"
+                    value={exercise.sets ?? ""}
+                    onChange={(e) => handleChange(index, 'sets', e.target.value)}
+                    className="input-number"
+                    aria-label="Széria mennyiség"
+                  />
+                </div>
 
-    <input
-      type="number"
-      data-label="Súly" 
-      min="0"
-      value={exercise.weight ?? ""}
-      onChange={(e) => handleChange(index, 'weight', e.target.value)}
-      className="input-number"
-      placeholder={localStorage.getItem("weightUnit") || "kg"}
-    />
+                <div data-label="Súly">
+                  <input
+                    type="number"
+                    min="0"
+                    value={exercise.weight ?? ""}
+                    onChange={(e) => handleChange(index, 'weight', e.target.value)}
+                    className="input-number"
+                    placeholder={localStorage.getItem("weightUnit") || "kg"}
+                    aria-label="Súly érték"
+                  />
+                </div>
 
-    <input
-      type="number"
-  data-label="Ismétlés"
-      min="0"
-      value={exercise.reps ?? ""}
-      onChange={(e) => handleChange(index, 'reps', e.target.value)}
-      className="input-number"
-    />
+                <div data-label="Ismétlés">
+                  <input
+                    type="number"
+                    min="0"
+                    value={exercise.reps ?? ""}
+                    onChange={(e) => handleChange(index, 'reps', e.target.value)}
+                    className="input-number"
+                    aria-label="Ismétlések száma"
+                  />
+                </div>
 
-    <button
-      className={`state-btn ${exercise.completed ? 'completed' : ''}`}
-      onClick={() => toggleCompleted(index)}
-    >
-      {exercise.completed ? '✓' : ''}
-    </button>
+                <div data-label="Állapot">
+                  <button
+                    className={`state-btn ${exercise.completed ? 'completed' : ''}`}
+                    onClick={() => toggleCompleted(index)}
+                    aria-label={exercise.completed ? "Teljesítve" : "Nincs teljesítve"}
+                  >
+                    {exercise.completed ? '✓' : ''}
+                  </button>
+                </div>
 
-    <button
-      className="delete-btn"
-      onClick={() => onRemoveExercise(index)}
-    >
-      ×
-    </button>
-  </div>
-))}
-{isMobile && (
-        <button 
-          className="mobile-add-button"
-          onClick={onOpenExerciseModal}
-        >
-          + Új gyakorlat hozzáadása
-        </button>
-      )}
+                <div>
+                  <button
+                    className="delete-btn"
+                    onClick={() => onRemoveExercise(index)}
+                    aria-label="Gyakorlat törlése"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            );
+          })
+        )}
+        
+        {isMobile && (
+          <button 
+            className="mobile-add-button"
+            onClick={onOpenExerciseModal}
+          >
+            + Új gyakorlat hozzáadása
+          </button>
+        )}
       </div>
     </div>
   );

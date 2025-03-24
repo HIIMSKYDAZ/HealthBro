@@ -1,7 +1,6 @@
 /* WorkoutPlanSingle.css */
 
 .homemain-container-wps {
-  display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 20px;
   padding: 20px 20px 80px; /* Alsó padding a gomb helyének biztosításához */
@@ -10,10 +9,10 @@
 }
   
 .filter-container {
-  background-color: #f8f9fa00;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  overflow: visible;
 }
 
   
@@ -24,11 +23,21 @@
   padding: 0 20px;
 }
   
-  .exercise-list-container {
-    position: sticky;
-    top: 20px;
-    height: fit-content;
-  }
+.add-exercise-button {
+  width: 100%;
+  padding: 18px;
+  background: none;
+  border: 2px dashed #2c3e50;
+  border-radius: 12px;
+  color: #2c3e50;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.exercise-list-container.visible {
+  max-height: 60vh;
+  overflow-y: auto;
+}
   
   .button-container {
     display: none; /* Hidden on desktop - shown in grid */
@@ -129,12 +138,15 @@
   }
   
   .exercise-modal {
-    width: 100% !important;
-    height: 100vh !important;
-    border-radius: 0 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
   }
   
   .modal-search-container {
@@ -163,11 +175,12 @@
   }
 
   .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 15px;
     border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
   }
   
   .modal-filter {
@@ -178,7 +191,7 @@
   .modal-exercise-list {
     flex: 1;
     overflow-y: auto;
-    padding: 10px;
+    padding: 15px;
   }
   
   .close-modal {
@@ -277,7 +290,248 @@
     height: calc(100vh - 80px);
   }
   
-  /* Mobil elrendezés */
-  .mobile-layout {
+/* Asztali elrendezés */
+.desktop-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+
+.filter-container,
+.exercise-list-container {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.mainlist-container {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Mobil nézet */
+.mobile-layout .mainlist-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+}
+
+
+.exercise-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.exercise-modal {
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 80vh;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.modal-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+
+/* Reszponzív stílusok */
+@media (max-width: 768px) {
+  .desktop-layout {
     display: none;
   }
+  
+  .filter-container,
+  .exercise-list-container {
+    display: none;
+  }
+  
+  .mainlist-container {
+    padding-bottom: 120px;
+  }
+}
+
+/* Gombok változatlanul */
+.save-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.back-button,
+.save-button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.exercise-scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.exercise-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.add-button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.loading, .error {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #dc3545;
+}
+
+.mobile-exercise-section {
+  margin-top: auto;
+  background: white;
+  border-top: 1px solid #eee;
+  padding: 15px;
+}
+
+.add-exercise-button {
+  width: 100%;
+  padding: 18px;
+  background: none;
+  border: 2px dashed #2c3e50;
+  border-radius: 12px;
+  color: #2c3e50;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.exercise-modal {
+  width: 90%;
+  max-width: 500px;
+  height: 90vh;
+  max-height: 700px;
+  border-radius: 15px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.modal-filter {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  overflow-y: auto;
+  max-height: 40%;
+}
+
+.modal-exercise-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.no-exercises {
+  padding: 30px 20px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Mobil nézet javítások */
+@media (max-width: 768px) {
+  .exercise-row {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .exercise-row > div[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .input-number {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #f5f5f5;
+  }
+  
+  .state-btn, .delete-btn {
+    margin: 8px auto;
+    display: block;
+  }
+  
+  .header-row {
+    display: none;
+  }
+}

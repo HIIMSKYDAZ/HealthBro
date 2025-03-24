@@ -5,6 +5,7 @@ import axios from "axios";
 const Filter = ({ onFilter, currentFilter }) => {
   const [search, setSearch] = useState('');
   const [muscleGroups, setMuscleGroups] = useState([]);
+  const [selectedGroups, setSelectedGroups] = useState(currentFilter || []);
 
   useEffect(() => {
     const fetchWorkouts = async () => {
@@ -24,18 +25,29 @@ const Filter = ({ onFilter, currentFilter }) => {
     fetchWorkouts();
   }, []);
 
+  useEffect(() => {
+    setSelectedGroups(currentFilter || []);
+  }, [currentFilter]);
+
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
-    onFilter({ search: value, muscleGroup: currentFilter });
+    onFilter({ 
+      search: value, 
+      muscleGroup: selectedGroups 
+    });
   };
 
   const handleMuscleGroupToggle = (group) => {
-    const updatedGroups = currentFilter.includes(group)
-      ? currentFilter.filter(g => g !== group)
-      : [...currentFilter, group];
+    const updatedGroups = selectedGroups.includes(group)
+      ? selectedGroups.filter(g => g !== group)
+      : [...selectedGroups, group];
     
-    onFilter({ search, muscleGroup: updatedGroups });
+    setSelectedGroups(updatedGroups);
+    onFilter({ 
+      search, 
+      muscleGroup: updatedGroups 
+    });
   };
 
   return (
@@ -51,7 +63,7 @@ const Filter = ({ onFilter, currentFilter }) => {
           {muscleGroups.map((group, index) => (
             <div 
               key={index}
-              className={`group-item ${currentFilter.includes(group) ? 'active' : ''}`}
+              className={`group-item ${selectedGroups.includes(group) ? 'active' : ''}`}
               onClick={() => handleMuscleGroupToggle(group)}
             >
               <div className="custom-radio"></div>

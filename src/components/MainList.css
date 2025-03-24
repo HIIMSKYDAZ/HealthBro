@@ -1,12 +1,8 @@
 /* MainList.css */
-.container {
-  max-width: 100% !important;
-  margin: 20px auto !important;
-  border-radius: 10px !important;
-  overflow: hidden;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
-  background: white !important;
-  border: gainsboro 1px solid;
+.container-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-row {
@@ -128,7 +124,7 @@
 
 /* Görgetés kezelése asztalon */
 @media (min-width: 769px) {
-  .content {
+  .content-main {
       max-height: calc(100vh - 200px) !important;
       overflow-y: auto !important;
       padding-right: 10px !important;
@@ -153,4 +149,32 @@
   background: #fee2e2 !important;
   color: #dc2626 !important;
   border: 1px solid #fca5a5 !important;
+}
+
+.mobile-add-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  cursor: pointer;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.mobile-add-row:hover {
+  background: #e9ecef;
+}
+
+.add-column {
+  font-size: 24px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.content-main {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
 }
