@@ -70,7 +70,7 @@ const MainList = ({
             </div>
           ) : (
             safeExercises.map((exercise, index) => {
-              const exerciseName = (exerciseList.find(e => e.id === exercise.exerciseId)?.name || "Ismeretlen gyakorlat");
+              const exerciseName = (exerciseList.find(e => e.exerciseId === exercise.exerciseId)?.name || "Ismeretlen gyakorlat");
               
               return (
                 <div key={`${exercise.id || exercise.exerciseId}-${index}`} className="exercise-row">

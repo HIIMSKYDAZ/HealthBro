@@ -51,7 +51,7 @@ const ExerciseList = ({ filters, onAddExercise }) => {
                   className="add-button"
                   onClick={() => onAddExercise({
                     ...exercise,
-                    exerciseId: exercise.id,
+                    exerciseId: exercise.exerciseId,
                     sets: 3,
                     weight: '',
                     reps: 12,

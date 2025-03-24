@@ -52,7 +52,7 @@ export const WorkoutPage = () => {
     Új terv létrehozása
 </button>
                     </div>
-                    <h1 className="fancy-text">Workout</h1>
+                    <h1 className="fancy-text">Edzéstervek</h1>
                 </div>
                 <div className="row-hb">
                     {workouts.map((workout, index) => (

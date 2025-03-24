@@ -153,12 +153,6 @@ const WorkoutPlanSingle = () => {
                       className="modal-search-input"
                     />
                   </div>
-                  <button 
-                    className="close-modal-btn"
-                    onClick={closeModal}
-                  >
-                    ×
-                  </button>
                 </div>
                 
                 <div className="modal-exercise-list">
