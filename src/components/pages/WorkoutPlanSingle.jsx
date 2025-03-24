@@ -11,7 +11,7 @@ const WorkoutPlanSingle = () => {
   const [filters, setFilters] = useState({ muscleGroup: [], search: '' });
   const [showExerciseModal, setShowExerciseModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [modalFilters, setModalFilters] = useState({ muscleGroup: [], search: '' });
+  const [searchTerm, setSearchTerm] = useState('');
   const planId = useParams().id;
 
   // Mobil nézet detektálása
@@ -78,10 +78,25 @@ const WorkoutPlanSingle = () => {
     setSelectedExercises(prev => prev.filter((_, i) => i !== index));
   };
 
-  // Modal nyitásakor átmásoljuk a szűrőket
+  // Modal nyitásakor reseteljük a keresőt
   const handleOpenModal = () => {
-    setModalFilters({ ...filters });
+    setSearchTerm('');
     setShowExerciseModal(true);
+  };
+
+  // Mobil keresés kezelése
+  const handleModalSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Modal bezárás biztosítása
+  const closeModal = () => {
+    setShowExerciseModal(false);
+  };
+
+  // Megakadályozzuk, hogy a modal klikk buborékolása bezárja a modalt véletlenül
+  const stopPropagation = (e) => {
+    e.stopPropagation();
   };
 
   return (
@@ -124,36 +139,31 @@ const WorkoutPlanSingle = () => {
             />
           </div>
 
-          {/* ExerciseList modal */}
+          {/* ExerciseList modal javított verzió */}
           {showExerciseModal && (
-            <div className="exercise-modal-overlay">
-              <div className="exercise-modal">
+            <div className="exercise-modal-overlay" onClick={closeModal}>
+              <div className="exercise-modal" onClick={stopPropagation}>
                 <div className="modal-header">
-                  <input
-                    type="text"
-                    placeholder="Keresés..."
-                    value={modalFilters.search}
-                    onChange={(e) => setModalFilters({...modalFilters, search: e.target.value})}
-                    className="modal-search-input"
-                  />
+                  <div className="search-wrapper">
+                    <input
+                      type="text"
+                      placeholder="Keresés..."
+                      value={searchTerm}
+                      onChange={handleModalSearch}
+                      className="modal-search-input"
+                    />
+                  </div>
                   <button 
-                    className="close-modal"
-                    onClick={() => setShowExerciseModal(false)}
+                    className="close-modal-btn"
+                    onClick={closeModal}
                   >
                     ×
                   </button>
                 </div>
                 
-                <div className="modal-filter">
-                  <Filter 
-                    onFilter={setModalFilters} 
-                    currentFilter={modalFilters.muscleGroup}
-                  />
-                </div>
-                
                 <div className="modal-exercise-list">
                   <ExerciseList
-                    filters={modalFilters}
+                    filters={{ search: searchTerm, muscleGroup: filters.muscleGroup }}
                     onAddExercise={handleAddExercise}
                   />
                 </div>
@@ -163,10 +173,16 @@ const WorkoutPlanSingle = () => {
         </div>
       )}
 
-      {/* Eredeti gombok változatlanul */}
-      <div className="save-button-container">
-        <button className="back-button" onClick={() => window.history.back()}>←</button>
-        <button className="save-button" onClick={uploadExercises}>Mentés</button>
+      {/* Új dizájnú gombok */}
+      <div className="control-buttons-container">
+        <button className="back-button" onClick={() => window.history.back()}>
+          <span className="back-icon">←</span>
+          <span className="back-text">Vissza</span>
+        </button>
+        <button className="save-button" onClick={uploadExercises}>
+          <span className="save-icon">✓</span>
+          <span className="save-text">Mentés</span>
+        </button>
       </div>
     </div>
   );

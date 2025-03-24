@@ -77,7 +77,7 @@ const MainList = ({
                   {exerciseName}
                 </div>
 
-                <div data-label="Széria">
+                <div className="sets-cell" data-label="Széria">
                   <input
                     type="number"
                     min="0"
@@ -88,7 +88,7 @@ const MainList = ({
                   />
                 </div>
 
-                <div data-label="Súly">
+                <div className="weight-cell" data-label="Súly">
                   <input
                     type="number"
                     min="0"
@@ -100,7 +100,7 @@ const MainList = ({
                   />
                 </div>
 
-                <div data-label="Ismétlés">
+                <div className="reps-cell" data-label="Ismétlés">
                   <input
                     type="number"
                     min="0"
@@ -111,7 +111,7 @@ const MainList = ({
                   />
                 </div>
 
-                <div data-label="Állapot">
+                <div className="status-cell" data-label="Állapot">
                   <button
                     className={`state-btn ${exercise.completed ? 'completed' : ''}`}
                     onClick={() => toggleCompleted(index)}
@@ -121,7 +121,7 @@ const MainList = ({
                   </button>
                 </div>
 
-                <div>
+                <div className="delete-cell">
                   <button
                     className="delete-btn"
                     onClick={() => onRemoveExercise(index)}

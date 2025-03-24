@@ -14,7 +14,6 @@
   height: fit-content;
   overflow: visible;
 }
-
   
 .mainlist-container {
   margin: 0 auto;
@@ -22,274 +21,7 @@
   width: 100%;
   padding: 0 20px;
 }
-  
-.add-exercise-button {
-  width: 100%;
-  padding: 18px;
-  background: none;
-  border: 2px dashed #2c3e50;
-  border-radius: 12px;
-  color: #2c3e50;
-  font-size: 16px;
-  margin-top: 15px;
-}
 
-.exercise-list-container.visible {
-  max-height: 60vh;
-  overflow-y: auto;
-}
-  
-  .button-container {
-    display: none; /* Hidden on desktop - shown in grid */
-  }
-  
-  /* Tablet nézet (768px) */
-  @media (max-width: 768px) {
-    .homemain-container-wps {
-      grid-template-columns: 1fr;
-      padding: 15px 15px 70px; /* Kisebb alsó padding mobilnál */
-    }
-  
-    .save-button-container {
-      bottom: 20px;
-      width: 90%;
-      padding: 8px 15px;
-    }
-    
-    .save-button {
-      width: 100%;
-      padding: 12px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .save-button-container {
-      border-radius: 20px;
-      padding: 8px 15px;
-    }
-  }
-
-  .save-button-container {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0);
-    padding: 10px 25px;
-    border-radius: 30px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    width: 300px;
-    display: flex;
-    gap: 10px;
-  }
-
-  .save-button {
-    background-color: white;
-    color: #2c3e50;
-    border: 2px solid #2c3e50;
-    padding: 12px 35px;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    width: 300px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .back-button {
-    background-color: white;
-    color: #ca1919;
-    border: 2px solid #ca1919;
-    padding: 12px 35px;
-    font-size: 1.1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    width: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .back-button:hover {
-    background-color: #ca1919;
-    color: white;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transform: translateX(0%) translateY(-10px);
-  }
-
-  .save-button:hover {
-    background-color: #2c3e50; /* Marad fehér */
-    color: white; /* Szín változatlan */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transform: translateX(0%) translateY(-10px);
-  }
-
-  .exercise-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .exercise-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-  }
-  
-  .modal-search-container {
-    padding: 20px;
-    background: #fff;
-    position: relative;
-  }
-
-  .modal-search-container input {
-    width: 100%;
-    padding: 15px 25px 15px 45px !important;
-    border: 2px solid #eee !important;
-    border-radius: 30px !important;
-    font-size: 16px;
-    background: #f8f9fa;
-  }
-  
-  .modal-search-container::before {
-    content: "🔍";
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    opacity: 0.5;
-  }
-
-  .modal-header {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 1;
-  }
-  
-  .modal-filter {
-    padding: 15px;
-    background: #f8f9fa;
-  }
-  
-  .modal-exercise-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 15px;
-  }
-  
-  .close-modal {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px 10px;
-  }
-  
-  /* Mobil hozzáadás gomb */
-  .mobile-add-button {
-    position: fixed;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-size: 16px;
-    z-index: 500;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  @media (min-width: 769px) {
-    .exercise-list-container::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    .exercise-list-container::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    
-    .exercise-list-container::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 4px;
-    }
-  }
-  /* Reszponzív táblázat további javítások */
-  @media (max-width: 768px) {
-    .homemain-container-wps {
-      display: block;
-      padding: 15px;
-    }
-  
-    .exercise-modal {
-      height: 85vh;
-    }
-  
-    .modal-exercise-list {
-      padding: 15px;
-    }
-  
-    .mainlist-container {
-      padding-bottom: 120px !important;
-    }
-
-    .exercise-row {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-      padding: 20px !important;
-      background: white;
-      border-radius: 12px !important;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08) !important;
-      margin-bottom: 15px !important;
-    }
-  
-    .exercise-row > div::before {
-      content: attr(data-label) ":" !important;
-      display: block !important;
-      font-size: 14px !important;
-      color: #2c3e50 !important;
-      font-weight: 600 !important;
-      margin-bottom: 5px !important;
-    }
-  
-    .input-number {
-      font-size: 16px !important;
-      padding: 12px 15px !important;
-      border: 2px solid #eee !important;
-      background: #f8f9fa !important;
-    }
-  }
-
-  .desktop-layout {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    height: calc(100vh - 80px);
-  }
-  
 /* Asztali elrendezés */
 .desktop-layout {
   display: grid;
@@ -320,9 +52,93 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 120px);
+  padding-bottom: 120px;
 }
 
+/* Új stílusok a gombokhoz */
+.save-button-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 15px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
+.back-button {
+  background-color: white;
+  color: #e53e3e;
+  border: 2px solid #e53e3e;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.back-button:hover {
+  background-color: #e53e3e;
+  color: white;
+  box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+  transform: translateY(-5px);
+}
+
+.save-button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  min-width: 150px;
+}
+
+.save-button:hover {
+  background-color: #1a202c;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+/* Mobil hozzáadás gomb új stílusa */
+.mobile-add-button {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-add-button:hover, 
+.mobile-add-button:active {
+  background: #1a202c;
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Felugró modal új stílusa */
 .exercise-modal-overlay {
   position: fixed;
   top: 0;
@@ -331,207 +147,157 @@
   bottom: 0;
   background: rgba(0,0,0,0.5);
   z-index: 1000;
-}
-
-.exercise-modal {
-  background: white;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  height: 80vh;
-  border-radius: 15px;
-  padding: 15px;
-}
-
-.modal-header {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.modal-search-input {
-  width: 100%;
-  padding: 12px 20px;
-  border: 2px solid #f0f0f0;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-
-/* Reszponzív stílusok */
-@media (max-width: 768px) {
-  .desktop-layout {
-    display: none;
-  }
-  
-  .filter-container,
-  .exercise-list-container {
-    display: none;
-  }
-  
-  .mainlist-container {
-    padding-bottom: 120px;
-  }
-}
-
-/* Gombok változatlanul */
-.save-button-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
-}
-
-.back-button,
-.save-button {
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.exercise-scrollable {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.exercise-item {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 15px;
-  margin-bottom: 10px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  animation: fadeIn 0.3s ease;
 }
 
-.exercise-item:hover {
-  transform: translateX(5px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.add-button {
-  background: #2c3e50;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.loading, .error {
-  padding: 20px;
-  text-align: center;
-  color: #666;
-}
-
-.error {
-  color: #dc3545;
-}
-
-.mobile-exercise-section {
-  margin-top: auto;
-  background: white;
-  border-top: 1px solid #eee;
-  padding: 15px;
-}
-
-.add-exercise-button {
-  width: 100%;
-  padding: 18px;
-  background: none;
-  border: 2px dashed #2c3e50;
-  border-radius: 12px;
-  color: #2c3e50;
-  font-size: 16px;
-  margin-top: 15px;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .exercise-modal {
+  position: relative;
   width: 90%;
-  max-width: 500px;
-  height: 90vh;
-  max-height: 700px;
-  border-radius: 15px;
+  max-width: 600px;
+  height: 80vh;
   background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-header {
-  padding: 15px;
   display: flex;
   align-items: center;
+  padding: 20px;
   border-bottom: 1px solid #eee;
+  gap: 15px;
 }
 
 .modal-search-input {
   flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  padding: 15px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
   font-size: 16px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
 }
 
-.modal-filter {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  overflow-y: auto;
-  max-height: 40%;
+.modal-search-input:focus {
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+  outline: none;
+}
+
+.close-modal {
+  background: #f8f9fa;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
 }
 
 .modal-exercise-list {
   flex: 1;
   overflow-y: auto;
+  padding: 15px;
+}
+
+/* Reszponzív módosítások */
+@media (max-width: 768px) {
+  .desktop-layout {
+    display: none;
+  }
+  
+  .exercise-modal {
+    width: 95%;
+    height: 90vh;
+  }
+  
+  .save-button-container {
+    bottom: 20px;
+    width: 95%;
+  }
+  
+  .save-button, .back-button {
+    padding: 12px 15px;
+  }
+  
+  .mainlist-container {
+    padding: 10px;
+  }
+}
+
+/* ExerciseList elem stílusának felülírása a modálban */
+.modal-exercise-list .exercise-item {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.modal-exercise-list .exercise-item:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+
+.modal-exercise-list .add-button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-exercise-list .add-button:hover {
+  background: #1a202c;
+  transform: scale(1.1);
+}
+
+.exercise-scrollable {
+  display: flex;
+  flex-direction: column;
 }
 
 .no-exercises {
   padding: 30px 20px;
   text-align: center;
-  color: #666;
-  font-size: 16px;
-}
-
-/* Mobil nézet javítások */
-@media (max-width: 768px) {
-  .exercise-row {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .exercise-row > div[data-label]::before {
-    content: attr(data-label);
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-  }
-  
-  .input-number {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background: #f5f5f5;
-  }
-  
-  .state-btn, .delete-btn {
-    margin: 8px auto;
-    display: block;
-  }
-  
-  .header-row {
-    display: none;
-  }
+  color: #718096;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
 }
