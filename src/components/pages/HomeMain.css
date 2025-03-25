@@ -115,7 +115,6 @@ video {
     display: flex; 
     flex-direction: column;
     position: relative;
-    top: -17px !important;
     fill: rgb(0, 0, 0) !important;
     right: 20px;
     z-index: 10;
