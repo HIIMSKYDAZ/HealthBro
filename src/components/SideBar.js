@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
-import { IoMdMore } from "react-icons/io";
 import { FaHouse, FaDumbbell } from "react-icons/fa6";
 import { HiMiniCog6Tooth } from "react-icons/hi2";
-import ".//pages/HomeMain.css";
+import "./SideBar.css";
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
@@ -12,6 +11,22 @@ const Sidebar = () => {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  // Close menu when clicking outside on mobile
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (window.innerWidth <= 960 && click && 
+          !event.target.closest('.sidebar') && 
+          !event.target.closest('.menu-icon')) {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [click]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -21,18 +36,18 @@ const Sidebar = () => {
   return (
     <>
       <div className={`sidebar ${click ? 'active' : ''}`}>
-        <div className="menu-icon" onClick={handleClick}>
+        <button className="menu-icon" onClick={handleClick}>
           {click ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 384 512">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
               <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8-9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 448 512">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path d="M0 96C0 78.3 14.3 64 32 64h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM0 416c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z" />
             </svg>
           )}
-        </div>
-        <Link to="/HomeMain" className="img-fluid">
+        </button>
+        <Link to="/HomeMain" className="img-fluid" onClick={closeMobileMenu}>
           <img src="images/logo.svg" alt="logo" />
         </Link>
         <ul className={`menu-icon-main ${click ? 'active' : ''}`}>
