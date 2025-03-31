@@ -151,10 +151,8 @@ const Settings = () => {
           <div className="settings-info">
             <h2>{userData?.name}</h2>
             <Button 
-              buttonStyle="btn--primary" 
-              buttonSize="btn--medium" 
-              linkTo="/EditProfile"
-            >
+              className={'btn---settings'}
+              buttonSize={'btn--medium'}>
               Profil szerkesztése
             </Button>
           </div>
