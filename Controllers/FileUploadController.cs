@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -69,8 +69,5 @@ namespace HealthBro_BackEnd.Controllers
                 return Ok("default.jpg");
             }
         }
-
-
-
     }
 }
