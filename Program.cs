@@ -100,8 +100,8 @@ namespace HealthBro_BackEnd
             // Az adatbáziskapcsolat regisztrálása
             var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
             builder.Services.AddDbContext<HealthbroContext>(options =>
-                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-            
+                 options.UseMySQL(builder.Configuration.GetConnectionString(connectionString)));
+
 
 
             // Controllers és Swagger regisztrálása
