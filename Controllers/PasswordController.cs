@@ -1,37 +1,40 @@
-﻿using HealthBro_BackEnd.Models;
+using HealthBro_BackEnd.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthBro_BackEnd.Controllers
 {
     public class PasswordController : Controller
     {
-        [HttpPost("{loginName},{oldPassword},{newPassword}")]
+        private readonly HealthbroContext _context;
 
+        public PasswordController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
+        [HttpPost("{loginName},{oldPassword},{newPassword}")]
         public async Task<IActionResult> JelszoMosositas(string loginName, string oldPassword, string newPassword)
         {
             try
             {
-                using (var context = new HealthbroContext())
+                User? user = _context.Users.FirstOrDefault(f => f.LoginName == loginName);
+                if (user != null)
                 {
-                    User? user = context.Users.FirstOrDefault(f => f.LoginName == loginName);
-                    if (user != null)
+                    if (Program.CreateSHA256(Program.CreateSHA256(oldPassword + user.Salt)) == user.Hash)
                     {
-                        if (Program.CreateSHA256(Program.CreateSHA256(oldPassword+user.Salt)) == user.Hash)
-                        {
-                            user.Hash = Program.CreateSHA256(Program.CreateSHA256(newPassword + user.Salt));
-                            context.Users.Update(user);
-                            await context.SaveChangesAsync();
-                            return Ok("A jelszó módosítása sikeresen megtörtént.");
-                        }
-                        else
-                        {
-                            return StatusCode(201, "Hibás a régi jelszó!");
-                        }
+                        user.Hash = Program.CreateSHA256(Program.CreateSHA256(newPassword + user.Salt));
+                        _context.Users.Update(user);
+                        await _context.SaveChangesAsync();
+                        return Ok("A jelszó módosítása sikeresen megtörtént.");
                     }
                     else
                     {
-                        return BadRequest("Nincs ilyen nevű felhasználó!");
+                        return StatusCode(201, "Hibás a régi jelszó!");
                     }
+                }
+                else
+                {
+                    return BadRequest("Nincs ilyen nevű felhasználó!");
                 }
             }
             catch (Exception ex)
@@ -43,23 +46,21 @@ namespace HealthBro_BackEnd.Controllers
         [HttpPost("ForgotPassword/{Email}")]
         public async Task<IActionResult> ElfelejtettJelszo(string Email)
         {
-            using (var context = new HealthbroContext())
+            try
             {
-                try
+                // Keresd meg a felhasználót az email cím alapján
+                var user = _context.Users.FirstOrDefault(f => f.Email == Email);
+                if (user != null)
                 {
-                    // Keresd meg a felhasználót az email cím alapján
-                    var user = context.Users.FirstOrDefault(f => f.Email == Email);
-                    if (user != null)
-                    {
-                        // Generálj egy új jelszót
-                        string jelszo = Program.GenerateSalt().Substring(0, 16); // Ezt egy biztonságosabb generátorral cserélheted
-                        user.Hash = Program.CreateSHA256(Program.CreateSHA256(jelszo + user.Salt));
-                        context.Users.Update(user);
-                        await context.SaveChangesAsync();
+                    // Generálj egy új jelszót
+                    string jelszo = Program.GenerateSalt().Substring(0, 16); // Ezt egy biztonságosabb generátorral cserélheted
+                    user.Hash = Program.CreateSHA256(Program.CreateSHA256(jelszo + user.Salt));
+                    _context.Users.Update(user);
+                    await _context.SaveChangesAsync();
 
-                        // Küldjük el az új jelszót HTML formátumban
-                        Program.SendEmail(user.Email, "Elfelejtett jelszó",
-                            $@"
+                    // Küldjük el az új jelszót HTML formátumban
+                    Program.SendEmail(user.Email, "Elfelejtett jelszó",
+                        $@"
                     <!DOCTYPE html>
                     <html>
                     <head>
@@ -94,21 +95,17 @@ namespace HealthBro_BackEnd.Controllers
                     </html>
                     ");
 
-                        return Ok("E-mail küldése megtörtént.");
-                    }
-                    else
-                    {
-                        return StatusCode(210, "Nincs ilyen e-Mail cím!");
-                    }
+                    return Ok("E-mail küldése megtörtént.");
                 }
-                catch (Exception ex)
+                else
                 {
-                    return StatusCode(211, ex.Message);
+                    return StatusCode(210, "Nincs ilyen e-Mail cím!");
                 }
             }
+            catch (Exception ex)
+            {
+                return StatusCode(211, ex.Message);
+            }
         }
-
-
-
     }
 }
