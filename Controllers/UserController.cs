@@ -194,6 +194,47 @@ namespace HealthBro_BackEnd.Controllers
                 return BadRequest("Nincs jogosultsaga!");
             }
         }
+        //email módosítása
+        [HttpPut("UpdateUserMail/{token}")]
+        public async Task<IActionResult> UpdateUserMail(string token, [FromBody] UserUpdatetEmail updateRequest)
+        {
+            if (Program.LoggedInUsers.ContainsKey(token))
+            {
+                using (var cx = new HealthbroContext())
+                {
+                    try
+                    {
+                        var loggedInUser = Program.LoggedInUsers[token];
+                        var user = await cx.Users
+                                            .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
+
+                        if (user == null)
+                        {
+                            return NotFound("Felhasználó nem található.");
+                        }
+
+
+                        if (!string.IsNullOrEmpty(updateRequest.Email))
+                        {
+                            user.Email = updateRequest.Email;
+                        }
+
+                        cx.Update(user);
+                        await cx.SaveChangesAsync();
+
+                        return Ok("Felhasználó adatai sikeresen frissítve.");
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest($"Hiba történt: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                return BadRequest("Nincs jogosultsága!");
+            }
+        }
 
         [HttpPost("{token}")]
         public async Task<IActionResult> Post(string token, User user)
