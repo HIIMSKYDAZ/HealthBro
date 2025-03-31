@@ -69,7 +69,7 @@ namespace HealthBro_BackEnd
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+          //  builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             builder.Configuration.AddUserSecrets<Program>();
 
@@ -100,7 +100,7 @@ namespace HealthBro_BackEnd
             // Az adatbáziskapcsolat regisztrálása
             var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
             builder.Services.AddDbContext<HealthbroContext>(options =>
-                 options.UseMySQL(builder.Configuration.GetConnectionString(connectionString)));
+                 options.UseMySQL(connectionString));
 
 
 
