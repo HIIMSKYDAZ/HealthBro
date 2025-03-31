@@ -116,19 +116,10 @@ namespace HealthBro_BackEnd
             app.UseCors("AllowAll");
 
             // Swagger konfiguráció
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-           app.UseHttpsRedirection();
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
