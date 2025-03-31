@@ -1,4 +1,4 @@
-﻿using HealthBro_BackEnd.Models;
+using HealthBro_BackEnd.Models;
 using Microsoft.AspNetCore.DataProtection.XmlEncryption;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,13 +9,14 @@ namespace HealthBro_BackEnd.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ReviewController : ControllerBase
-    {   
+    {
         private readonly HealthbroContext _context;
 
         public ReviewController(HealthbroContext context)
         {
             _context = context;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetVelemeny()
         {
@@ -33,23 +34,20 @@ namespace HealthBro_BackEnd.Controllers
         [HttpPost]
         public async Task<IActionResult> UjVelemeny(Review review)
         {
-            using (var cx=new HealthbroContext())
+            try
             {
-                try
+                if (review.Velemeny.Trim() == "")
                 {
-                    if (review.Velemeny.Trim() == "")
-                    {
-                        return BadRequest("Vélemény megadása kötelező!");
-                    }
+                    return BadRequest("Vélemény megadása kötelező!");
+                }
 
-                    await cx.Reviews.AddAsync(review);
-                    await cx.SaveChangesAsync();
-                    return Ok("Sikeres véleményírás");
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(new { error = ex.Message });
-                }
+                await _context.Reviews.AddAsync(review);
+                await _context.SaveChangesAsync();
+                return Ok("Sikeres véleményírás");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
             }
         }
 
