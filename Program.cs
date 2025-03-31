@@ -84,7 +84,7 @@ namespace HealthBro_BackEnd
             });
 
 
-            // CORS engedÈlyezÈse
+            // CORS enged√©lyez√©se
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", builder =>
@@ -97,25 +97,25 @@ namespace HealthBro_BackEnd
 
             
 
-            // Az adatb·ziskapcsolat regisztr·l·sa
-            builder.Services.AddDbContext<HealthbroContext>(options =>
-                options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            // Az adatb√°ziskapcsolat regisztr√°l√°sa
+            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+            builder.Services.AddDbContext<HalakDbContext>(options =>
+                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             
 
 
-            // Controllers Ès Swagger regisztr·l·sa
+            // Controllers √©s Swagger regisztr√°l√°sa
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // CORS haszn·lata
+            // CORS haszn√°lata
             // In Configure:
             app.UseCors("AllowAll");
 
-            // Swagger konfigur·ciÛ
+            // Swagger konfigur√°ci√≥
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
