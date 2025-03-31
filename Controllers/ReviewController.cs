@@ -9,21 +9,24 @@ namespace HealthBro_BackEnd.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ReviewController : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult GetVelemeny()
-        {
-            using (var cx = new HealthbroContext())
-            {
-                try
-                {
-                    return Ok(cx.Reviews.ToList());
-                }
-                catch (Exception ex)
-                {
+    {   
+        private readonly HealthbroContext _context;
 
-                    return BadRequest(ex.Message);
-                }
+        public ReviewController(HealthbroContext context)
+        {
+            _context = context;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetVelemeny()
+        {
+            try
+            {
+                var velemenyek = await _context.Reviews.ToListAsync();
+                return Ok(velemenyek);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 
