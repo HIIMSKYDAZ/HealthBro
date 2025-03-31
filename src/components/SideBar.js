@@ -35,7 +35,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`sidebar ${click ? 'active' : ''}`}>
+    <div className="mobile-header">
+        <Link to="/HomeMain" className="mobile-logo">
+          <img src="images/logo.svg" alt="logo" style={{ height: '40px' }} />
+        </Link>
         <button className="menu-icon" onClick={handleClick}>
           {click ? (
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
@@ -47,7 +50,9 @@ const Sidebar = () => {
             </svg>
           )}
         </button>
-        <Link to="/HomeMain" className="img-fluid" onClick={closeMobileMenu}>
+      </div>
+      <div className={`sidebar ${click ? 'active' : ''}`}>
+        <Link to="/HomeMain" className="img-fluid">
           <img src="images/logo.svg" alt="logo" />
         </Link>
         <ul className={`menu-icon-main ${click ? 'active' : ''}`}>
