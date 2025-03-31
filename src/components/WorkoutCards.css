@@ -15,6 +15,12 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
 }
 
+.card-image-container {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 180px !important;
+}
+
 .card-hb img {
   width: 100% !important;
   height: auto !important;
@@ -22,26 +28,109 @@
   object-fit: cover !important;
 }
 
-.card-hb div {
-  padding: 12px !important;
-  background: rgb(1,54,58);
-  background: linear-gradient(180deg, rgba(1,54,58,1) 0%, rgba(58,101,101,1) 94%, rgba(222,230,233,1) 98%, rgba(148,170,192,1) 100%);
-  font-size: 16px !important;
-  font-weight: bold !important;
-  text-align: center !important;
-  color: #ffffff !important;
+.card-hb:hover img {
+  transform: scale(1.05) !important;
 }
 
+.card-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%) !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  padding: 12px !important;
+  /* Make overlay visible on mobile without hover */
+  opacity: 1 !important;
+}
+
+/* Only hide overlay on desktop and show on hover */
+@media (min-width: 769px) {
+  .card-overlay {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+  
+  .card-hb:hover .card-overlay {
+    opacity: 1 !important;
+  }
+}
+
+.delete-button {
+  background-color: rgba(220, 53, 69, 0.9) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s, transform 0.2s !important;
+  z-index: 10 !important;
+}
+
+.delete-button:hover {
+  background-color: rgb(220, 53, 69) !important;
+  transform: scale(1.1) !important;
+}
+
+.card-content {
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.card-content h3 {
+  margin: 0 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  /* Ensure text doesn't overflow */
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.card-badge {
+  display: inline-block !important;
+  padding: 4px 10px !important;
+  background-color: rgba(1,54,58,0.1) !important;
+  color: rgba(1,54,58,1) !important;
+  border-radius: 50px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  align-self: flex-start !important;
+}
+
+/* Mobile specific styles */
 @media (max-width: 768px) {
   .card-hb {
     max-width: 100% !important;
   }
 
-  .card-hb img {
-    height: 200px !important;
+  .card-image-container {
+    height: 100% !important;
     width: 100% !important;
-    display: flex;
     object-fit: cover !important;
+  }
+  
+  .card-overlay {
+    padding: 8px !important;
+  }
+  
+  .delete-button {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  
+  .card-content h3 {
+    font-size: 16px !important;
   }
 }
 
