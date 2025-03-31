@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using HealthBro_BackEnd.Models;
@@ -49,7 +49,6 @@ namespace HealthBro_BackEnd.Controllers
                                 byte[] a = System.Text.Encoding.UTF8.GetBytes(hibaUzenet);
                                 return File(a, "text/plain", "Error.txt");
                             }
-
                         }
                         catch (Exception ex)
                         {
@@ -111,7 +110,5 @@ namespace HealthBro_BackEnd.Controllers
                 return Unauthorized("Nincs bejelentkezve/jogosultsága!");
             }
         }
-
-
     }
 }
