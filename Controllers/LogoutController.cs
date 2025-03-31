@@ -1,12 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using HealthBro_BackEnd.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HealthBro_BackEnd.Controllers
 {
     public class LogoutController : Controller
     {
-        [HttpPost("{token}")]
+        private readonly HealthbroContext _context;
 
-        public IActionResult Logout(string token)
+        public LogoutController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
+        [HttpPost("{token}")]
+        public async Task<IActionResult> Logout(string token)
         {
             if (Program.LoggedInUsers.ContainsKey(token))
             {
