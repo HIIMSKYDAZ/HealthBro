@@ -99,7 +99,7 @@ namespace HealthBro_BackEnd
 
             // Az adatbáziskapcsolat regisztrálása
             var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
-            builder.Services.AddDbContext<HalakDbContext>(options =>
+            builder.Services.AddDbContext<HealthbroContext>(options =>
                  options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
             
 
