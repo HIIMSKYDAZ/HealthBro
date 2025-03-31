@@ -14,13 +14,13 @@ video {
   box-sizing: border-box !important;
   position: relative !important;
   min-height: 100vh !important;
-  background-color: #ffffff !important;
+  background-color: #ffffff00 !important;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #00000000 !important;
+  background-color: #ffffff !important;
   color: rgb(0, 0, 0);
   padding: 20px;
   max-width: 300px;

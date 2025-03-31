@@ -4,6 +4,7 @@ import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
 import NewsTicker from "../NewsTicker";
 import axios from "axios";
+import PolygonBackground from '../PolygonBackground.jsx';
 const HomeMain = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -47,10 +48,13 @@ const HomeMain = () => {
  
 
   return (
+    
     <div className="homemain-container">
+              <PolygonBackground />
       <Sidebar />
       <div className="news_content">
         <NewsTicker />
+
       </div>
     </div>
   );

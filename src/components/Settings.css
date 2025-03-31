@@ -2,18 +2,6 @@
   color: rgb(0, 0, 0) !important;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  background-color: #00000000 !important;
-  color: rgb(0, 0, 0);
-  padding: 20px;
-  max-width: 300px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  text-align: center;
-}
-
 .settings-page {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;

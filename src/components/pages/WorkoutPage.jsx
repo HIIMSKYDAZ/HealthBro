@@ -5,7 +5,8 @@ import { Button } from "../Button";
 import { useNavigate } from "react-router-dom";
 import WorkoutCards from "../WorkoutCards.jsx";
 import axios from "axios";
-import Popup from "../Popup.jsx"; // Popup importálása
+import Popup from "../Popup.jsx";
+import PolygonBackground from '../PolygonBackground.jsx';
 
 export const WorkoutPage = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,7 +41,7 @@ export const WorkoutPage = () => {
 
     return (
         <div className="homemain-container">
-                  <video src="../videos/mainbg_small.mp4" autoPlay loop muted />
+                  <PolygonBackground />
             <Sidebar />
             <div className="content">
                 <div className="header">
