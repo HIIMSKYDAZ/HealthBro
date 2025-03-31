@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using HealthBro_BackEnd.Models;
 using HealthBro_BackEnd.DTOs; // A DTO importálása
 using Microsoft.EntityFrameworkCore;
