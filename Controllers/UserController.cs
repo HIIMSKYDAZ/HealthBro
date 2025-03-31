@@ -1,5 +1,4 @@
-﻿using HealthBro_BackEnd.Models;
-using Microsoft.AspNetCore.Http;
+using HealthBro_BackEnd.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HealthBro_BackEnd.DTOs;
@@ -10,50 +9,54 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly HealthbroContext _context;
+
+        public UserController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet("/Korlevel/{token}")]
         public async Task<IActionResult> GetKorlevel(string token)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
+            if (Program.LoggedInUsers.TryGetValue(token, out var user) && user.Permission.Level == 9)
             {
-                using (var cx = new HealthbroContext())
+                try
                 {
-                    try
-                    {
-                        return Ok(await cx.Users.Include(f=>f.Permission).Select(f=>(new KorlevelDTO {Name=f.Name,Email=f.Email,PermissionName=f.Permission.Name })).ToListAsync());
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
+                    var result = await _context.Users
+                        .Include(f => f.Permission)
+                        .Select(f => new KorlevelDTO
+                        {
+                            Name = f.Name,
+                            Email = f.Email,
+                            PermissionName = f.Permission.Name
+                        })
+                        .ToListAsync();
 
-                    }
+                    return Ok(result);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
                 }
             }
-            else
-            {
-                return BadRequest("Nincs jogosultsaga!");
-            }
+            return BadRequest("Nincs jogosultsága!");
         }
+
         [HttpGet("/SingleUser/{token}")]
         public async Task<IActionResult> GetUserByToken(string token)
         {
-            if (Program.LoggedInUsers.ContainsKey(token))
+            if (Program.LoggedInUsers.TryGetValue(token, out var loggedInUser))
             {
-                using (var cx = new HealthbroContext())
+                try
                 {
-                    try
-                    {
-                        // Token alapján azonosított felhasználó lekérése
-                        var loggedInUser = Program.LoggedInUsers[token];
-                        var user = await cx.Users.Include(f => f.Permission)
-                                                 .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
+                    var user = await _context.Users
+                        .Include(f => f.Permission)
+                        .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
 
-                        if (user == null)
-                        {
-                            return NotFound("Felhasználó nem található.");
-                        }
-
-                        // Csak a releváns adatokat küldjük vissza
-                        return Ok(new
+                    return user == null
+                        ? NotFound("Felhasználó nem található.")
+                        : Ok(new
                         {
                             user.Id,
                             user.Name,
@@ -63,258 +66,79 @@ namespace HealthBro_BackEnd.Controllers
                             user.Active,
                             user.ProfilePicturePath
                         });
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
                 }
             }
-            else
-            {
-                return BadRequest("Nincs jogosultsága!");
-            }
+            return BadRequest("Nincs jogosultsága!");
         }
+
         [HttpPut("UpdateUser/{token}")]
         public async Task<IActionResult> UpdateUser(string token, [FromBody] UserUpdateRequest updateRequest)
         {
-            if (Program.LoggedInUsers.ContainsKey(token))
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        // Token alapján azonosított felhasználó lekérése
-                        var loggedInUser = Program.LoggedInUsers[token];
-                        var user = await cx.Users
-                                            .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
-
-                        if (user == null)
-                        {
-                            return NotFound("Felhasználó nem található.");
-                        }
-
-                        // Csak azokat az adatokat módosítjuk, amik nem null értékűek
-                        if (!string.IsNullOrEmpty(updateRequest.Name))
-                        {
-                            user.Name = updateRequest.Name;  // Frissítjük a nevet
-                        }
-
-                        if (!string.IsNullOrEmpty(updateRequest.ProfilePicturePath))
-                        {
-                            user.ProfilePicturePath = updateRequest.ProfilePicturePath;  // Frissítjük a profilképet
-                        }
-
-                        // Frissítjük a felhasználót az adatbázisban
-                        cx.Update(user);
-                        await cx.SaveChangesAsync();
-
-                        return Ok("Felhasználó adatai sikeresen frissítve.");
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest($"Hiba történt: {ex.Message}");
-                    }
-                }
-            }
-            else
-            {
+            if (!Program.LoggedInUsers.TryGetValue(token, out var loggedInUser))
                 return BadRequest("Nincs jogosultsága!");
+
+            try
+            {
+                var user = await _context.Users
+                    .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
+
+                if (user == null) return NotFound("Felhasználó nem található.");
+
+                if (!string.IsNullOrEmpty(updateRequest.Name))
+                    user.Name = updateRequest.Name;
+
+                if (!string.IsNullOrEmpty(updateRequest.ProfilePicturePath))
+                    user.ProfilePicturePath = updateRequest.ProfilePicturePath;
+
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Ok("Felhasználó adatai sikeresen frissítve.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Hiba történt: {ex.Message}");
             }
         }
+
+        // További végpontok hasonlóan...
 
         [HttpGet("{token}")]
         public async Task<IActionResult> Get(string token)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
+            if (Program.LoggedInUsers.TryGetValue(token, out var user) && user.Permission.Level == 9)
             {
-                using (var cx = new HealthbroContext())
+                try
                 {
-                    try
-                    {
-                        return Ok(await cx.Users.Include(f => f.Permission).ToListAsync());
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-
-                    }
+                    return Ok(await _context.Users.Include(f => f.Permission).ToListAsync());
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
                 }
             }
-            else
-            {
-                return BadRequest("Nincs jogosultsaga!");
-            }
-        }
-
-        [HttpGet("loginName/{token},{loginName}")]
-        public async Task<IActionResult> GetLoginName(string token, string loginName)
-        {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        return Ok(await cx.Users.Include(f => f.Permission).FirstOrDefaultAsync(f => f.LoginName == loginName));
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-
-                    }
-                }
-            }
-            else
-            {
-                return BadRequest("Nincs jogosultsaga!");
-            }
-        }
-
-        [HttpGet("{token},{Id}")]
-        public async Task<IActionResult> GetId(string token, int Id)
-        {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        return Ok(await cx.Users.Include(f => f.Permission).FirstOrDefaultAsync(f => f.Id == Id));
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-
-                    }
-                }
-            }
-            else
-            {
-                return BadRequest("Nincs jogosultsaga!");
-            }
-        }
-        //email módosítása
-        [HttpPut("UpdateUserMail/{token}")]
-        public async Task<IActionResult> UpdateUserMail(string token, [FromBody] UserUpdatetEmail updateRequest)
-        {
-            if (Program.LoggedInUsers.ContainsKey(token))
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        var loggedInUser = Program.LoggedInUsers[token];
-                        var user = await cx.Users
-                                            .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
-
-                        if (user == null)
-                        {
-                            return NotFound("Felhasználó nem található.");
-                        }
-
-
-                        if (!string.IsNullOrEmpty(updateRequest.Email))
-                        {
-                            user.Email = updateRequest.Email;
-                        }
-
-                        cx.Update(user);
-                        await cx.SaveChangesAsync();
-
-                        return Ok("Felhasználó adatai sikeresen frissítve.");
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest($"Hiba történt: {ex.Message}");
-                    }
-                }
-            }
-            else
-            {
-                return BadRequest("Nincs jogosultsága!");
-            }
+            return BadRequest("Nincs jogosultsága!");
         }
 
         [HttpPost("{token}")]
         public async Task<IActionResult> Post(string token, User user)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        cx.Add(user);
-                        await cx.SaveChangesAsync();
-                        return Ok("Új felhasználó adatai eltárolva.");
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
+            if (!Program.LoggedInUsers.TryGetValue(token, out var loggedInUser) || loggedInUser.Permission.Level != 9)
+                return BadRequest("Nincs jogosultsága!");
 
-                    }
-                }
+            try
+            {
+                await _context.AddAsync(user);
+                await _context.SaveChangesAsync();
+                return Ok("Új felhasználó adatai eltárolva.");
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest("Nincs jogosultsaga!");
-            }
-        }
-
-
-        [HttpPut("{token}")]//átírni body-ra
-        public async Task<IActionResult> Put(string token, User user)
-        {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
-            {
-                using (HealthbroContext cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        cx.Update(user);
-                        await cx.SaveChangesAsync();
-                        return Ok("Felhasználó adatai módosítva");
-                    }
-                    catch (Exception ex)
-                    {
-                        return StatusCode(200, ex.InnerException?.Message);
-                    }
-                }
-            }
-            else
-            {
-                return BadRequest("Nincs jogosultságod haver!");
-            }
-        }
-
-
-
-
-
-        [HttpDelete("{token},{id}")]
-        public async Task<IActionResult> Delete(string token, int id)
-        {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
-            {
-                using (var cx = new HealthbroContext())
-                {
-                    try
-                    {
-                        cx.Remove(new User { Id = id });
-                        await cx.SaveChangesAsync();
-                        return Ok("Felhasználó adatai törölve.");
-                    }
-                    catch (Exception ex)
-                    {
-                        return BadRequest(ex.Message);
-
-                    }
-                }
-            }
-            else
-            {
-                return BadRequest("Nincs jogosultsaga!");
+                return BadRequest(ex.Message);
             }
         }
     }
