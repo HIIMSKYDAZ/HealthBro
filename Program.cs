@@ -134,21 +134,4 @@ namespace HealthBro_BackEnd
     }
 }
 
-/*
- * 
- * 
- * {
-  "id": 0,
-  "loginName": "string",
-  "hash": "string",
-  "salt": "string",
-  "name": "string",
-  "permissionId": 0,
-  "active": true,
-  "email": "string",
-  "profilePicturePath": "string",
-}
- * 
- * Scaffold-DbContext "SERVER=localhost;PORT=3306;DATABASE=;USER=root;PASSWORD=;SSL MODE=none;" mysql.entityframeworkcore -outputdir Models -f
- */
 

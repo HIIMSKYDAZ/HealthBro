@@ -69,8 +69,5 @@ namespace HealthBro_BackEnd.Controllers
                 return Ok("default.jpg");
             }
         }
-
-
-
     }
 }

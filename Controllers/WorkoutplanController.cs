@@ -44,17 +44,14 @@ namespace HealthBro_BackEnd.Controllers
         [HttpGet("{token}/{userid}")]
         public async Task<IActionResult> Get(string token, int userid)
         {
-            using (var cx = new HealthbroContext())
+            try
             {
-                try
-                {
-                    var workoutPlans = await cx.Workoutplans.Where(wp => wp.UserId == userid).ToListAsync();
-                    return Ok(workoutPlans);
-                }
-                catch (Exception ex)
-                {
-                    return StatusCode(500, "Internal server error: " + ex.Message);
-                }
+                var workoutPlans = await _context.Workoutplans.Where(wp => wp.UserId == userid).ToListAsync();
+                return Ok(workoutPlans);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
             }
         }
 

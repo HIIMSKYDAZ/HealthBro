@@ -14,65 +14,65 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        private readonly HealthbroContext _context;
+
+        public LoginController(HealthbroContext context)
+        {
+            _context = context;
+        }
 
         [HttpPost("SaltRequest/{loginName}")]
 
         public async Task<IActionResult> SaltRequest(string loginName)
-        { //cx = context
-            using (var cx = new HealthbroContext())
+        {
+            try
             {
-                try
+                User response = await _context.Users.FirstOrDefaultAsync(f => f.LoginName == loginName);
+                if (response == null)
                 {
-                    User response = await cx.Users.FirstOrDefaultAsync(f => f.LoginName == loginName);
-                    if (response == null)
-                    {
-                        return BadRequest("Hiba");
-                    }
-                    return Ok(response.Salt);
-
+                    return BadRequest("Hiba");
                 }
-                catch (Exception ex)
-                {
+                return Ok(response.Salt);
 
-                    return BadRequest(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
-            using (var cx = new HealthbroContext())
+            try
             {
-                try
+                string Hash = HealthBro_BackEnd.Program.CreateSHA256(loginDTO.TmpHash);
+                User loggedUser = await _context.Users.Include(f => f.Permission).FirstOrDefaultAsync(f => f.LoginName == loginDTO.LoginName && f.Hash == Hash);
+                if (loggedUser != null && loggedUser.Active)
                 {
-                    string Hash = HealthBro_BackEnd.Program.CreateSHA256(loginDTO.TmpHash);
-                    User loggedUser = await cx.Users.Include(f => f.Permission).FirstOrDefaultAsync(f => f.LoginName == loginDTO.LoginName && f.Hash == Hash);
-                    if (loggedUser != null && loggedUser.Active)
+                    string token = Guid.NewGuid().ToString();
+                    lock (Program.LoggedInUsers)
                     {
-                        string token = Guid.NewGuid().ToString();
-                        lock (Program.LoggedInUsers)
-                        {
-                            Program.LoggedInUsers.Add(token, loggedUser);
-                        }
-                        return Ok(new LoggedUsercs
-                        {
-                            Name = loggedUser.Name,
-                            Email = loggedUser.Email,
-                            Permission = loggedUser.PermissionId,
-                            ProfilePicturePath = loggedUser.ProfilePicturePath,
-                            Token = token
-                        });
+                        Program.LoggedInUsers.Add(token, loggedUser);
                     }
-                    else
+                    return Ok(new LoggedUsercs
                     {
-                        return BadRequest("Hibás név vagy jelszó!");
-                    }
+                        Name = loggedUser.Name,
+                        Email = loggedUser.Email,
+                        Permission = loggedUser.PermissionId,
+                        ProfilePicturePath = loggedUser.ProfilePicturePath,
+                        Token = token
+                    });
                 }
-                catch (Exception ex)
+                else
                 {
-                    return BadRequest(new LoggedUsercs { Permission = -1, Name = ex.Message, ProfilePicturePath = "", Email = "" });
+                    return BadRequest("Hibás név vagy jelszó!");
                 }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new LoggedUsercs { Permission = -1, Name = ex.Message, ProfilePicturePath = "", Email = "" });
             }
         }
     }

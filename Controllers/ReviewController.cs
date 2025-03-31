@@ -10,43 +10,44 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class ReviewController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetVelemeny()
-        {
-            using (var cx = new HealthbroContext())
-            {
-                try
-                {
-                    return Ok(cx.Reviews.ToList());
-                }
-                catch (Exception ex)
-                {
+        private readonly HealthbroContext _context;
 
-                    return BadRequest(ex.Message);
-                }
+        public ReviewController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetVelemeny()
+        {
+            try
+            {
+                var velemenyek = await _context.Reviews.ToListAsync();
+                return Ok(velemenyek);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
         public async Task<IActionResult> UjVelemeny(Review review)
         {
-            using (var cx=new HealthbroContext())
+            try
             {
-                try
+                if (review.Velemeny.Trim() == "")
                 {
-                    if (review.Velemeny.Trim() == "")
-                    {
-                        return BadRequest("Vélemény megadása kötelező!");
-                    }
+                    return BadRequest("Vélemény megadása kötelező!");
+                }
 
-                    await cx.Reviews.AddAsync(review);
-                    await cx.SaveChangesAsync();
-                    return Ok("Sikeres véleményírás");
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(new { error = ex.Message });
-                }
+                await _context.Reviews.AddAsync(review);
+                await _context.SaveChangesAsync();
+                return Ok("Sikeres véleményírás");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
             }
         }
 

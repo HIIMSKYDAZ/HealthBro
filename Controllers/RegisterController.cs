@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ZstdSharp.Unsafe;
 
 namespace HealthBro_BackEnd.Controllers
 {
@@ -9,30 +10,35 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class RegisterController : ControllerBase
     {
+        private readonly HealthbroContext _context;
+
+        public RegisterController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
         [HttpPost]
 
         public async Task<IActionResult> Register(User user)
         {
-            using (var cx = new HealthbroContext())
+            try
             {
-                try
+                if (_context.Users.FirstOrDefault(f => f.LoginName == user.LoginName) != null)
                 {
-                    if (cx.Users.FirstOrDefault(f => f.LoginName == user.LoginName) != null)
-                    {
-                        return Ok("Már létezik ilyen felhasználónév!");
-                    }
-                    if (cx.Users.FirstOrDefault(f => f.Email == user.Email) != null)
-                    {
-                        return Ok("Ezzel az e-mail címmel már regisztráltak!");
-                    }
-                    user.PermissionId = 1;
-                    user.Active = false;
-                    user.Hash = Program.CreateSHA256(user.Hash);
-                    await cx.Users.AddAsync(user);
-                    await cx.SaveChangesAsync();
+                    return Ok("Már létezik ilyen felhasználónév!");
+                }
+                if (_context.Users.FirstOrDefault(f => f.Email == user.Email) != null)
+                {
+                    return Ok("Ezzel az e-mail címmel már regisztráltak!");
+                }
+                user.PermissionId = 1;
+                user.Active = false;
+                user.Hash = Program.CreateSHA256(user.Hash);
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
 
-                    Program.SendEmail(user.Email, "Regisztráció megerősítése",
-                         $@"
+                Program.SendEmail(user.Email, "Regisztráció megerősítése",
+                     $@"
                         <!DOCTYPE html>
                         <html>
                         <head>
@@ -81,12 +87,11 @@ namespace HealthBro_BackEnd.Controllers
                         ");
 
 
-                    return Ok("Sikeres regisztráció. Fejezze be a regisztrációját az e-mail címére küldött link segítségével!");
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+                return Ok("Sikeres regisztráció. Fejezze be a regisztrációját az e-mail címére küldött link segítségével!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 
@@ -98,15 +103,15 @@ namespace HealthBro_BackEnd.Controllers
             {
                 try
                 {
-                    User user = await cx.Users.FirstOrDefaultAsync(f => f.LoginName == felhasznaloNev && f.Email == email);
+                    User user = await _context.Users.FirstOrDefaultAsync(f => f.LoginName == felhasznaloNev && f.Email == email);
                     if (user == null)
                     {
                         return BadRequest("Sikertelen a regisztráció befejezése!");
                     }
 
                     user.Active = true;
-                    cx.Users.Update(user);
-                    await cx.SaveChangesAsync();
+                    _context.Users.Update(user);
+                    await _context.SaveChangesAsync();
 
                     // Sikeres megerősítés után átirányítunk a bejelentkezési oldalra
                     return Redirect("http://localhost:3000/login");
@@ -117,8 +122,5 @@ namespace HealthBro_BackEnd.Controllers
                 }
             }
         }
-
-
-
     }
 }
