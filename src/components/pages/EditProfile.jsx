@@ -56,7 +56,7 @@ const EditProfile = ({ theme }) => {
     //console.log("Sikeres módosítás",response.data);
   })
   .catch(error=>{
-    //console.log("Hiba történt",error);
+    console.log("Hiba történt",error);
   })
 
     

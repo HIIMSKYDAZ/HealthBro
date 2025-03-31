@@ -4,12 +4,21 @@ import axios from "axios";
 import "./Popup.css";
 
 const Popup = ({ isOpen, onClose, onPostSuccess }) => {
-  // A Hook-ot a komponens elején kell meghívni
   const [planName, setPlanName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  if (!isOpen) return null; // Feltételes visszatérés csak ezután következik
+  if (!isOpen) return null;
 
-  const postWorkout = async () => {
+  const validateAndPost = async () => {
+    // Check if planName is empty
+    if (!planName.trim()) {
+      setErrorMessage("Kérlek add meg az edzésterv nevét!");
+      return;
+    }
+
+    // Clear any existing error
+    setErrorMessage("");
+
     try {
       const userId = localStorage.getItem("UserId");
       const token = localStorage.getItem("token");
@@ -25,10 +34,11 @@ const Popup = ({ isOpen, onClose, onPostSuccess }) => {
           },
         }
       );
-      onPostSuccess(); // Értesítés a sikeres POST-ról
-      onClose(); // Popup bezárása
+      onPostSuccess(); // Notify successful POST
+      onClose(); // Close popup
     } catch (error) {
       console.error("Error posting workout:", error);
+      setErrorMessage("Hiba történt az edzésterv létrehozásakor!");
     }
   };
 
@@ -37,20 +47,34 @@ const Popup = ({ isOpen, onClose, onPostSuccess }) => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
-      onClick={onClose} // Bezárás háttér kattintásra
+      onClick={onClose}
       className="popup-overlay"
     >
-      <div className="popup-card" onClick={(e) => e.stopPropagation()}>
-        <h1 className="popup-title">Új edzéster létrehozása</h1>
-        <input
-          type="text"
-          placeholder="Írd be az edzéster nevét"
-          className="popup-input"
-          value={planName}
-          onChange={(e) => setPlanName(e.target.value)}
-        />
-        <button className="popup-button" onClick={postWorkout}>Létrehozás</button>
-      </div>
+      <motion.div 
+        className="popup-card" 
+        onClick={(e) => e.stopPropagation()}
+        initial={{ y: 20 }}
+        animate={{ y: 0 }}
+      >
+        <h1 className="popup-title">Új edzésterv létrehozása</h1>
+        <div className="popup-input-container">
+          <input
+            type="text"
+            placeholder="Írd be az edzésterv nevét"
+            className="popup-input"
+            value={planName}
+            onChange={(e) => {
+              setPlanName(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
+          />
+          {errorMessage && <div className="popup-error-message">{errorMessage}</div>}
+        </div>
+        <div className="popup-actions">
+          <button className="popup-cancel-button" onClick={onClose}>Mégsem</button>
+          <button className="popup-button" onClick={validateAndPost}>Létrehozás</button>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };

@@ -4,8 +4,9 @@ import "./HomeMain.css";
 import axios from "axios";
 import Sidebar from "../SideBar";
 import { useNavigate } from "react-router-dom";
-import crypto from "crypto-js";  // crypto-js könyvtár importálása
+import crypto from "crypto-js";
 import { Button } from "../Button";
+import PolygonBackground from '../PolygonBackground.jsx';
 
 const Settings = () => {
   const [distanceUnit, setDistanceUnit] = useState(() => localStorage.getItem("distanceUnit") || "KM");
@@ -137,6 +138,7 @@ const Settings = () => {
   return (
     <>
     <div className="homemain-container">
+      <PolygonBackground />
       <Sidebar />
       <div className="content">
       <div className="settings-header">
@@ -149,10 +151,8 @@ const Settings = () => {
           <div className="settings-info">
             <h2>{userData?.name}</h2>
             <Button 
-              buttonStyle="btn--primary" 
-              buttonSize="btn--medium" 
-              linkTo="/EditProfile"
-            >
+              className={'btn---settings'}
+              buttonSize={'btn--medium'}>
               Profil szerkesztése
             </Button>
           </div>

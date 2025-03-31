@@ -7,7 +7,6 @@ video {
 }
 
 .homemain-container {
-  display: grid !important;
   grid-template-columns: 250px 1fr !important;
   height: auto !important;
   gap: 20px !important;
@@ -15,13 +14,13 @@ video {
   box-sizing: border-box !important;
   position: relative !important;
   min-height: 100vh !important;
-  background-color: #ffffff !important;
+  background-color: #ffffff00 !important;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #00000000 !important;
+  background-color: #ffffff !important;
   color: rgb(0, 0, 0);
   padding: 20px;
   max-width: 300px;
@@ -115,7 +114,6 @@ video {
     display: flex; 
     flex-direction: column;
     position: relative;
-    top: -17px !important;
     fill: rgb(0, 0, 0) !important;
     right: 20px;
     z-index: 10;
@@ -163,7 +161,8 @@ video {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 10px !important;
+  padding-top: 50px !important;
   padding-bottom: 80px !important;
 }
 
@@ -248,6 +247,18 @@ video {
       text-align: center;
       border-radius: 50px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 9999 !important;
+  }
+  .homemain-container {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px !important;
+    gap: 10px !important;
+  }
+
+  .news_content {
+    order: 2 !important;
+    width: 100% !important;
   }
 }
 

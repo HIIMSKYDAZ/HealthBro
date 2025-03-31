@@ -3,6 +3,7 @@
     import Sidebar from "../SideBar";
     import { useNavigate } from "react-router-dom";
     import axios from "axios";
+    import PolygonBackground from '../PolygonBackground.jsx';
 
     const Review = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,6 +59,7 @@
 
     return (
         <div className="homemain-container">
+            <PolygonBackground />
         <Sidebar />
         <div className="content">
             <div className="review-section">
