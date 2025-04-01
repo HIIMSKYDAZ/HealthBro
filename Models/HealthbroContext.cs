@@ -28,9 +28,12 @@ public partial class HealthbroContext : DbContext
     public virtual DbSet<Workoutplan> Workoutplans { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("SERVER=healthbroazure.mysql.database.azure.com;PORT=3306;DATABASE=healthbro;USER=healthbroazure;PASSWORD=geci1234A!;SSL MODE=required;");
-    //optionsBuilder.UseMySQL("SERVER=localhost;PORT=3306;DATABASE=healthbro;USER=root;PASSWORD=;SSL MODE=none;");
+    {
+        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        //=> optionsBuilder.UseMySQL("SERVER=healthbroazure.mysql.database.azure.com;PORT=3306;DATABASE=healthbro;USER=healthbroazure;PASSWORD=geci1234A!;SSL MODE=required;");
+    }
+    
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

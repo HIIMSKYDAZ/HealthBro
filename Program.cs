@@ -95,13 +95,22 @@ namespace HealthBro_BackEnd
                 });
             });
 
-            
+
 
             // Az adatbáziskapcsolat regisztrálása
-            builder.Services.AddDbContext<HealthbroContext>(options =>
-                options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                // Fallback, ha a környezeti változó hiányzik (fejlesztési célra)
+                connectionString = "SERVER=healthbroazure.mysql.database.azure.com;PORT=3306;DATABASE=healthbro;USER=healthbroazure;PASSWORD=geci1234A!;SSL MODE=required;";
+            }
 
-            
+            builder.Services.AddDbContext<HealthbroContext>(options =>
+            {
+                options.UseMySQL(connectionString);
+            }, ServiceLifetime.Scoped);
+
+
 
 
             // Controllers és Swagger regisztrálása

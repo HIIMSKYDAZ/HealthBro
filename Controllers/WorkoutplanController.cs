@@ -18,27 +18,32 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
-        // Ez egy segédfüggvény, ami egyesével lekéri a workout plan-eket
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkoutPlanDTO>> GetWorkoutPlan(int id)
         {
-            var workoutPlan = await _context.Workoutplans
-                .Where(wp => wp.PlanId == id)
-                .FirstOrDefaultAsync();
-
-            if (workoutPlan == null)
+            try
             {
-                return NotFound();
+                var workoutPlan = await _context.Workoutplans
+                    .Where(wp => wp.PlanId == id)
+                    .FirstOrDefaultAsync();
+
+                if (workoutPlan == null)
+                {
+                    return NotFound();
+                }
+
+                var workoutPlanDTO = new WorkoutPlanDTO
+                {
+                    UserId = workoutPlan.UserId,
+                    PlanName = workoutPlan.PlanName
+                };
+
+                return Ok(workoutPlanDTO);
             }
-
-            // DTO visszaadása
-            var workoutPlanDTO = new WorkoutPlanDTO
+            catch (Exception ex)
             {
-                UserId = workoutPlan.UserId,
-                PlanName = workoutPlan.PlanName
-            };
-
-            return Ok(workoutPlanDTO);
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
 
         [HttpGet("{token}/{userid}")]
@@ -46,12 +51,16 @@ namespace HealthBro_BackEnd.Controllers
         {
             try
             {
-                var workoutPlans = await _context.Workoutplans.Where(wp => wp.UserId == userid).ToListAsync();
+                // Egyszerűsített lekérdezés a hibakeresés érdekében
+                var workoutPlans = await _context.Workoutplans
+                    .Where(wp => wp.UserId == userid)
+                    .ToListAsync();
+
                 return Ok(workoutPlans);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error: " + ex.Message);
+                return StatusCode(500, "Internal server error: " + ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
             }
         }
 
