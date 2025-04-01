@@ -17,7 +17,7 @@ function ForgotPasswordPage() {
 
     try {
       // Itt az URL paraméterként küldöd az emailt
-      const response = await axios.post(`https://localhost:5000/ForgotPassword/${encodeURIComponent(email)}`);
+      const response = await axios.post(`https://healthbro-zkhz.onrender.com/ForgotPassword/${encodeURIComponent(email)}`);
 
       if (response.status === 200) {
         setMessage("Ha az e-mail cím létezik, küldtünk egy jelszó-visszaállítási linket.");

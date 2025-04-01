@@ -8,7 +8,7 @@ function Cards() {
 
     useEffect(() => {
       axios
-        .get("https://localhost:5000/api/Review")
+        .get("https://healthbro-zkhz.onrender.com/api/Review")
         .then((response) => {
           setReviews(response.data);
         })

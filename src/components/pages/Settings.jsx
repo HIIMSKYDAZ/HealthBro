@@ -29,7 +29,7 @@ const Settings = () => {
       }
   
       try {
-        const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
+        const response = await axios.get(`https://healthbro-zkhz.onrender.com/SingleUser/${token}`);
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -80,7 +80,7 @@ const Settings = () => {
   
     try {
       const response = await axios.post(
-        `https://localhost:5000/${loginName},${password},${newPassword}`,
+        `https://healthbro-zkhz.onrender.com/${loginName},${password},${newPassword}`,
         null,
         {
           headers: {
@@ -113,7 +113,7 @@ const Settings = () => {
     const updatedUserData = { Email: email };
 
     try {
-      const response = await axios.put(`https://localhost:5000/api/User/UpdateUserMail/${token}`, updatedUserData, {
+      const response = await axios.put(`https://healthbro-zkhz.onrender.com/api/User/UpdateUserMail/${token}`, updatedUserData, {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
@@ -152,7 +152,8 @@ const Settings = () => {
             <h2>{userData?.name}</h2>
             <Button 
               className={'btn---settings'}
-              buttonSize={'btn--medium'}>
+              buttonSize={'btn--medium'}
+              linkTo={'/EditProfile'}>
               Profil szerkesztése
             </Button>
           </div>
