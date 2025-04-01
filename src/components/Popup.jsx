@@ -23,7 +23,7 @@ const Popup = ({ isOpen, onClose, onPostSuccess }) => {
       const userId = localStorage.getItem("UserId");
       const token = localStorage.getItem("token");
       await axios.post(
-        "https://localhost:5000/api/Workoutplan",
+        "https://healthbro-zkhz.onrender.com/api/Workoutplan",
         {
           userId: userId,
           planName: planName,

@@ -43,7 +43,7 @@
         console.log("Sending review:", review);
     
         try {
-        const response = await axios.post("https://localhost:5000/api/Review", {
+        const response = await axios.post("https://healthbro-zkhz.onrender.com/api/Review", {
             felhasznaloNev,
             velemeny: review, 
             profilePicturePath,

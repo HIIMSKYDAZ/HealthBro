@@ -41,7 +41,7 @@ function SignupPage() {
 
     try {
 
-      const response = await axios.post("https://localhost:5000/api/Register", {
+      const response = await axios.post("https://healthbro-zkhz.onrender.com/api/Register", {
         id: 0,
         loginName: formData.loginName,
         hash: hash,  
