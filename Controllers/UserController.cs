@@ -141,5 +141,44 @@ namespace HealthBro_BackEnd.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        //email módosítása
+        [HttpPut("UpdateUserMail/{token}")]
+        public async Task<IActionResult> UpdateUserMail(string token, [FromBody] UserUpdatetEmail updateRequest)
+        {
+            if (Program.LoggedInUsers.ContainsKey(token))
+            {
+                try
+                {
+                    var loggedInUser = Program.LoggedInUsers[token];
+                    var user = await _context.Users
+                                        .FirstOrDefaultAsync(f => f.Id == loggedInUser.Id);
+        
+                    if (user == null)
+                    {
+                        return NotFound("Felhasználó nem található.");
+                    }
+        
+        
+                    if (!string.IsNullOrEmpty(updateRequest.Email))
+                    {
+                        user.Email = updateRequest.Email;
+                    }
+        
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+        
+                    return Ok("Felhasználó adatai sikeresen frissítve.");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest($"Hiba történt: {ex.Message}");
+                }
+            }
+            else
+            {
+                return BadRequest("Nincs jogosultsága!");
+            }
+        }
     }
 }
