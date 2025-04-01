@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { CiLogout } from "react-icons/ci";
 import { FaHouse, FaDumbbell } from "react-icons/fa6";
 import { HiMiniCog6Tooth } from "react-icons/hi2";
+import { AiFillHeart } from "react-icons/ai";
+import { FaDoorOpen } from "react-icons/fa";
 import "./SideBar.css";
 
 const Sidebar = () => {
@@ -58,27 +59,27 @@ const Sidebar = () => {
         <ul className={`menu-icon-main ${click ? 'active' : ''}`}>
           <li onClick={closeMobileMenu}>
             <Link to="/HomeMain" className="menu_link">
-              Kezdőlap <FaHouse />
+              Kezdőlap<FaHouse />
             </Link>
           </li>
           <li onClick={closeMobileMenu}>
             <Link to="/WorkoutPlan" className="menu_link">
-              Edzés <FaDumbbell />
+              Edzés<FaDumbbell />
             </Link>
           </li>
           <li onClick={closeMobileMenu}>
             <Link to="/Settings" className="menu_link">
-              Beállítások <HiMiniCog6Tooth />
+              Beállítások<HiMiniCog6Tooth />
             </Link>
           </li>
           <li onClick={closeMobileMenu}>
             <Link to="/review" className="menu_link">
-              Vélemény <HiMiniCog6Tooth />
+              Vélemény<AiFillHeart />
             </Link>
           </li>
           <li onClick={() => { handleLogout(); closeMobileMenu(); }}>
             <Link to="#" className="menu_link">
-              Kijelentkezés <CiLogout />
+              Kijelentkezés<FaDoorOpen />
             </Link>
           </li>
         </ul>

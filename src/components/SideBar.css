@@ -78,10 +78,11 @@
 
 .menu_link {
     display: flex !important;
-    justify-content: space-between !important;
+    gap: 5px !important;
     align-items: center !important;
-    padding: 14px 18px !important;
+    padding: 14px 8px !important;
     text-decoration: none !important;
+    justify-content: center !important;
     color: #2d3436 !important;
     font-size: 16px !important;
     font-weight: 500 !important;
@@ -143,6 +144,5 @@
     }
     
     .menu_link:hover {
-        background-color: #f8f9fa !important;
     }
 }
