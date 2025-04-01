@@ -44,7 +44,7 @@ const WorkoutPlanSingle = () => {
       }));
 
       await axios.put(
-        `https://localhost:5000/UpdatePlanExercises/${planId}`,
+        `https://healthbro-zkhz.onrender.com/UpdatePlanExercises/${planId}`,
         exercisesToUpload,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -57,7 +57,7 @@ const WorkoutPlanSingle = () => {
 
   const FillExercises = async () => {
     try {
-      const response = await axios.get(`https://localhost:5000/PlanId/${planId}`);
+      const response = await axios.get(`https://healthbro-zkhz.onrender.com/PlanId/${planId}`);
       setSelectedExercises(response.data);
     } catch (error) {
       console.error(error);

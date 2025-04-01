@@ -36,7 +36,7 @@ export const WorkoutPage = () => {
     const fetchWorkouts = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get(`https://localhost:5000/api/Workoutplan/${token}/${UserId}`);
+            const response = await axios.get(`https://healthbro-zkhz.onrender.com/api/Workoutplan/${token}/${UserId}`);
             setWorkouts(response.data);
         } catch (error) {
             console.error("Error fetching workout plans:", error);
@@ -48,7 +48,7 @@ export const WorkoutPage = () => {
             setIsDeleting(true);
             try {
                 const token = localStorage.getItem("token");
-                await axios.delete(`https://localhost:5000/api/Workoutplan/${planId}`, {
+                await axios.delete(`https://healthbro-zkhz.onrender.com/api/Workoutplan/${planId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

@@ -19,7 +19,7 @@ const ProfilePage = () => {
       }
   
       try {
-        const response = await axios.get(`https://localhost:5000/SingleUser/${token}`);
+        const response = await axios.get(`https://healthbro-zkhz.onrender.com/SingleUser/${token}`);
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);

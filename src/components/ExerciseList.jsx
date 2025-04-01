@@ -9,7 +9,7 @@ const ExerciseList = ({ filters, onAddExercise }) => {
     useEffect(() => {
       const fetchExercises = async () => {
         try {
-          const response = await axios.get('https://localhost:5000/api/Exercises');
+          const response = await axios.get('https://healthbro-zkhz.onrender.com/api/Exercises');
           setAllExercises(response.data);
         } catch (error) {
           console.error("Hiba:", error);
