@@ -16,6 +16,14 @@
   border-bottom: 2px solid #e2e8f0;
 }
 
+.mainlist-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px !important;
+  padding-top: 10px !important;
+  padding-bottom: 80px !important;
+}
+
 .exercise-row {
   display: grid;
   grid-template-columns: 2fr repeat(3, 1fr) 100px 50px;

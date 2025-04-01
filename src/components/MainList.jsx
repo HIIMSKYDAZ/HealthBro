@@ -63,7 +63,7 @@ const MainList = ({
           <div></div>
         </div>
 
-        <div className="content">
+        <div className="mainlist-content">
           {safeExercises.length === 0 ? (
             <div className="no-exercises">
               Nincsenek gyakorlatok hozzáadva. Használd a jobb oldali panelt új gyakorlatok felvételéhez.
@@ -142,16 +142,14 @@ const MainList = ({
     // Mobilos nézet
     return (
       <div className="container">
-        <div className="content">
+        <div className="mainlist-content">
           {safeExercises.length === 0 ? (
             <div className="no-exercises">
               Nincsenek gyakorlatok hozzáadva. Használd a "Gyakorlat hozzáadása" gombot új gyakorlatok felvételéhez.
             </div>
           ) : (
             safeExercises.map((exercise, index) => {
-              // Keressük meg a gyakorlat nevét, ha nem lenne definiálva
-              const exerciseName = exercise.name || 
-                (exerciseList.find(e => e.id === exercise.exerciseId || e.id === exercise.id)?.name || "Ismeretlen gyakorlat");
+              const exerciseName = (exerciseList.find(e => e.exerciseId === exercise.exerciseId)?.name || "Ismeretlen gyakorlat");
               
               return (
                 <div key={`${exercise.exerciseId || exercise.exerciseId}-${index}`} className="exercise-row">
