@@ -81,6 +81,31 @@ namespace HealthBro_BackEnd.Controllers
             return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
         }
 
-        
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<WorkoutPlanDTO>> DeleteWorkoutPlan(int id)
+        {
+            try
+            {
+                var workoutPlan = await _context.Workoutplans
+                    .FirstOrDefaultAsync(wp => wp.PlanId == id);
+
+                if (workoutPlan == null)
+                    return NotFound($"Nem található workout plan a következő ID-vel: {id}");
+
+                _context.Workoutplans.Remove(workoutPlan);
+                await _context.SaveChangesAsync();
+
+                return new WorkoutPlanDTO
+                {
+                    UserId = workoutPlan.UserId,
+                    PlanName = workoutPlan.PlanName
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Hiba történt a törlés során: {ex}");
+                return StatusCode(500, "Váratlan hiba történt a törlés során");
+            }
+        }
     }
 }

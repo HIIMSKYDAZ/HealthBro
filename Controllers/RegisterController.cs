@@ -99,27 +99,24 @@ namespace HealthBro_BackEnd.Controllers
         [HttpGet("EndOfTheRegister")]
         public async Task<IActionResult> EndOfTheRegister(string felhasznaloNev, string email)
         {
-            using (var cx = new HealthbroContext())
+            try
             {
-                try
+                User user = await _context.Users.FirstOrDefaultAsync(f => f.LoginName == felhasznaloNev && f.Email == email);
+                if (user == null)
                 {
-                    User user = await _context.Users.FirstOrDefaultAsync(f => f.LoginName == felhasznaloNev && f.Email == email);
-                    if (user == null)
-                    {
-                        return BadRequest("Sikertelen a regisztráció befejezése!");
-                    }
-
-                    user.Active = true;
-                    _context.Users.Update(user);
-                    await _context.SaveChangesAsync();
-
-                    // Sikeres megerősítés után átirányítunk a bejelentkezési oldalra
-                    return Redirect("http://localhost:3000/login");
+                    return BadRequest("Sikertelen a regisztráció befejezése!");
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+
+                user.Active = true;
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+
+                // Sikeres megerősítés után átirányítunk a bejelentkezési oldalra
+                return Redirect("http://localhost:3000/login");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }
