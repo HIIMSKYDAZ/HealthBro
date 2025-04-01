@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using HealthBro_BackEnd.Models;
 using HealthBro_BackEnd.DTOs; // A DTO importálása
 using Microsoft.EntityFrameworkCore;
@@ -18,43 +18,49 @@ namespace HealthBro_BackEnd.Controllers
             _context = context;
         }
 
-        // Ez egy segédfüggvény, ami egyesével lekéri a workout plan-eket
         [HttpGet("{id}")]
         public async Task<ActionResult<WorkoutPlanDTO>> GetWorkoutPlan(int id)
         {
-            var workoutPlan = await _context.Workoutplans
-                .Where(wp => wp.PlanId == id)
-                .FirstOrDefaultAsync();
-
-            if (workoutPlan == null)
+            try
             {
-                return NotFound();
+                var workoutPlan = await _context.Workoutplans
+                    .Where(wp => wp.PlanId == id)
+                    .FirstOrDefaultAsync();
+
+                if (workoutPlan == null)
+                {
+                    return NotFound();
+                }
+
+                var workoutPlanDTO = new WorkoutPlanDTO
+                {
+                    UserId = workoutPlan.UserId,
+                    PlanName = workoutPlan.PlanName
+                };
+
+                return Ok(workoutPlanDTO);
             }
-
-            // DTO visszaadása
-            var workoutPlanDTO = new WorkoutPlanDTO
+            catch (Exception ex)
             {
-                UserId = workoutPlan.UserId,
-                PlanName = workoutPlan.PlanName
-            };
-
-            return Ok(workoutPlanDTO);
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
 
         [HttpGet("{token}/{userid}")]
         public async Task<IActionResult> Get(string token, int userid)
         {
-            using (var cx = new HealthbroContext())
+            try
             {
-                try
-                {
-                    var workoutPlans = await cx.Workoutplans.Where(wp => wp.UserId == userid).ToListAsync();
-                    return Ok(workoutPlans);
-                }
-                catch (Exception ex)
-                {
-                    return StatusCode(500, "Internal server error: " + ex.Message);
-                }
+                // Egyszerűsített lekérdezés a hibakeresés érdekében
+                var workoutPlans = await _context.Workoutplans
+                    .Where(wp => wp.UserId == userid)
+                    .ToListAsync();
+
+                return Ok(workoutPlans);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
             }
         }
 
@@ -84,6 +90,31 @@ namespace HealthBro_BackEnd.Controllers
             return CreatedAtAction(nameof(GetWorkoutPlan), new { id = workoutPlan.PlanId }, workoutPlanDTO);
         }
 
-        
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<WorkoutPlanDTO>> DeleteWorkoutPlan(int id)
+        {
+            try
+            {
+                var workoutPlan = await _context.Workoutplans
+                    .FirstOrDefaultAsync(wp => wp.PlanId == id);
+
+                if (workoutPlan == null)
+                    return NotFound($"Nem található workout plan a következő ID-vel: {id}");
+
+                _context.Workoutplans.Remove(workoutPlan);
+                await _context.SaveChangesAsync();
+
+                return new WorkoutPlanDTO
+                {
+                    UserId = workoutPlan.UserId,
+                    PlanName = workoutPlan.PlanName
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Hiba történt a törlés során: {ex}");
+                return StatusCode(500, "Váratlan hiba történt a törlés során");
+            }
+        }
     }
 }
