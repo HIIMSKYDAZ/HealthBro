@@ -10,6 +10,13 @@ namespace HealthBro_BackEnd.Controllers
     [ApiController]
     public class BackupRestorController : ControllerBase
     {
+        private readonly HealthbroContext _context;
+
+        public BackupRestorController(HealthbroContext context)
+        {
+            _context = context;
+        }
+
         private readonly IWebHostEnvironment _env;
 
         public BackupRestorController(IWebHostEnvironment env)
@@ -24,36 +31,33 @@ namespace HealthBro_BackEnd.Controllers
             if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
             {
                 string hibaUzenet = "";
-                using (var context = new HealthbroContext())
+                string? sqlDataSource = _context.Database.GetConnectionString();
+                MySqlCommand command = new MySqlCommand();
+                MySqlBackup backup = new MySqlBackup(command);
+                using (MySqlConnection myConnection = new MySqlConnection(sqlDataSource))
                 {
-                    string? sqlDataSource = context.Database.GetConnectionString();
-                    MySqlCommand command = new MySqlCommand();
-                    MySqlBackup backup = new MySqlBackup(command);
-                    using (MySqlConnection myConnection = new MySqlConnection(sqlDataSource))
+                    try
                     {
-                        try
+                        command.Connection = myConnection;
+                        await myConnection.OpenAsync();
+                        var filePath = "SQLBackupRestore/" + fileName;
+                        await Task.Run(() => backup.ExportToFile(filePath));
+                        await myConnection.CloseAsync();
+                        if (System.IO.File.Exists(filePath))
                         {
-                            command.Connection = myConnection;
-                            await myConnection.OpenAsync();
-                            var filePath = "SQLBackupRestore/" + fileName;
-                            await Task.Run(() => backup.ExportToFile(filePath));
-                            await myConnection.CloseAsync();
-                            if (System.IO.File.Exists(filePath))
-                            {
-                                var bytes = await System.IO.File.ReadAllBytesAsync(filePath);
-                                return File(bytes, "text/plain", Path.GetFileName(filePath));
-                            }
-                            else
-                            {
-                                hibaUzenet = "Nincs ilyen file!";
-                                byte[] a = System.Text.Encoding.UTF8.GetBytes(hibaUzenet);
-                                return File(a, "text/plain", "Error.txt");
-                            }
+                            var bytes = await System.IO.File.ReadAllBytesAsync(filePath);
+                            return File(bytes, "text/plain", Path.GetFileName(filePath));
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            return BadRequest(new { error = ex.Message });
+                            hibaUzenet = "Nincs ilyen file!";
+                            byte[] a = System.Text.Encoding.UTF8.GetBytes(hibaUzenet);
+                            return File(a, "text/plain", "Error.txt");
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        return BadRequest(new { error = ex.Message });
                     }
                 }
             }
