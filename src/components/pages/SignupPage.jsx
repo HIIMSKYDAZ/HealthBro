@@ -19,6 +19,7 @@ function SignupPage() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -29,11 +30,35 @@ function SignupPage() {
     setError(null);
     setSuccess(null);
 
+    const requiredFields = ['loginName', 'email', 'password', 'confirmPassword'];
+  const emptyFields = requiredFields.filter(field => !formData[field].trim());
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("A jelszavak nem egyeznek!");
-      return;
-    }
+  if (emptyFields.length > 0) {
+    setError("Minden mezőt ki kell tölteni!");
+    return;
+  }
+
+  const termsCheckbox = document.getElementById('terms');
+  if (!termsCheckbox.checked) {
+    setError("El kell fogadnod az Általános Szerződést!");
+    return;
+  }
+
+  const emailRegex = /\S+@\S+\.\S+/;
+  if (!emailRegex.test(formData.email)) {
+    setError("Érvénytelen email formátum!");
+    return;
+  }
+
+  if (formData.password.length < 8) {
+    setError("A jelszónak legalább 8 karakter hosszúnak kell lennie!");
+    return;
+  }
+
+  if (formData.password !== formData.confirmPassword) {
+    setError("A jelszavak nem egyeznek!");
+    return;
+  }
 
     const salt = crypto.lib.WordArray.random(16).toString();
 
@@ -55,7 +80,15 @@ function SignupPage() {
 
       if (response.status === 200) {
         //alert("Sikeres bejelentkezés")
-        navigate("/login");  // Sikeres regisztráció után a login oldalra irányítás
+        setSuccess("Sikeres regisztráció! Kérjük, ellenőrizd az emailedet a regisztráció véglegesítéséhez.");
+        // Clear form fields
+        setFormData({
+          loginName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+          name: "",
+        });
         //setSuccess("Sikeres regisztráció! Most bejelentkezhetsz.");
       }
     } catch (error) {
@@ -81,16 +114,15 @@ function SignupPage() {
                   </h2>
 
                   {error && (
-                    <div className="alert alert-danger text-center">
+                    <div className="alert alert-danger text-center mb-4">
                       {error}
                     </div>
                   )}
                   {success && (
-                    <div className="alert alert-success text-center">
+                    <div className="alert alert-success text-center mb-4">
                       {success}
                     </div>
                   )}
-
                   <form onSubmit={handleSubmit}>
                     <div className="form-outline mb-3">
                       <input
