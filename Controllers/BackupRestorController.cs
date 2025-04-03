@@ -11,16 +11,11 @@ namespace HealthBro_BackEnd.Controllers
     public class BackupRestorController : ControllerBase
     {
         private readonly HealthbroContext _context;
-
-        public BackupRestorController(HealthbroContext context)
-        {
-            _context = context;
-        }
-
         private readonly IWebHostEnvironment _env;
 
-        public BackupRestorController(IWebHostEnvironment env)
+        public BackupRestorController(HealthbroContext context, IWebHostEnvironment env)
         {
+            _context = context;
             _env = env;
         }
 
@@ -31,7 +26,7 @@ namespace HealthBro_BackEnd.Controllers
             if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].Permission.Level == 9)
             {
                 string hibaUzenet = "";
-                string? sqlDataSource = _context.Database.GetConnectionString();
+                string? sqlDataSource = "SERVER=healthbroazure.mysql.database.azure.com;PORT=3306;DATABASE=healthbro;USER=healthbroazure;PASSWORD=geci1234A!;SSL MODE=required;";
                 MySqlCommand command = new MySqlCommand();
                 MySqlBackup backup = new MySqlBackup(command);
                 using (MySqlConnection myConnection = new MySqlConnection(sqlDataSource))
