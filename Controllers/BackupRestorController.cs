@@ -70,8 +70,7 @@ namespace HealthBro_BackEnd.Controllers
             {
                 try
                 {
-                    var context = new HealthbroContext();
-                    string? sqlDataSource = context.Database.GetConnectionString();
+                    string? sqlDataSource = "SERVER=healthbroazure.mysql.database.azure.com;PORT=3306;DATABASE=healthbro;USER=healthbroazure;PASSWORD=geci1234A!;SSL MODE=required;";
                     var httpRequest = Request.Form;
                     var postedFile = httpRequest.Files[0];
                     string fileName = postedFile.FileName;
