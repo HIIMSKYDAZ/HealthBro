@@ -3006,23 +3006,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ludvig_peter_daniel\\.nuget\\packages\\": {},
+    "C:\\Users\\Pocsai\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ludvig_peter_daniel\\Documents\\GitHub\\HealthBro_Admin\\Karbantarto\\Karbantarto.csproj",
+      "projectUniqueName": "C:\\Users\\Pocsai\\Desktop\\HealthBro_Admin\\Karbantarto\\Karbantarto.csproj",
       "projectName": "Karbantarto",
-      "projectPath": "C:\\Users\\ludvig_peter_daniel\\Documents\\GitHub\\HealthBro_Admin\\Karbantarto\\Karbantarto.csproj",
-      "packagesPath": "C:\\Users\\ludvig_peter_daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ludvig_peter_daniel\\Documents\\GitHub\\HealthBro_Admin\\Karbantarto\\obj\\",
+      "projectPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro_Admin\\Karbantarto\\Karbantarto.csproj",
+      "packagesPath": "C:\\Users\\Pocsai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro_Admin\\Karbantarto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ludvig_peter_daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pocsai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3049,7 +3049,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -3099,7 +3100,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -23,7 +23,7 @@ namespace Karbantarto
 
         public static HttpClient sharedClient = new()
         {
-            BaseAddress = new Uri(" https://localhost:5000/api/"),
+            BaseAddress = new Uri(" https://healthbro-zkhz.onrender.com/api/"),
         };
 
         public static LoggedUser loggedUser;

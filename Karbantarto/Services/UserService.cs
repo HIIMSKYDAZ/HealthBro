@@ -22,7 +22,7 @@ namespace Karbantarto.Services
                     new AuthenticationHeaderValue("Bearer", Menu.loggedUser.token);
 
                 // Felhasználók lekérése az API-ból
-                return await httpClient.GetFromJsonAsync<List<User>>("https://localhost:5000/api/User/token");
+                return await httpClient.GetFromJsonAsync<List<User>>("https://healthbro-zkhz.onrender.com/api/User/token");
             }
             catch (Exception ex)
             {

@@ -85,8 +85,18 @@ namespace Karbantarto.Windows
                 string tmpHash = Menu.CreateSHA256(Jelszo.Password + salt);
                 try
                 {
-                    //Menu.loggedUser = LoginUser(LoginNev.Text, tmpHash);
-                    Menu.loggedUser = JsonSerializer.Deserialize<LoggedUser>(LoginService.Login(Karbantarto.Menu.sharedClient, LoginNev.Text, tmpHash));
+                    Menu.loggedUser = JsonSerializer.Deserialize<LoggedUser>(
+                        LoginService.Login(Karbantarto.Menu.sharedClient, LoginNev.Text, tmpHash));
+
+                    // Jogosultság ellenőrzése
+                    if (Menu.loggedUser.permission != 2) // VAGY Menu.loggedUser.Permission != 2 (attól függően hogy van elnevezve)
+                    {
+                        Menu.bejelentkezve = false;
+                        Menu.loggedUser = null; // Reseteljük a felhasználót
+                        MessageBox.Show("Nem jelentkezel Admin jogosultságokkal!");
+                        return; // Kilépünk a metódusból
+                    }
+
                     if (Menu.loggedUser.token != "")
                     {
                         Menu.bejelentkezve = true;
@@ -108,9 +118,7 @@ namespace Karbantarto.Windows
                 if (probalkozasokSzama == 3)
                 {
                     this.Close();
-                    //Menu.bejelentkezve = false;
                     MessageBox.Show("Sikertelen bejelentkezés!");
-                    //Application.Current.Shutdown();
                 }
                 else
                 {
