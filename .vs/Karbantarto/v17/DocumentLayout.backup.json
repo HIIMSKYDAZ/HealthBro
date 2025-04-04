@@ -78,8 +78,7 @@
               "RelativeToolTip": "Karbantarto\\Menu.xaml.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAqwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T08:12:56.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T08:12:56.423Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "Karbantarto\\Services\\UserService.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAqwE0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T05:25:36.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T05:25:36.737Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "Karbantarto\\Services\\LoginService.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T05:25:20.573Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T05:25:20.573Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "Karbantarto\\Services\\FileUploadService.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAAAC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T05:25:08.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T05:25:08.355Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "Karbantarto\\Classes\\LoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T05:23:40.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-04T05:23:40.603Z"
             },
             {
               "$type": "Document",
@@ -168,8 +163,7 @@
               "RelativeToolTip": "Karbantarto\\App.xaml.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAqwBcAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T08:52:46.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T08:52:46.402Z"
             },
             {
               "$type": "Document",
@@ -181,8 +175,7 @@
               "RelativeToolTip": "Karbantarto\\Classes\\LoggedUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T08:50:48.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T08:50:48.24Z"
             },
             {
               "$type": "Document",
@@ -194,8 +187,7 @@
               "RelativeToolTip": "Karbantarto\\Models\\User.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAswBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T08:39:21.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T08:39:21.173Z"
             },
             {
               "$type": "Document",
@@ -218,8 +210,7 @@
               "RelativeToolTip": "Karbantarto\\Windows\\Felhasznalok.xaml.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T13:03:28.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T13:03:28.331Z"
             }
           ]
         }
