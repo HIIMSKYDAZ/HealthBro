@@ -33,7 +33,7 @@ const MainList = ({
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const { data } = await axios.get('https://localhost:5000/api/Exercises');
+        const { data } = await axios.get('https://healthbro-zkhz.onrender.com/api/Exercises');
         setExerciseList(data);
       } catch (err) {
         setError("Nem sikerült betölteni a gyakorlatokat");
