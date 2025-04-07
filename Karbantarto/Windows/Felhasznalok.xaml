@@ -31,7 +31,7 @@
             <Label Content="Jogosultság"/>
             <TextBox x:Name="txb_Jogosultsag"/>
             <Label Content="Aktív"/>
-            <TextBox x:Name="txb_Aktiv" />
+            <CheckBox x:Name="txb_Aktiv" />
             <Label Content="Regisztráció dátuma"/>
             <TextBox x:Name="txb_RegisztracioDatuma" />
             <!--Label Content="Profilkép útvonal"/-->
@@ -53,15 +53,14 @@
           IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Felhasználónév" Binding="{Binding FelhasznaloNev}" />
-                <DataGridTextColumn Header="Teljes név" Binding="{Binding TeljesNev}" />
+                <DataGridTextColumn Header="Felhasználónév" Binding="{Binding LoginName}" />
+                <DataGridTextColumn Header="Teljes név" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" />
-                <DataGridTextColumn Header="Jogosultsági szint" Binding="{Binding Jogosultsag}" />
-                <DataGridTextColumn Header="Aktív" Binding="{Binding Aktiv}" />
-                <DataGridTextColumn Header="Regisztració dátuma" Binding="{Binding RegisztracioDatuma}" />
-                <DataGridTextColumn Header="Fénykép útvonal" Binding="{Binding ProfilKepUtvonal}" />
-                <!-- A többi mező nem lesz megjelenítve -->
+                <DataGridTextColumn Header="Jogosultsági szint" Binding="{Binding PermissionId}" />
+                <DataGridCheckBoxColumn Header="Aktív" Binding="{Binding Active}" />
+                <DataGridTextColumn Header="Fénykép útvonal" Binding="{Binding ProfilePicturePath}" />
             </DataGrid.Columns>
+
         </DataGrid>
     </Grid>
 </Window>

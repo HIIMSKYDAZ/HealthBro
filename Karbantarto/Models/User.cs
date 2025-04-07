@@ -2,30 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Karbantarto.Models
 {
     public partial class User
     {
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        public string loginName { get; set; } = null!;
+        [JsonPropertyName("loginName")]
+        public string LoginName { get; set; } = null!;
 
-        public string name { get; set; } = null!;
+        [JsonPropertyName("name")]
+        public string Name { get; set; } = null!;
 
+        [JsonPropertyName("salt")]
         public string Salt { get; set; } = null!;
 
+        [JsonPropertyName("hash")]
         public string Hash { get; set; } = null!;
 
+        [JsonPropertyName("email")]
         public string Email { get; set; } = null!;
 
-        public int Jogosultsag { get; set; }
+        [JsonPropertyName("permissionId")]
+        public int PermissionId { get; set; }
 
-        public int Aktiv { get; set; }
+        [JsonPropertyName("active")]
+        public bool Active { get; set; }
 
-
-        public string profilPicturePath { get; set; } = null!;
+        [JsonPropertyName("profilePicturePath")]
+        public string ProfilePicturePath { get; set; } = null!;
 
     }
 

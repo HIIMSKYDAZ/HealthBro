@@ -17,12 +17,10 @@ using Microsoft.Win32;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Karbantarto.Classes;
+using System.Net.Http;
 
 namespace Karbantarto.Windows
 {
-    /// <summary>
-    /// Interaction logic for Felhasznalok.xaml
-    /// </summary>
     public partial class Felhasznalok : Window
     {
         string SALT;
@@ -33,7 +31,6 @@ namespace Karbantarto.Windows
         {
             InitializeComponent();
             AdatokBetoltese();
-            
         }
 
         private void dtgAdatSelChanged(object sender, SelectionChangedEventArgs e)
@@ -41,38 +38,39 @@ namespace Karbantarto.Windows
             if (dtg_Users.SelectedItem != null)
             {
                 txb_Id.Text = (dtg_Users.SelectedItem as User).Id.ToString();
-                txb_FelhasznaloNev.Text = (dtg_Users.SelectedItem as User).loginName;
-                txb_TeljesNev.Text = (dtg_Users.SelectedItem as User).name;
+                txb_FelhasznaloNev.Text = (dtg_Users.SelectedItem as User).LoginName;
+                txb_TeljesNev.Text = (dtg_Users.SelectedItem as User).Name;
                 txb_Email.Text = (dtg_Users.SelectedItem as User).Email;
-                txb_Jogosultsag.Text = (dtg_Users.SelectedItem as User).Jogosultsag.ToString();
-                txb_Aktiv.Text = (dtg_Users.SelectedItem as User).Aktiv.ToString();
-                txb_PfrofilkepUtvonal.Text = (dtg_Users.SelectedItem as User).profilPicturePath;
+                txb_Jogosultsag.Text = (dtg_Users.SelectedItem as User).PermissionId.ToString();
+                txb_Aktiv.IsChecked = (dtg_Users.SelectedItem as User).Active;
+                txb_PfrofilkepUtvonal.Text = (dtg_Users.SelectedItem as User).ProfilePicturePath;
                 SALT = (dtg_Users.SelectedItem as User).Salt;
                 HASH = (dtg_Users.SelectedItem as User).Hash;
             }
         }
+
         private async void UjFelhasznalo(object sender, RoutedEventArgs e)
         {
             SALT = Menu.GenerateSalt();
             User user = new User
             {
                 Id = 0,
-                loginName = txb_FelhasznaloNev.Text,
-                name = txb_TeljesNev.Text,
+                LoginName = txb_FelhasznaloNev.Text,
+                Name = txb_TeljesNev.Text,
                 Salt = SALT,
-                Hash = Menu.CreateSHA256(Menu.CreateSHA256(pwd_Jelszo.Password+SALT)),
+                Hash = Menu.CreateSHA256(Menu.CreateSHA256(pwd_Jelszo.Password + SALT)),
                 Email = txb_Email.Text,
-                Jogosultsag = int.Parse(txb_Jogosultsag.Text),
-                Aktiv = int.Parse(txb_Aktiv.Text),
-                profilPicturePath=txb_PfrofilkepUtvonal.Text,
+                PermissionId = int.Parse(txb_Jogosultsag.Text),
+                Active = txb_Aktiv.IsChecked ?? false,
+                ProfilePicturePath = txb_PfrofilkepUtvonal.Text,
             };
             string valasz = await UserService.Post(Menu.sharedClient, user);
             Task.Delay(1000).Wait();
             MessageBox.Show(valasz);
             AdatokBetoltese();
             dtg_Users.SelectedIndex = 0;
-
         }
+
         private async void FelhasznaloModosit(object sender, RoutedEventArgs e)
         {
             if (pwd_Jelszo.Password != "")
@@ -80,19 +78,22 @@ namespace Karbantarto.Windows
                 SALT = Menu.GenerateSalt();
                 HASH = Menu.CreateSHA256(Menu.CreateSHA256(pwd_Jelszo.Password + SALT));
             }
-            User user = new User
+
+            var fullUpdate = new
             {
                 Id = int.Parse(txb_Id.Text),
-                loginName = txb_FelhasznaloNev.Text,
-                name = txb_TeljesNev.Text,
-                Salt = SALT,
-                Hash = HASH,
+                LoginName = txb_FelhasznaloNev.Text,
+                Name = txb_TeljesNev.Text,
                 Email = txb_Email.Text,
-                Jogosultsag = int.Parse(txb_Jogosultsag.Text),
-                Aktiv = int.Parse(txb_Aktiv.Text),
-                profilPicturePath = txb_PfrofilkepUtvonal.Text,
+                Hash = HASH,
+                Salt = SALT,
+                PermissionId = int.Parse(txb_Jogosultsag.Text),
+                Active = txb_Aktiv.IsChecked ?? false,
+                ProfilePicturePath = txb_PfrofilkepUtvonal.Text
             };
-            string valasz = await UserService.Put(Menu.sharedClient, user);
+
+            var response = await Menu.sharedClient.PutAsJsonAsync($"https://localhost:5000/UpdateFullUser/token", fullUpdate);
+            string valasz = await response.Content.ReadAsStringAsync();
             Task.Delay(1000).Wait();
             MessageBox.Show(valasz);
             AdatokBetoltese();
@@ -101,14 +102,40 @@ namespace Karbantarto.Windows
 
         private async void FelhasznaloTorol(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show($"Biztosan törlöd {txb_Id.Text} azonosítójú felhasználót?", "Törlés", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+
+            if (MessageBox.Show($"Biztosan törlöd a(z) {txb_Id.Text} azonosítójú felhasználót?", "Törlés", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                string valasz = await UserService.Delete(Menu.sharedClient, int.Parse(txb_Id.Text));
-                Task.Delay(1000).Wait();
-                MessageBox.Show(valasz);
+                if (!int.TryParse(txb_Id.Text, out int userId))
+                {
+                    MessageBox.Show("Érvénytelen felhasználói azonosító!");
+                    return;
+                }
+                try
+                {
+                    MessageBox.Show(txb_Id.Text);
+                    MessageBox.Show(Menu.loggedUser.token);
+                    var encodedToken = Uri.EscapeDataString(Menu.loggedUser.token);
+                    var response = await Menu.sharedClient.DeleteAsync($"https://localhost:5000/DeleteUser/{userId}/{encodedToken}");
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string valasz = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show(string.IsNullOrWhiteSpace(valasz) ? "Sikeres törlés." : valasz);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Hiba történt: {response.StatusCode}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Hiba a törlés során: {ex.Message}");
+                }
+
+                AdatokBetoltese();
+                dtg_Users.SelectedIndex = 0;
             }
-            AdatokBetoltese(); ;
-            dtg_Users.SelectedIndex = 0;
         }
 
         private async void AdatokBetoltese()

@@ -66,6 +66,8 @@ namespace Karbantarto
             MessageBoxResult result = MessageBox.Show("Biztosan kilépsz?", "Kilépés", MessageBoxButton.OKCancel);
             if (result == MessageBoxResult.OK)
             {
+                TokenStorage.Token = null;
+                Menu.bejelentkezve = false;
                 Application.Current.Shutdown();
             }
         }
