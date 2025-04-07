@@ -92,7 +92,7 @@ namespace Karbantarto.Windows
                 ProfilePicturePath = txb_PfrofilkepUtvonal.Text
             };
 
-            var response = await Menu.sharedClient.PutAsJsonAsync($"https://localhost:5000/UpdateFullUser/token", fullUpdate);
+            var response = await Menu.sharedClient.PutAsJsonAsync($"https://healthbro-zkhz.onrender.com/api/User/UpdateFullUser/token", fullUpdate);
             string valasz = await response.Content.ReadAsStringAsync();
             Task.Delay(1000).Wait();
             MessageBox.Show(valasz);
@@ -115,7 +115,7 @@ namespace Karbantarto.Windows
                     MessageBox.Show(txb_Id.Text);
                     MessageBox.Show(Menu.loggedUser.token);
                     var encodedToken = Uri.EscapeDataString(Menu.loggedUser.token);
-                    var response = await Menu.sharedClient.DeleteAsync($"https://localhost:5000/DeleteUser/{userId}/{encodedToken}");
+                    var response = await Menu.sharedClient.DeleteAsync($"https://healthbro-zkhz.onrender.com/api/User/DeleteUser/{userId}/{encodedToken}");
 
 
                     if (response.IsSuccessStatusCode)

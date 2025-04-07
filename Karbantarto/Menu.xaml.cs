@@ -77,5 +77,11 @@ namespace Karbantarto
             Windows.Felhasznalok felhasznalokWindows = new Windows.Felhasznalok();
             felhasznalokWindows.Show();
         }
+
+        private void mnu_dat_Exer_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Gyakorlatok gyakorlatokWindows = new Windows.Gyakorlatok();
+            gyakorlatokWindows.Show();
+        }
     }
 }

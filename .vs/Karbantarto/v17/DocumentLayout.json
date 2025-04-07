@@ -1,38 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\",
+  "WorkspaceRootPath": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\szjorgosz\\documents\\github\\healthbroadmin\\karbantarto\\windows\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\windows\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\szjorgosz\\documents\\github\\healthbroadmin\\karbantarto\\windows\\gyakorlatok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\windows\\gyakorlatok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\szjorgosz\\documents\\github\\healthbroadmin\\karbantarto\\services\\exerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\services\\exerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\szjorgosz\\documents\\github\\healthbroadmin\\karbantarto\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\windows\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\windows\\login.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\classes\\tokenstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\classes\\tokenstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\windows\\felhasznalok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\szjorgosz\\documents\\github\\healthbroadmin\\karbantarto\\windows\\felhasznalok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\windows\\felhasznalok.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|c:\\users\\pocsai\\desktop\\healthbro_admin\\karbantarto\\windows\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{564FA97F-163A-4A00-B699-B32C8739B8F5}|Karbantarto\\Karbantarto.csproj|solutionrelative:karbantarto\\windows\\felhasznalok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,113 +30,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\App.xaml.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\App.xaml.cs",
-              "RelativeToolTip": "Karbantarto\\App.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T06:26:38.02Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Menu.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Menu.xaml.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\Menu.xaml.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Menu.xaml.cs",
-              "RelativeToolTip": "Karbantarto\\Menu.xaml.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswBwAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T06:26:36.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Login.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Login.xaml.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\Windows\\Login.xaml.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Login.xaml.cs",
-              "RelativeToolTip": "Karbantarto\\Windows\\Login.xaml.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAqwF0AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T06:23:06.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TokenStorage.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Classes\\TokenStorage.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\Classes\\TokenStorage.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Classes\\TokenStorage.cs",
-              "RelativeToolTip": "Karbantarto\\Classes\\TokenStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T06:22:34.056Z",
+              "DocumentIndex": 0,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Login.xaml",
+              "RelativeDocumentMoniker": "Karbantarto\\Windows\\Login.xaml",
+              "ToolTip": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Login.xaml",
+              "RelativeToolTip": "Karbantarto\\Windows\\Login.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-07T09:09:11.121Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Models\\User.cs",
-              "RelativeToolTip": "Karbantarto\\Models\\User.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA+wB0AAAAqAAAAAAAAAA==",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Karbantarto\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Services\\UserService.cs",
+              "RelativeToolTip": "Karbantarto\\Services\\UserService.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:57:40.471Z",
+              "WhenOpened": "2025-04-07T08:55:22.244Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Felhasznalok.xaml",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Felhasznalok.xaml",
-              "RelativeDocumentMoniker": "Karbantarto\\Windows\\Felhasznalok.xaml",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Felhasznalok.xaml",
-              "RelativeToolTip": "Karbantarto\\Windows\\Felhasznalok.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-07T05:58:24.568Z"
+              "DocumentIndex": 2,
+              "Title": "ExerciseService.cs",
+              "DocumentMoniker": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Services\\ExerciseService.cs",
+              "RelativeDocumentMoniker": "Karbantarto\\Services\\ExerciseService.cs",
+              "ToolTip": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Services\\ExerciseService.cs",
+              "RelativeToolTip": "Karbantarto\\Services\\ExerciseService.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAuwGgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T08:15:32.846Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "Gyakorlatok.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Gyakorlatok.xaml.cs",
+              "RelativeDocumentMoniker": "Karbantarto\\Windows\\Gyakorlatok.xaml.cs",
+              "ToolTip": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Gyakorlatok.xaml.cs",
+              "RelativeToolTip": "Karbantarto\\Windows\\Gyakorlatok.xaml.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAAG8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T08:01:08.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Felhasznalok.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Felhasznalok.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Felhasznalok.xaml.cs",
               "RelativeDocumentMoniker": "Karbantarto\\Windows\\Felhasznalok.xaml.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Windows\\Felhasznalok.xaml.cs",
+              "ToolTip": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\Karbantarto\\Windows\\Felhasznalok.xaml.cs",
               "RelativeToolTip": "Karbantarto\\Windows\\Felhasznalok.xaml.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAASwHQAAABLAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAUwJMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:58:22.433Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Karbantarto\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Services\\UserService.cs",
-              "RelativeToolTip": "Karbantarto\\Services\\UserService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAmwBgAAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:52:39.886Z",
+              "WhenOpened": "2025-04-07T07:59:24.875Z",
               "EditorCaption": ""
             }
           ]

@@ -25,6 +25,12 @@
                             <Image Source="Images\users.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+
+                    <MenuItem x:Name="mnu_dat_Exer" Header="Gyakorlatok" IsEnabled="True" Visibility="Visible" Click="mnu_dat_Exer_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Images\users.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
