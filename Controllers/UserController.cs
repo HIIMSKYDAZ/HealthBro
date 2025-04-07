@@ -142,6 +142,39 @@ namespace HealthBro_BackEnd.Controllers
             }
         }
 
+        //teljes modosítas
+        [HttpPut("UpdateFullUser/{token}")]
+        public async Task<IActionResult> UpdateFullUser(string token, [FromBody] FullUserUpdateRequest request)
+        {
+            if (!Program.LoggedInUsers.TryGetValue(token, out var loggedInUser) || loggedInUser.Permission.Level != 9)
+                return BadRequest("Nincs jogosultsága!");
+
+            try
+            {
+                var user = await _context.Users.FindAsync(request.Id);
+                if (user == null)
+                    return NotFound("Felhasználó nem található.");
+
+                user.Name = request.Name;
+                user.LoginName = request.LoginName;
+                user.Email = request.Email;
+                user.Hash = request.Hash;
+                user.Salt = request.Salt;
+                user.PermissionId = request.PermissionId;
+                user.Active = request.Active;
+                user.ProfilePicturePath = request.ProfilePicturePath;
+
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                return Ok("Felhasználó sikeresen módosítva.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Hiba történt: {ex.Message}");
+            }
+        }
+
         //email módosítása
         [HttpPut("UpdateUserMail/{token}")]
         public async Task<IActionResult> UpdateUserMail(string token, [FromBody] UserUpdatetEmail updateRequest)
@@ -178,6 +211,30 @@ namespace HealthBro_BackEnd.Controllers
             else
             {
                 return BadRequest("Nincs jogosultsága!");
+            }
+        }
+
+        //törlés
+        [HttpDelete("DeleteUser/{id}/{token}")]
+        public async Task<IActionResult> DeleteUser(int id, string token)
+        {
+            if (!Program.LoggedInUsers.TryGetValue(token, out var loggedInUser))
+                return BadRequest("Nincs jogosultsága!");
+
+            try
+            {
+                var user = await _context.Users.FindAsync(id);
+                if (user == null)
+                    return NotFound("Felhasználó nem található.");
+
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
+
+                return Ok("Felhasználó sikeresen törölve.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Hiba történt: {ex.Message}");
             }
         }
     }
