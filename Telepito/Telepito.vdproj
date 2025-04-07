@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_779067912D014C3C82DA9B0D62990F06"
+        "MsmKey" = "8:_37B33C7B6D3141FA80C7ED349D46DFEA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A257AC1A58464FAEB33DEC75EE99D91E"
+        "MsmKey" = "8:_779067912D014C3C82DA9B0D62990F06"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -122,10 +122,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A257AC1A58464FAEB33DEC75EE99D91E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_37B33C7B6D3141FA80C7ED349D46DFEA"
             {
-            "SourcePath" = "8:..\\..\\..\\Downloads\\man.ico"
-            "TargetName" = "8:man.ico"
+            "SourcePath" = "8:..\\..\\..\\Downloads\\logo.ico"
+            "TargetName" = "8:logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_F74826E2DC554FDD807112D569FA15EF"
             "Condition" = "8:"
@@ -197,9 +197,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Telepito"
+        "ProductName" = "8:HealthBroAdmin"
         "ProductCode" = "8:{153BCB59-8387-473A-8C3E-3ECE61A7B69B}"
-        "PackageCode" = "8:{CDB9AF1B-7C5E-4230-99A2-53A49F695F59}"
+        "PackageCode" = "8:{34569502-AFC6-4F3B-BB60-AAD123B2193E}"
         "UpgradeCode" = "8:{A76F7A8E-BFB6-4DC2-B6D7-C535D9C35429}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -207,12 +207,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Kando"
+        "Manufacturer" = "8:HealthBro"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Telepito"
+        "Title" = "8:HealthBroAdmin"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Kando"
+        "ARPCONTACT" = "8:HealthBro"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -330,7 +330,7 @@
             "Target" = "8:_779067912D014C3C82DA9B0D62990F06"
             "Folder" = "8:_F74826E2DC554FDD807112D569FA15EF"
             "WorkingFolder" = "8:_F74826E2DC554FDD807112D569FA15EF"
-            "Icon" = "8:"
+            "Icon" = "8:_37B33C7B6D3141FA80C7ED349D46DFEA"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5AFBF8DB8B7C410680988D9B20DEA924"
@@ -344,7 +344,7 @@
             "Target" = "8:_779067912D014C3C82DA9B0D62990F06"
             "Folder" = "8:_73B7FFCFD5D74BC9BFBED958919273BD"
             "WorkingFolder" = "8:_F74826E2DC554FDD807112D569FA15EF"
-            "Icon" = "8:"
+            "Icon" = "8:_37B33C7B6D3141FA80C7ED349D46DFEA"
             "Feature" = "8:"
             }
         }

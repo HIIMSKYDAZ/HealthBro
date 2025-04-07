@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\HealthBro\\Karbantarto\\Karbantarto.csproj": {}
+    "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Karbantarto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\HealthBro\\Karbantarto\\Karbantarto.csproj": {
+    "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Karbantarto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\HealthBro\\Karbantarto\\Karbantarto.csproj",
+        "projectUniqueName": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Karbantarto.csproj",
         "projectName": "Karbantarto",
-        "projectPath": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\HealthBro\\Karbantarto\\Karbantarto.csproj",
-        "packagesPath": "C:\\Users\\SzJorgosz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SzJorgosz\\Documents\\GitHub\\HealthBroAdmin\\HealthBro\\Karbantarto\\obj\\",
+        "projectPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\Karbantarto.csproj",
+        "packagesPath": "C:\\Users\\Pocsai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pocsai\\Desktop\\HealthBro_ADMIN\\Karbantarto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\SzJorgosz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pocsai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

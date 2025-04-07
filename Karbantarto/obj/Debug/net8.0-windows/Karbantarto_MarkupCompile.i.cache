@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\SzJorgosz\Documents\GitHub\HealthBroAdmin\HealthBro\Karbantarto\obj\Debug\net8.0-windows\
+C:\Users\Pocsai\Desktop\HealthBro_ADMIN\Karbantarto\obj\Debug\net8.0-windows\
 Karbantarto
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\SzJorgosz\Documents\GitHub\HealthBroAdmin\HealthBro\Karbantarto\App.xaml
+C:\Users\Pocsai\Desktop\HealthBro_ADMIN\Karbantarto\App.xaml
 3685303276
 6829841129
 151718077145
-212795569584
+2121192165128
 Menu.xaml;Windows\Felhasznalok.xaml;Windows\Login.xaml;
 
 True
