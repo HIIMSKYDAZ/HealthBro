@@ -1,1 +1,1 @@
-Mobil .NET MAUI
+Mobil React Native
