@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Karbantarto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0b6f97db1b8903c7fa53edcaaf98375305a30cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31c2c98d8f42f6f73395fe2538ec1e5ecf1172bd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Karbantarto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Karbantarto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
