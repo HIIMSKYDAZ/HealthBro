@@ -42,7 +42,7 @@ const WorkoutPlanSingle = () => {
         weight: exercise.weight || 0,
         reps: exercise.reps || 0
       }));
-
+      console.log(planId);
       await axios.put(
         `https://healthbro-zkhz.onrender.com/UpdatePlanExercises/${planId}`,
         exercisesToUpload,

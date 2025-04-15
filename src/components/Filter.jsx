@@ -10,7 +10,7 @@ const Filter = ({ onFilter, currentFilter }) => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const response = await axios.get(`https://localhost:5000/api/Exercises`);
+        const response = await axios.get(`https://healthbro-zkhz.onrender.com/api/Exercises`);
         const exercises = response.data;
         
         const uniqueMuscleGroups = Array.from(
