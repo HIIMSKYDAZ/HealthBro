@@ -96,7 +96,7 @@ export const WorkoutPage = () => {
                         workouts.map((workout, index) => (
                             <a className="a-hb" href={`/WorkoutPlanSingle/${workout.planId}`} key={index}>
                                 <WorkoutCards 
-                                    imageSrc={workout.imageUrl || "http://healthbro.nhely.hu/default.jpg"} 
+                                    imageSrc={"http://healthbro.nhely.hu/default.jpg"} 
                                     cardName={workout.planName}
                                     planId={workout.planId}
                                     onDelete={handleDeleteWorkout}
