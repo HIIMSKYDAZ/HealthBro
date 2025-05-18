@@ -67,7 +67,7 @@ namespace HealthBro_BackEnd.Controllers
 
                                 <p>Kérjük, erősítse meg regisztrációját a lenti linkre kattintva:</p>
 
-                                <a href='https://healthbro-zkhz.onrender.com/api/Register/EndOfTheRegister?felhasznaloNev={user.LoginName}&email={user.Email}' class='button'>
+                                <a href='https://localhost:5000/api/Register/EndOfTheRegister?felhasznaloNev={user.LoginName}&email={user.Email}' class='button'>
                                     Regisztráció megerősítése
                                 </a>
 
